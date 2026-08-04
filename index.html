@@ -6,10 +6,10 @@
 <meta name="theme-color" content="#18131f">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="WaveSpeak">
-<link rel="manifest" href="/manifest.json?v=8">
-<link rel="icon" href="/icon.svg?v=8">
-<link rel="apple-touch-icon" href="/icon-192.png?v=8">
-<title>WaveSpeak v8</title>
+<link rel="manifest" href="/manifest.json?v=9">
+<link rel="icon" href="/icon.svg?v=9">
+<link rel="apple-touch-icon" href="/icon-192.png?v=9">
+<title>WaveSpeak v9</title>
 <style>
 :root{--bg:#f6f3ef;--ink:#18151c;--muted:#756f79;--line:#e5dfd9;--card:#fff;--accent:#7450d8;--soft:#efe9ff;--dark:#241b30;--good:#15803d}
 *{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
@@ -43,7 +43,7 @@ select,input,textarea{font:inherit}select,input[type="search"]{border:1px solid 
 </style>
 </head>
 <body><div class="app">
-<div class="top"><div class="brand">WaveSpeak</div><div class="version">CONTENT ENGINE v8</div></div>
+<div class="top"><div class="brand">WaveSpeak</div><div class="version">VOICE FIX v9</div></div>
 
 <section id="home" class="screen active">
 <div class="hero">
@@ -64,14 +64,14 @@ select,input,textarea{font:inherit}select,input[type="search"]{border:1px solid 
 <div class="mode" data-open="contentEngine"><div>🗂</div><b>Content Engine</b><span>Topics, levels, review queue, database counts, and scalable curriculum</span></div>
 <div class="mode" data-open="creativeLab"><div>🌌</div><b>Creative Sound Lab</b><span>Atmosphere, timbre, space, movement, dramaturgy, and professional description</span></div>
 </div>
-<div class="notice">CONTENT ENGINE v8 保留旧功能并加入新功能。看到这个标签就说明加载的是合并版。</div>
+<div class="notice">VOICE FIX v9 保留旧功能并加入新功能。看到这个标签就说明加载的是合并版。</div>
 </section>
 
 <section id="speaking" class="screen"><button class="back" data-home>← Home</button><div class="card">
 <span class="topic" id="sTopic"></span><span class="tag" id="sFocus"></span><button class="star" id="favBtn">☆</button>
 <div class="muted" id="sCounter"></div><div class="muted">Daily target: 10 speaking sentences</div><div class="sentence" id="sSentence"></div>
 <div class="chunkWrap"><div class="muted">Sentence chunks</div><div id="sChunks"></div></div>
-<div class="controls"><select id="voiceSelect"></select><select id="speed"><option value=".72">Slow</option><option value=".88" selected>Natural</option><option value="1">Fast</option></select></div>
+<div class="controls"><select id="voiceSelect"></select><select id="speed"><option value=".72">Slow</option><option value=".88" selected>Natural</option><option value="1">Fast</option></select></div><p class="muted">Use <b>Auto (recommended)</b>. Novelty and accessibility voices such as Grandma, Bells, Whisper, and singing voices are hidden.</p>
 <div class="controls">
 <button class="btn primary" id="listenBtn">▶ Listen</button>
 <button class="btn soft" id="phraseBtn">▶ Phrase by phrase</button>
@@ -226,8 +226,8 @@ select,input,textarea{font:inherit}select,input[type="search"]{border:1px solid 
 const DATA={"topics": [{"name": "Ordering Food", "sentences": [{"text": "Could I get the chicken sandwich without onions?", "chunks": ["Could I get…?", "without onions"], "focus": "Linking"}, {"text": "What do you recommend if I want something light?", "chunks": ["What do you recommend…?", "if I want something light"], "focus": "Intonation"}, {"text": "Could we have the check whenever you get a chance?", "chunks": ["Could we have the check?", "whenever you get a chance"], "focus": "Reduction"}, {"text": "Is the soup made with dairy or is it dairy-free?", "chunks": ["Is the soup made with…?", "or is it…?"], "focus": "Rhythm"}, {"text": "Could you put the dressing on the side?", "chunks": ["Could you put…?", "on the side"], "focus": "Linking"}, {"text": "I’ll have the same thing, but with no cheese.", "chunks": ["I’ll have the same thing", "but with no cheese"], "focus": "Stress"}, {"text": "Could I substitute the fries for a salad?", "chunks": ["Could I substitute…?", "for a salad"], "focus": "Stress"}, {"text": "We’re ready to order whenever you are.", "chunks": ["We’re ready to order", "whenever you are"], "focus": "Reduction"}, {"text": "Could you split the check between the two of us?", "chunks": ["Could you split the check…?", "between the two of us"], "focus": "Linking"}, {"text": "Everything was great. Could I get a box for this?", "chunks": ["Everything was great", "Could I get a box…?"], "focus": "Intonation"}], "phrasals": [["eat out", "在外面吃饭", "We usually eat out on Friday night."], ["pick up", "取餐；顺路拿", "I’ll pick up the order on my way home."], ["cut back on", "减少", "I’m trying to cut back on sugar."], ["warm up", "加热", "Could you warm this up for me?"], ["send back", "退回菜品", "I had to send the soup back because it was cold."], ["run out of", "用完", "They ran out of the daily special."], ["fill up", "吃饱", "That appetizer filled me up."], ["go with", "选择", "I’ll go with the grilled chicken."], ["take out", "外带", "Can I get this order to take out?"], ["leave out", "不放", "Please leave out the onions."]]}, {"name": "Transportation", "sentences": [{"text": "How long does it usually take to get there?", "chunks": ["How long does it take…?", "to get there"], "focus": "Rhythm"}, {"text": "Could you let me know when we get to the next stop?", "chunks": ["Could you let me know…?", "when we get to…"], "focus": "Linking"}, {"text": "Traffic was backed up, so I ended up taking a different route.", "chunks": ["Traffic was backed up", "I ended up…"], "focus": "Stress"}, {"text": "Does this bus go all the way to downtown?", "chunks": ["Does this bus go…?", "all the way to…"], "focus": "Intonation"}, {"text": "I think I missed my stop. Where should I get off?", "chunks": ["I think I missed my stop", "Where should I get off?"], "focus": "Stress"}, {"text": "The train is running about ten minutes late.", "chunks": ["The train is running…", "about ten minutes late"], "focus": "Rhythm"}, {"text": "Could you drop me off near the main entrance?", "chunks": ["Could you drop me off…?", "near the main entrance"], "focus": "Linking"}, {"text": "I’m trying to avoid the freeway during rush hour.", "chunks": ["I’m trying to avoid…", "during rush hour"], "focus": "Stress"}, {"text": "Is there a transfer between these two lines?", "chunks": ["Is there a transfer…?", "between these two lines"], "focus": "Intonation"}, {"text": "I’ll check the route before I leave.", "chunks": ["I’ll check the route", "before I leave"], "focus": "Reduction"}], "phrasals": [["get on", "上车", "We got on the train at Union Station."], ["get off", "下车", "You need to get off at the next stop."], ["back up", "堵塞", "Traffic is backing up near the freeway."], ["drop off", "送到", "Could you drop me off at the station?"], ["pick up", "接人", "I’ll pick you up after class."], ["pull over", "靠边停车", "The driver pulled over near the entrance."], ["speed up", "加速", "Traffic started to speed up."], ["slow down", "减速", "You should slow down in this area."], ["head back", "返回", "I’m going to head back before traffic gets worse."], ["set off", "出发", "We set off early in the morning."]]}, {"name": "Classroom", "sentences": [{"text": "Could you go over that one more time?", "chunks": ["Could you go over…?", "one more time"], "focus": "Linking"}, {"text": "I understand the idea, but I’m not sure how to apply it.", "chunks": ["I understand the idea", "I’m not sure how to…"], "focus": "Stress"}, {"text": "Would it be possible to submit the assignment tomorrow?", "chunks": ["Would it be possible to…?", "submit the assignment"], "focus": "Polite intonation"}, {"text": "Could you explain what you mean by spatial perspective?", "chunks": ["Could you explain…?", "what you mean by…?"], "focus": "Intonation"}, {"text": "I have a question about the second part of the assignment.", "chunks": ["I have a question about…", "the second part of…"], "focus": "Rhythm"}, {"text": "I’m still working through the reading, but I understand the main argument.", "chunks": ["I’m still working through…", "but I understand…"], "focus": "Stress"}, {"text": "Would you mind giving me an example?", "chunks": ["Would you mind…?", "giving me an example"], "focus": "Reduction"}, {"text": "I’d like to build on what she just said.", "chunks": ["I’d like to build on…", "what she just said"], "focus": "Linking"}, {"text": "I’m not completely convinced by that interpretation.", "chunks": ["I’m not completely convinced", "by that interpretation"], "focus": "Stress"}, {"text": "Could we talk about this after class?", "chunks": ["Could we talk about this…?", "after class"], "focus": "Intonation"}], "phrasals": [["go over", "复习；再解释", "Could we go over the assignment requirements?"], ["hand in", "提交", "I’ll hand in the project before class."], ["catch up", "赶上进度", "I need to catch up on the reading."], ["work through", "逐步处理", "I’m still working through the article."], ["build on", "继续发展", "I’d like to build on that idea."], ["bring up", "提出", "She brought up an important question."], ["point out", "指出", "The professor pointed out a problem."], ["look into", "进一步调查", "I’ll look into that source."], ["write down", "写下", "Could you write that term down?"], ["sum up", "总结", "Could you sum up the main point?"]]}, {"name": "Shopping", "sentences": [{"text": "Do you have this in a smaller size?", "chunks": ["Do you have this in…?", "a smaller size"], "focus": "Intonation"}, {"text": "I’m just looking, but I’ll let you know if I need help.", "chunks": ["I’m just looking", "I’ll let you know"], "focus": "Reduction"}, {"text": "Could I return this if it doesn’t fit?", "chunks": ["Could I return this…?", "if it doesn’t fit"], "focus": "Linking"}, {"text": "Is this the final price, or is there an additional discount?", "chunks": ["Is this the final price…?", "or is there…?"], "focus": "Intonation"}, {"text": "Could you check whether another store has it in stock?", "chunks": ["Could you check whether…?", "has it in stock"], "focus": "Linking"}, {"text": "I’m looking for something lightweight and easy to carry.", "chunks": ["I’m looking for something…", "lightweight and easy to carry"], "focus": "Stress"}, {"text": "This is a little more expensive than I expected.", "chunks": ["This is a little more expensive", "than I expected"], "focus": "Rhythm"}, {"text": "Can I pay with two different cards?", "chunks": ["Can I pay with…?", "two different cards"], "focus": "Intonation"}, {"text": "I’d like to exchange this for a different color.", "chunks": ["I’d like to exchange this", "for a different color"], "focus": "Stress"}, {"text": "Could I see the receipt before I leave?", "chunks": ["Could I see the receipt…?", "before I leave"], "focus": "Reduction"}], "phrasals": [["try on", "试穿", "Can I try this jacket on?"], ["sell out", "售罄", "The smaller size sold out yesterday."], ["take back", "退回商品", "I need to take this shirt back."], ["look for", "寻找", "I’m looking for a lightweight jacket."], ["check out", "查看", "I want to check out the new collection."], ["pay for", "付款", "I’ll pay for this separately."], ["mark down", "降价", "They marked down all the winter coats."], ["pick out", "挑选", "Could you help me pick out a color?"], ["wear out", "穿坏", "These shoes wore out quickly."], ["shop around", "货比三家", "I’m going to shop around before deciding."]]}, {"name": "Small Talk", "sentences": [{"text": "How has your week been so far?", "chunks": ["How has your week been…?", "so far"], "focus": "Intonation"}, {"text": "I’ve been keeping busy with a new sound project.", "chunks": ["I’ve been keeping busy with…", "a new sound project"], "focus": "Rhythm"}, {"text": "That sounds interesting. How did you get into it?", "chunks": ["That sounds interesting", "How did you get into…?"], "focus": "Linking"}, {"text": "Have you been working on anything exciting lately?", "chunks": ["Have you been working on…?", "anything exciting lately"], "focus": "Intonation"}, {"text": "I haven’t seen you in a while. How have things been?", "chunks": ["I haven’t seen you in a while", "How have things been?"], "focus": "Rhythm"}, {"text": "The weather has been surprisingly nice this week.", "chunks": ["The weather has been…", "surprisingly nice this week"], "focus": "Stress"}, {"text": "I’ve been trying to spend more time outside.", "chunks": ["I’ve been trying to…", "spend more time outside"], "focus": "Reduction"}, {"text": "Did you end up going to that event?", "chunks": ["Did you end up…?", "going to that event"], "focus": "Linking"}, {"text": "I heard you’re working on a new production.", "chunks": ["I heard you’re working on…", "a new production"], "focus": "Rhythm"}, {"text": "We should catch up sometime next week.", "chunks": ["We should catch up", "sometime next week"], "focus": "Reduction"}], "phrasals": [["get into", "开始喜欢", "How did you get into sound design?"], ["hang out", "一起消磨时间", "We hung out after rehearsal."], ["run into", "偶遇", "I ran into my classmate."], ["catch up", "叙旧", "We should catch up over coffee."], ["end up", "最终", "Did you end up going?"], ["keep up with", "跟上", "It’s hard to keep up with everyone’s projects."], ["come across", "偶然发现", "I came across a great recording."], ["open up", "愿意交流", "He opened up during the conversation."], ["bring up", "提到", "She brought up your new project."], ["get along", "相处融洽", "Do you get along with your classmates?"]]}, {"name": "Appointments", "sentences": [{"text": "I’d like to make an appointment for next week.", "chunks": ["I’d like to make an appointment", "for next week"], "focus": "Rhythm"}, {"text": "Is there anything available on Friday afternoon?", "chunks": ["Is there anything available…?", "on Friday afternoon"], "focus": "Intonation"}, {"text": "Could we move the appointment to a later time?", "chunks": ["Could we move the appointment…?", "to a later time"], "focus": "Polite request"}, {"text": "I’m calling to confirm my appointment for tomorrow.", "chunks": ["I’m calling to confirm…", "my appointment for tomorrow"], "focus": "Rhythm"}, {"text": "Would it be possible to meet earlier in the day?", "chunks": ["Would it be possible to…?", "meet earlier in the day"], "focus": "Intonation"}, {"text": "I may be about ten minutes late because of traffic.", "chunks": ["I may be about ten minutes late", "because of traffic"], "focus": "Stress"}, {"text": "Could you send me a confirmation by email?", "chunks": ["Could you send me…?", "a confirmation by email"], "focus": "Linking"}, {"text": "I need to cancel and reschedule my appointment.", "chunks": ["I need to cancel", "and reschedule my appointment"], "focus": "Stress"}, {"text": "Is there a cancellation fee if I change the time?", "chunks": ["Is there a cancellation fee…?", "if I change the time"], "focus": "Intonation"}, {"text": "Thank you for fitting me into the schedule.", "chunks": ["Thank you for fitting me in", "to the schedule"], "focus": "Linking"}], "phrasals": [["set up", "安排", "I need to set up a meeting."], ["push back", "推迟", "Could we push the appointment back?"], ["show up", "到场", "Please show up ten minutes early."], ["fit in", "安排进时间表", "They were able to fit me in."], ["call back", "回电话", "Could you call me back?"], ["write down", "记下", "Could you write down my confirmation number?"], ["move up", "提前", "Can we move the meeting up?"], ["put off", "推迟", "I don’t want to put it off."], ["check in", "报到", "Please check in at the front desk."], ["follow up", "跟进", "I’m calling to follow up."]]}, {"name": "Plans & Invitations", "sentences": [{"text": "Are you free to grab coffee sometime this week?", "chunks": ["Are you free to…?", "sometime this week"], "focus": "Intonation"}, {"text": "I’m not completely sure yet, but I’ll let you know.", "chunks": ["I’m not completely sure yet", "I’ll let you know"], "focus": "Stress"}, {"text": "Something came up, so I may need to reschedule.", "chunks": ["Something came up", "I may need to reschedule"], "focus": "Linking"}, {"text": "Would you like to come with us on Saturday?", "chunks": ["Would you like to…?", "come with us on Saturday"], "focus": "Intonation"}, {"text": "I’d love to, but I already have plans that evening.", "chunks": ["I’d love to", "but I already have plans"], "focus": "Stress"}, {"text": "Let’s figure out a time that works for everyone.", "chunks": ["Let’s figure out a time", "that works for everyone"], "focus": "Rhythm"}, {"text": "I might be able to join you later in the evening.", "chunks": ["I might be able to…", "join you later"], "focus": "Reduction"}, {"text": "Could we meet somewhere closer to downtown?", "chunks": ["Could we meet somewhere…?", "closer to downtown"], "focus": "Intonation"}, {"text": "I’ll check my schedule and get back to you.", "chunks": ["I’ll check my schedule", "and get back to you"], "focus": "Linking"}, {"text": "Thanks for inviting me. I had a really good time.", "chunks": ["Thanks for inviting me", "I had a really good time"], "focus": "Rhythm"}], "phrasals": [["come up", "突然发生", "Something came up."], ["figure out", "弄清楚", "I’ll figure out my schedule."], ["turn down", "拒绝", "I had to turn down the invitation."], ["get back to", "稍后回复", "I’ll get back to you tomorrow."], ["meet up", "见面", "Let’s meet up near the station."], ["come along", "一起参加", "Would you like to come along?"], ["drop by", "顺便拜访", "You can drop by after rehearsal."], ["stay over", "留宿", "She stayed over after the party."], ["head out", "出发", "We’re heading out around seven."], ["call off", "取消", "They called off the event."]]}], "sound": [["room tone", "室内空间本底声", "We need thirty seconds of clean room tone.", "Field Recording"], ["gain staging", "增益结构管理", "Good gain staging prevents clipping and excess noise.", "Studio"], ["ring out", "调试并削减反馈频率", "We need to ring out the monitors before rehearsal.", "Theater"], ["roll off", "逐渐衰减某段频率", "I rolled off some low frequencies below eighty hertz.", "Mixing"], ["fade in", "渐入", "The ambience should fade in after the blackout.", "Theater"], ["fade out", "渐出", "Fade out the music as the dialogue begins.", "Theater"], ["route to", "把信号发送到", "Route these tracks to the main output.", "Studio"], ["pick up", "麦克风拾取声音", "The microphone picked up too much wind noise.", "Field Recording"], ["cut through", "在混音中保持清晰", "The dialogue needs to cut through the music.", "Mixing"], ["build up", "逐渐积累", "Low-frequency energy is building up in the room.", "Acoustics"], ["print stems", "导出分轨", "I’ll print the stems before rehearsal.", "Post-production"], ["patch into", "接入系统", "Patch the wireless receiver into input eight.", "Theater"], ["send to", "发送到总线或效果器", "Send the vocal to the reverb bus.", "Studio"], ["bring down", "降低音量", "Bring the music down under the dialogue.", "Mixing"], ["binaural", "双耳录音/渲染", "I made a binaural version for headphone listeners.", "Spatial Audio"], ["impulse response", "脉冲响应", "I used the church impulse response for convolution reverb.", "Acoustics"]], "dictations": [["Could you send me the latest version before rehearsal?", "Listen for the reduced pronunciation of “could you” and “before.”"], ["The microphone picked up more wind noise than I expected.", "Listen for “picked up” and “more than.”"], ["I need a cleaner recording with less background noise.", "Listen for the contrast between “cleaner” and “less.”"], ["The reverb makes the space feel much larger.", "Listen to the final consonants in “makes” and “space.”"], ["We should capture a few minutes of clean room tone.", "Listen for “a few minutes of” as one rhythm group."], ["I’ll export the stems and send them over tonight.", "Listen for “stems and” and “send them.”"], ["The cue should start just before the lights fade.", "Listen for “should start” and “just before.”"], ["Can you hear the low-frequency rumble underneath the dialogue?", "Listen for “low-frequency rumble.”"]], "studio": [["Your instructor says:", "Can you send me the stems before rehearsal?", "Sure. I’ll export them and send them over before rehearsal."], ["The stage manager asks:", "Can we take the cue from the top of the scene?", "Yes. I’m ready to run it again from the top."], ["A mixer asks:", "Could you bring the dialogue up a little?", "Sure. I’ll bring it up by about two decibels."], ["A director says:", "The transition feels too abrupt.", "I can lengthen the crossfade and make it smoother."]]};
 const $=id=>document.getElementById(id);
 const topicIndex=(new Date().getDay()+6)%7, topic=DATA.topics[topicIndex];
-let current=+(localStorage.ws8_current||0),dictIndex=0,studioIndex=0;
-let completed=JSON.parse(localStorage.ws8_completed||"[]"),favorites=JSON.parse(localStorage.ws8_favorites||"[]");
+let current=+(localStorage.ws9_current||0),dictIndex=0,studioIndex=0;
+let completed=JSON.parse(localStorage.ws9_completed||"[]"),favorites=JSON.parse(localStorage.ws9_favorites||"[]");
 let voices=[],recorder,parts=[],mineUrl=null,modelPlayer=null,currentModelBuffer=null;
 
 function openScreen(id){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));$(id).classList.add("active");if(id==="library")renderLibrary();if(id==="progress")renderProgress();scrollTo(0,0)}
@@ -238,139 +238,61 @@ $("todayTheme").textContent=topic.name;
 function allSentences(){return DATA.topics.flatMap((t,ti)=>t.sentences.map((s,si)=>({...s,topic:t.name,ti,si})))}
 function currentSentence(){return topic.sentences[current%topic.sentences.length]}
 function globalIndex(){let n=0;for(let i=0;i<topicIndex;i++)n+=DATA.topics[i].sentences.length;return n+(current%topic.sentences.length)}
-function badVoice(name){return /bells|boing|bubbles|cellos|jester|organ|superstar|trinoids|whisper|zarvox|wobble|bahh|hysterical|singing|novelty|bad news|good news/i.test(name)}
-function loadVoices(){voices=speechSynthesis.getVoices().filter(v=>v.lang&&v.lang.toLowerCase().startsWith("en")&&!badVoice(v.name));$("voiceSelect").innerHTML=voices.map((v,i)=>`<option value="${i}">${v.name} · ${v.lang}</option>`).join("");const p=voices.findIndex(v=>/Samantha|Ava|Allison|Evan|Nathan|Aaron|Tom|Google US English/i.test(v.name));if(p>=0)$("voiceSelect").value=p}
-speechSynthesis.onvoiceschanged=loadVoices;loadVoices();
-function speak(text,rate=+$("speed").value){try{if(!("speechSynthesis" in window)){$("sStatus").textContent="Speech playback is not supported.";return;}const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=Number.isFinite(rate)?rate:.88;const v=voices[+$("voiceSelect").value]||voices[0];if(v)u.voice=v;u.onerror=()=>{$("sStatus").textContent="Playback failed. Try another voice or refresh."};u.onstart=()=>{$("sStatus").textContent="Playing model voice…"};u.onend=()=>{$("sStatus").textContent="Now shadow and record."};speechSynthesis.cancel();setTimeout(()=>speechSynthesis.speak(u),80)}catch(e){$("sStatus").textContent="Playback failed. Refresh and try again."}}
-function save(){localStorage.ws8_current=current;localStorage.ws8_completed=JSON.stringify(completed);localStorage.ws8_favorites=JSON.stringify(favorites)}
-function renderHome(){ $("doneCount").textContent=completed.length;$("homeProgress").style.width=Math.min(100,completed.length/8*100)+"%"}
-function renderSpeaking(){const s=currentSentence();$("sTopic").textContent=topic.name;$("sFocus").textContent=s.focus;$("sCounter").textContent=`${current%topic.sentences.length+1} of ${topic.sentences.length}`;$("sSentence").textContent=s.text;$("sChunks").innerHTML=s.chunks.map(x=>`<span class="chunk">${x}</span>`).join("");$("favBtn").textContent=favorites.includes(s.text)?"★":"☆";$("vTopic").textContent=topic.name;$("vSentence").textContent=s.text;loadModel();renderHome()}
-$("listenBtn").addEventListener("click",()=>speak(currentSentence().text));
-$("phraseBtn").addEventListener("click",async()=>{for(const p of currentSentence().chunks){await new Promise(resolve=>{const u=new SpeechSynthesisUtterance(p);u.lang="en-US";u.rate=Math.max(.65,+$("speed").value-.08);const v=voices[+$("voiceSelect").value]||voices[0];if(v)u.voice=v;u.onend=()=>setTimeout(resolve,300);speechSynthesis.speak(u)})}});
-$("previousBtn").addEventListener("click",()=>{current=(current-1+topic.sentences.length)%topic.sentences.length;save();renderSpeaking()});
-$("randomBtn").addEventListener("click",()=>{current=Math.floor(Math.random()*topic.sentences.length);save();renderSpeaking()});
-$("completeBtn").addEventListener("click",()=>{const t=currentSentence().text;if(!completed.includes(t))completed.push(t);current=(current+1)%topic.sentences.length;save();renderSpeaking()});
-$("favBtn").addEventListener("click",()=>{const t=currentSentence().text;favorites=favorites.includes(t)?favorites.filter(x=>x!==t):[...favorites,t];save();renderSpeaking()});
-
-async function recordAudio(statusEl,recordBtn,playBtn,onDecoded){if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||!("MediaRecorder" in window)){statusEl.textContent="Recording is not supported here. Use Safari or Chrome over HTTPS.";return;}if(recorder&&recorder.state==="recording"){recorder.stop();return}try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});parts=[];recorder=new MediaRecorder(stream);recorder.ondataavailable=e=>parts.push(e.data);recorder.onstop=async()=>{const blob=new Blob(parts,{type:recorder.mimeType});if(mineUrl)URL.revokeObjectURL(mineUrl);mineUrl=URL.createObjectURL(blob);playBtn.disabled=false;recordBtn.textContent="● Record";statusEl.textContent="Recording ready.";const arr=await blob.arrayBuffer(),ctx=new AudioContext();try{const buf=await ctx.decodeAudioData(arr.slice(0));if(onDecoded)onDecoded(buf)}catch{}await ctx.close();stream.getTracks().forEach(t=>t.stop())};recorder.start();recordBtn.textContent="■ Stop";statusEl.textContent="Recording…"}catch{statusEl.textContent="Please allow microphone access."}}
-$("recordBtn").addEventListener("click",()=>recordAudio($("sStatus"),$("recordBtn"),$("playBtn")));
-$("playBtn").addEventListener("click",()=>{if(mineUrl)new Audio(mineUrl).play()});
-$("visualRecord").addEventListener("click",()=>recordAudio($("vStatus"),$("visualRecord"),$("visualMine"),buf=>{drawWave(buf,$("myWave"));drawSpec(buf,$("mySpec"))}));
-$("visualMine").addEventListener("click",()=>{if(mineUrl)new Audio(mineUrl).play()});
-
-function drawEmpty(canvas,label){const c=canvas.getContext("2d");c.fillStyle="#0b0910";c.fillRect(0,0,canvas.width,canvas.height);c.fillStyle="#8f859a";c.font="18px sans-serif";c.textAlign="center";c.fillText(label,canvas.width/2,canvas.height/2)}
-function drawWave(buffer,canvas){const d=buffer.getChannelData(0),c=canvas.getContext("2d"),w=canvas.width,h=canvas.height;c.fillStyle="#0b0910";c.fillRect(0,0,w,h);c.strokeStyle="#a78bfa";c.lineWidth=2;c.beginPath();for(let x=0;x<w;x++){const start=Math.floor(x*d.length/w),end=Math.floor((x+1)*d.length/w);let min=1,max=-1;for(let i=start;i<end;i++){if(d[i]<min)min=d[i];if(d[i]>max)max=d[i]}c.moveTo(x,(1+min)*h/2);c.lineTo(x,(1+max)*h/2)}c.stroke()}
-function dft(samples){const N=samples.length,out=new Float32Array(N/2);for(let k=0;k<N/2;k++){let re=0,im=0;for(let n=0;n<N;n++){const a=2*Math.PI*k*n/N;re+=samples[n]*Math.cos(a);im-=samples[n]*Math.sin(a)}out[k]=Math.hypot(re,im)}return out}
-function drawSpec(buffer,canvas){const data=buffer.getChannelData(0),N=512,step=Math.max(1,Math.floor(data.length/N)),sample=new Float32Array(N);for(let i=0;i<N;i++)sample[i]=data[Math.min(data.length-1,i*step)]*(.5-.5*Math.cos(2*Math.PI*i/(N-1)));const spec=dft(sample),max=Math.max(...spec,1e-6),c=canvas.getContext("2d"),w=canvas.width,h=canvas.height;c.fillStyle="#0b0910";c.fillRect(0,0,w,h);c.strokeStyle="#a78bfa";c.lineWidth=3;c.beginPath();for(let x=0;x<w;x++){const j=Math.floor(x/w*(spec.length-1)),db=20*Math.log10(spec[j]/max+1e-8),y=h-Math.max(0,Math.min(1,(db+70)/70))*h;x===0?c.moveTo(x,y):c.lineTo(x,y)}c.stroke()}
-async function loadModel(){const url=`/audio/model_${String(globalIndex()).padStart(2,"0")}.wav?v=8`;modelPlayer=new Audio(url);try{const arr=await fetch(url,{cache:"no-store"}).then(r=>r.arrayBuffer()),ctx=new AudioContext(),buf=await ctx.decodeAudioData(arr);currentModelBuffer=buf;drawWave(buf,$("modelWave"));drawSpec(buf,$("modelSpec"));await ctx.close()}catch{drawEmpty($("modelWave"),"Model unavailable");drawEmpty($("modelSpec"),"Model unavailable")}drawEmpty($("myWave"),"Record your voice");drawEmpty($("mySpec"),"Record your voice")}
-$("modelPlay").addEventListener("click",()=>{if(modelPlayer){modelPlayer.currentTime=0;modelPlayer.play()}});
-
-document.querySelectorAll("[data-rate]").forEach(b=>b.addEventListener("click",()=>speak(DATA.dictations[dictIndex][0],+b.dataset.rate)));
-function norm(s){return s.toLowerCase().replace(/[^\w\s']/g,"").replace(/\s+/g," ").trim()}
-function renderDict(){ $("dictHint").textContent=DATA.dictations[dictIndex][1];$("dictInput").value="";$("dictResult").textContent=""}
-$("dictCheck").addEventListener("click",()=>{$("dictResult").innerHTML=norm($("dictInput").value)===norm(DATA.dictations[dictIndex][0])?"<b style='color:var(--good)'>Correct!</b>":"Answer: <b>"+DATA.dictations[dictIndex][0]+"</b>"});
-$("dictNext").addEventListener("click",()=>{dictIndex=(dictIndex+1)%DATA.dictations.length;renderDict()});
-
-$("chunkList").innerHTML=topic.sentences.flatMap(s=>s.chunks).map(x=>`<div class="item"><b>${x}</b><p class="muted">Say it as one rhythm unit.</p><button class="btn soft speakText" data-text="${encodeURIComponent(x)}">▶ Listen</button></div>`).join("");
-$("phrasalList").innerHTML=topic.phrasals.map(x=>`<div class="item phraseGrid"><div class="phrase">${x[0]}</div><div><b>${x[1]}</b><p>${x[2]}</p><button class="btn soft speakText" data-text="${encodeURIComponent(x[0]+'. '+x[2])}">▶ Listen</button></div></div>`).join("");
-
-function renderLibrary(){const q=$("searchBox").value.toLowerCase(),cat=$("categoryFilter").value;let rows=[];if(cat!=="Sound Design"){rows.push(...allSentences().map(s=>({title:s.text,sub:`Daily English · ${s.topic} · ${s.focus}`,speech:s.text})));rows.push(...DATA.topics.flatMap(t=>t.phrasals.map(x=>({title:x[0],sub:`Phrasal Verb · ${x[1]} · ${x[2]}`,speech:x[0]+'. '+x[2]}))))}if(cat!=="Daily English"){rows.push(...DATA.sound.map(x=>({title:x[0],sub:`Sound Design · ${x[3]} · ${x[1]} · ${x[2]}`,speech:x[0]+'. '+x[2]})))}rows=rows.filter(r=>(r.title+" "+r.sub).toLowerCase().includes(q));$("libraryList").innerHTML=rows.map(r=>`<div class="item"><b>${r.title}</b><p class="muted">${r.sub}</p><button class="btn soft speakText" data-text="${encodeURIComponent(r.speech)}">▶ Listen</button></div>`).join("");bindSpeakButtons()}
-$("searchBox").addEventListener("input",renderLibrary);$("categoryFilter").addEventListener("change",renderLibrary);
-function bindSpeakButtons(){document.querySelectorAll(".speakText").forEach(b=>b.addEventListener("click",()=>speak(decodeURIComponent(b.dataset.text))))}
-bindSpeakButtons();
-
-function renderStudio(){const s=DATA.studio[studioIndex];$("studioLead").textContent=s[0];$("studioPrompt").textContent="“"+s[1]+"”";$("studioResponse").textContent=s[2]}
-$("studioPromptBtn").addEventListener("click",()=>speak(DATA.studio[studioIndex][1]));
-$("studioResponseBtn").addEventListener("click",()=>speak(DATA.studio[studioIndex][2]));
-$("studioNext").addEventListener("click",()=>{studioIndex=(studioIndex+1)%DATA.studio.length;renderStudio()});
-
-function renderProgress(){let last=localStorage.ws8_date,today=new Date().toISOString().slice(0,10),st=+(localStorage.ws8_streak||1);if(last&&last!==today){let d=Math.round((new Date(today)-new Date(last))/86400000);st=d===1?st+1:1}localStorage.ws8_date=today;localStorage.ws8_streak=st;$("progressDone").textContent=completed.length;$("streak").textContent=st;$("favoriteCount").textContent=favorites.length;$("favoriteList").innerHTML=favorites.length?favorites.map(t=>`<div class="item"><b>${t}</b><button class="btn soft speakText" data-text="${encodeURIComponent(t)}">▶ Listen</button></div>`).join(""):'<div class="muted">No saved practice yet.</div>';bindSpeakButtons()}
-$("resetBtn").addEventListener("click",()=>{if(confirm("Reset all local WaveSpeak progress?")){completed=[];favorites=[];current=0;save();renderSpeaking();renderProgress()}});
-
-const CREATIVE={
- categories:{
-  "Atmosphere & Emotion":[
-   ["eerie","strangely unsettling or uncanny","An eerie high tone hangs above the scene, making the familiar room feel unsafe."],
-   ["ominous","suggesting that something threatening may happen","A low, ominous drone foreshadows the character’s arrival."],
-   ["haunting","emotionally persistent and difficult to forget","The haunting vocal fragment returns like a memory that cannot be erased."],
-   ["ethereal","light, delicate, and seemingly otherworldly","An ethereal layer of harmonics floats above the dialogue."],
-   ["oppressive","heavy, restrictive, or psychologically suffocating","The oppressive low-frequency pressure makes the space feel impossible to escape."],
-   ["serene","calm, peaceful, and balanced","A serene field of soft wind and distant birds opens the scene."],
-   ["dreamlike","resembling a dream; blurred, fluid, or unreal","The dreamlike transition dissolves the boundary between memory and present time."]
-  ],
-  "Timbre & Texture":[
-   ["grainy","rough, particulate, or made of many small sonic fragments","The recording has a grainy texture that reveals the instability of the signal."],
-   ["brittle","thin, hard, and easily perceived as breaking","The brittle high frequencies make each impact feel fragile and sharp."],
-   ["glassy","clear, hard, smooth, and bright like glass","A glassy synth tone reflects light without feeling warm."],
-   ["metallic","resembling resonating metal","The metallic resonance gives the footsteps an industrial character."],
-   ["abrasive","harsh and physically irritating","An abrasive band of noise cuts through the mix and creates discomfort."],
-   ["muffled","softened or obscured, with reduced high frequencies","The muffled dialogue sounds as if it is coming through a wall."],
-   ["resonant","rich in sustained or emphasized frequencies","The resonant body of the drum makes the room feel larger."],
-   ["warm","full, rounded, and comfortable, often with strong low-mid energy","A warm saturated pad supports the performer without drawing attention."],
-   ["saturated","enriched or compressed through harmonic distortion","The saturated tape texture gives the memory sequence a worn physical presence."]
-  ],
-  "Space & Distance":[
-   ["intimate","very close, private, and immediate","The intimate breathing places the listener inside the character’s personal space."],
-   ["distant","far away or psychologically removed","A distant siren suggests the city without defining a precise location."],
-   ["enclosed","contained within a small or restricted space","The enclosed reflections make the room feel airless."],
-   ["cavernous","extremely large, deep, and echoing","The cavernous reverb transforms the corridor into an impossible architecture."],
-   ["diffuse","spread broadly without a precise source","A diffuse noise field surrounds the audience without revealing its origin."],
-   ["localized","clearly positioned at a specific point","The localized whisper moves from the rear-left speaker to the center."],
-   ["immersive","surrounding and involving the listener","The immersive sound field places the audience inside the storm."],
-   ["dry","with little or no reverberation","The dry voice feels direct, exposed, and emotionally close."],
-   ["reverberant","rich in reflections and sustained spatial decay","The reverberant bell connects the present action to the memory of the church."]
-  ],
-  "Movement & Transformation":[
-   ["emerge","to become gradually audible or perceptible","A low pulse emerges from the room tone."],
-   ["dissolve","to fade or lose definition gradually","The mechanical rhythm dissolves into breath."],
-   ["swell","to increase gradually in intensity or size","The strings swell beneath the final line."],
-   ["recede","to move away or become less prominent","The traffic recedes as the character enters the interior space."],
-   ["drift","to move slowly without a fixed direction","Fragments of speech drift across the surround field."],
-   ["accumulate","to gather or increase through addition","Small clicks accumulate into a dense rhythmic mass."],
-   ["scatter","to spread rapidly in multiple directions","The granular fragments scatter across the speaker array."],
-   ["morph","to transform gradually from one identity into another","The train sound morphs into a sustained vocal tone."],
-   ["collapse","to break down suddenly or lose structure","The layered sound world collapses into a single dry breath."]
-  ],
-  "Density, Rhythm & Energy":[
-   ["sparse","containing few elements with significant space between them","A sparse texture leaves room for the audience to notice each breath."],
-   ["dense","containing many simultaneous or closely packed elements","The dense mix creates sensory overload."],
-   ["layered","constructed from multiple distinguishable levels","The layered ambience combines traffic, voices, ventilation, and distant music."],
-   ["fragmented","broken into incomplete or discontinuous parts","Fragmented speech mirrors the character’s unstable memory."],
-   ["restrained","controlled and deliberately limited","The restrained score avoids forcing the emotional interpretation."],
-   ["chaotic","disordered, unpredictable, and highly active","A chaotic burst of alarms and footsteps overwhelms the scene."],
-   ["pulsating","moving or repeating with a regular energetic pulse","A pulsating bass tone drives the transition forward."]
-  ],
-  "Creative & Dramaturgical":[
-   ["sonic world","the complete aural environment and aesthetic logic of a work","The sonic world combines domestic realism with unstable electronic memory."],
-   ["sonic motif","a recurring sound idea associated with a character, theme, or action","The closing door becomes a sonic motif for separation."],
-   ["emotional arc","the progression of emotional intensity or character experience","The emotional arc moves from serenity to psychological pressure."],
-   ["dramatic tension","sonic pressure that supports uncertainty, conflict, or expectation","The unresolved pulse increases dramatic tension without becoming louder."],
-   ["psychological space","an aural environment representing an internal mental state","The distorted room tone creates a psychological space rather than a realistic room."],
-   ["sonic memory","a sound that functions as remembered experience","The childhood song returns as a degraded sonic memory."],
-   ["sense of place","the recognizable identity and atmosphere of a location","The layered street recordings establish a specific sense of place."],
-   ["narrative function","the role sound plays in communicating or structuring the story","The silence has a narrative function: it marks the moment the character understands the loss."]
-  ]
- },
- listening:[
-  {type:"eerie",choices:["eerie","serene","warm"],explain:"The unstable high partials and low drone create an eerie, uncanny atmosphere."},
-  {type:"muffled",choices:["muffled","glassy","resonant"],explain:"The reduced high frequencies and softened attack make the sound muffled."},
-  {type:"cavernous",choices:["intimate","dry","cavernous"],explain:"Long delays and repeating reflections create a cavernous sense of scale."},
-  {type:"pulsating",choices:["pulsating","sparse","restrained"],explain:"A repeating amplitude pattern creates a pulsating energy."},
-  {type:"accumulate",choices:["scatter","accumulate","recede"],explain:"More layers enter over time, so the texture accumulates."}
- ],
- comparisons:[
-  {title:"Eerie vs. Ominous",prompt:"A strange, uncanny toy melody makes the room feel subtly wrong, but no specific threat is suggested.",answer:"eerie",options:["eerie","ominous"],explain:"Use eerie for uncanniness. Use ominous when the sound strongly suggests future danger."},
-  {title:"Warm vs. Muffled",prompt:"The voice has rich low-mid energy and soft harmonics, but it remains clear and intelligible.",answer:"warm",options:["warm","muffled"],explain:"Warm describes a pleasing tonal balance. Muffled means clarity is obscured by reduced high frequencies."},
-  {title:"Diffuse vs. Distant",prompt:"Noise surrounds the audience from many speakers, and no exact source can be located.",answer:"diffuse",options:["diffuse","distant"],explain:"Diffuse describes spread and unclear localization. Distant describes perceived physical or psychological distance."},
-  {title:"Dense vs. Layered",prompt:"The ambience contains several clearly distinguishable levels: traffic, voices, wind, and machinery.",answer:"layered",options:["dense","layered"],explain:"Layered emphasizes organized levels. Dense emphasizes the amount and compactness of material."},
-  {title:"Dissolve vs. Recede",prompt:"A rhythmic texture gradually loses its identity and becomes an undifferentiated wash.",answer:"dissolve",options:["dissolve","recede"],explain:"Dissolve means losing definition. Recede means moving farther away or becoming less prominent."}
- ],
- contexts:{
-  "Critique":"The sound begins with a {atmosphere}, {timbre} texture in a {space} space. It gradually {movement}s, creating {drama}.",
-  "Presentation":"My design establishes a {atmosphere} sonic world through {timbre} material and a {space} spatial perspective. As the scene develops, the sound {movement}s to support {drama}.",
-  "Portfolio":"This project explores a {atmosphere} sound language built from {timbre} textures and a {space} listening perspective. The material {movement}s across the piece, giving the sound a clear {drama}.",
-  "Director Conversation":"I’m thinking of making this moment more {atmosphere}. We could use a {timbre} texture that feels {space}, then let it {movement} so it strengthens the {drama} without covering the dialogue."
+function badVoice(name){
+ const bad=/grandma|grandpa|bells|boing|bubbles|cellos|jester|organ|superstar|trinoids|whisper|zarvox|wobble|bahh|hysterical|singing|novelty|bad news|good news|albert|bad news|bubbles|cellos|fred|kathy|princess|ralph|zarvox|pipe organ|trinoids/i;
+ return bad.test(name||"");
+}
+function goodVoice(v){
+ if(!v||!v.lang||!v.lang.toLowerCase().startsWith("en"))return false;
+ if(badVoice(v.name))return false;
+ return /samantha|ava|allison|evan|nathan|aaron|tom|zoe|serena|daniel|karen|moira|tessa|google us english|microsoft (aria|jenny|guy)/i.test(v.name)
+   || (v.localService && /en-US|en-GB|en-AU|en-CA/i.test(v.lang));
+}
+function loadVoices(){
+ const all=speechSynthesis.getVoices();
+ voices=all.filter(goodVoice);
+ const options=['<option value="-1">Auto (recommended)</option>'];
+ options.push(...voices.map((v,i)=>`<option value="${i}">${v.name} · ${v.lang}</option>`));
+ $("voiceSelect").innerHTML=options.join("");
+ $("voiceSelect").value="-1";
+}
+speechSynthesis.onvoiceschanged=loadVoices;
+loadVoices();
+setTimeout(loadVoices,300);
+setTimeout(loadVoices,1000);
+function speak(text,rate=+$("speed").value){
+ if(!("speechSynthesis" in window)){
+  $("sStatus").textContent="Speech playback is not supported in this browser.";
+  return;
  }
+ const selectedIndex=+$("voiceSelect").value;
+ const selected=selectedIndex>=0?voices[selectedIndex]:null;
+ const preferred=voices.find(v=>/Samantha|Ava|Allison|Evan|Nathan|Aaron|Tom|Google US English/i.test(v.name))||voices[0]||null;
+
+ function attempt(voiceToUse,allowFallback){
+  try{
+   speechSynthesis.cancel();
+   const u=new SpeechSynthesisUtterance(text);
+   u.lang="en-US";
+   u.rate=Number.isFinite(rate)?rate:.88;
+   if(voiceToUse)u.voice=voiceToUse;
+   u.onstart=()=>{$("sStatus").textContent="Playing model voice…";};
+   u.onend=()=>{$("sStatus").textContent="Now shadow the sentence and record yourself.";};
+   u.onerror=()=>{
+    if(allowFallback){
+     $("sStatus").textContent="Selected voice failed. Switching to the system default voice…";
+     setTimeout(()=>attempt(null,false),120);
+    }else{
+     $("sStatus").textContent="Speech playback failed. Reload Safari and try again.";
+    }
+   };
+   setTimeout(()=>speechSynthesis.speak(u),80);
+  }catch(e){
+   if(allowFallback)setTimeout(()=>attempt(null,false),120);
+   else $("sStatus").textContent="Speech playback failed. Reload Safari and try again.";
+  }
+ }
+ attempt(selected||preferred,true);
 };
 
 let creativeCategory=Object.keys(CREATIVE.categories)[0],listenIndex=0,compareIndex=0,builderContext="Critique",labRecorder,labParts=[],labUrl=null,currentLabSound=0;
@@ -452,7 +374,7 @@ renderCreativeCategories();renderCreativeVocabulary();renderListeningExercise();
 let CONTENT_CATALOG=null;
 async function loadContentCatalog(){
  try{
-  const response=await fetch("/content-catalog.json?v=8",{cache:"no-store"});
+  const response=await fetch("/content-catalog.json?v=9",{cache:"no-store"});
   if(!response.ok)throw new Error("catalog");
   CONTENT_CATALOG=await response.json();
   renderContentEngine();
@@ -461,9 +383,9 @@ async function loadContentCatalog(){
  }
 }
 function contentHistory(){
- try{return JSON.parse(localStorage.ws8_content_history||"{}")}catch{return {}}
+ try{return JSON.parse(localStorage.ws9_content_history||"{}")}catch{return {}}
 }
-function saveContentHistory(h){localStorage.ws8_content_history=JSON.stringify(h)}
+function saveContentHistory(h){localStorage.ws9_content_history=JSON.stringify(h)}
 function dateKey(d=new Date()){return d.toISOString().slice(0,10)}
 function dueItems(catalog,history){
  const today=dateKey();
@@ -488,14 +410,14 @@ function buildDailyPlan(){
  return [...due.map(x=>({...x,plan_type:"Review"})),...selected.map(x=>({...x,plan_type:"New"}))].slice(0,10);
 }
 function renderPlan(plan){
- localStorage.ws8_today_plan=JSON.stringify({date:dateKey(),ids:plan.map(x=>x.id)});
+ localStorage.ws9_today_plan=JSON.stringify({date:dateKey(),ids:plan.map(x=>x.id)});
  $("enginePlan").innerHTML=plan.length?plan.map((x,i)=>`<div class="item"><span class="tag">${x.plan_type}</span><b>${i+1}. ${x.text}</b><p class="muted">${x.topic} · ${x.level} · ${x.focus}</p><button class="btn soft engineSpeak" data-text="${encodeURIComponent(x.text)}">▶ Listen</button></div>`).join(""):'<div class="item">No items available.</div>';
  document.querySelectorAll(".engineSpeak").forEach(b=>b.addEventListener("click",()=>speak(decodeURIComponent(b.dataset.text))));
 }
 function completePlan(){
  if(!CONTENT_CATALOG)return;
  let plan;
- try{plan=JSON.parse(localStorage.ws8_today_plan||"{}")}catch{plan={}}
+ try{plan=JSON.parse(localStorage.ws9_today_plan||"{}")}catch{plan={}}
  if(!plan.ids||!plan.ids.length){renderPlan(buildDailyPlan());return}
  const history=contentHistory(),today=new Date();
  plan.ids.forEach(id=>{
@@ -529,6 +451,6 @@ $("engineLevelSelect").addEventListener("change",renderEngineTopic);
 loadContentCatalog();
 
 renderDict();renderStudio();renderSpeaking();renderLibrary();renderProgress();
-if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).finally(()=>window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js?v=8")))}
+if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).finally(()=>window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js?v=9")))}
 </script>
 </body></html>

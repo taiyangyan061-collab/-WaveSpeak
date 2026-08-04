@@ -1,21 +1,12 @@
-# WaveSpeak CONTENT ENGINE v8
+# WaveSpeak VOICE FIX v9
 
-This version keeps all v7 and Creative Sound Lab features and adds a scalable content system.
-
-Architecture:
-- `content-catalog.json`: structured sentence, chunk, phrasal-verb, sound-term, dictation, and studio records
-- `topic-index.json`: fast topic-to-content index
-- Content Engine screen: catalog counts, topic browser, adaptive daily plan, and local spaced review
-- Each sentence has an ID, topic, CEFR level, focus, chunk references, audio reference, tags, and review intervals
-
-Current seed database:
-- 70 daily sentences
-- Unique normalized chunks
-- 70 phrasal verbs
-- Sound-design vocabulary
-- Dictations and studio scenarios
-
-The important change is that future content can be appended to JSON records without rewriting the app interface.
+Fixes:
+- Removes novelty/accessibility voices such as Grandma, Grandpa, Bells, Whisper, Organ, and singing voices
+- Adds `Auto (recommended)` as the default
+- Tries a curated normal English voice first
+- Automatically falls back to the browser/system default voice if the selected voice fails
+- Fixes Phrase-by-Phrase playback fallback
+- Preserves all v8 Content Engine and Creative Sound Lab features
 
 Upload every file and the entire `audio` folder.
-Confirm deployment by checking for `CONTENT ENGINE v8`.
+Confirm deployment by checking for `VOICE FIX v9`.
