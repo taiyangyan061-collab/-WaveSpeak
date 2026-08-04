@@ -1,28 +1,30 @@
-# WaveSpeak PRODUCT ARCHITECTURE v17
+# WaveSpeak DUAL ENGINE v18
 
-This is the first modular product version.
+This version adds a real multi-engine voice system and daily planning.
 
-## Upload
-Upload the complete project, including:
-- `src/`
-- `api/`
-- `docs/`
-- `index.html`
-- all JSON files
-- the existing `audio/` folder
+## Voice engines
+- Browser Voice: free, no API key required
+- AI Voice: optional, requires `OPENAI_API_KEY` in Vercel
 
-## Required Vercel environment variable
-`OPENAI_API_KEY`
+## New screens
+- Settings
+- Daily Plan
 
-The key belongs in Vercel Settings → Environment Variables. Do not put it in GitHub.
+## Settings
+- Voice engine
+- AI voice
+- AI speaking style
+- Daily sentence target
+- Sound-design content ratio
 
-## Product structure
-- UI and styles are separate
-- AI Voice is a core service
-- navigation is a core service
-- storage is a core service
-- learning content is separate from application logic
-- the TTS endpoint remains server-side
+## Daily Plan
+- Speaking
+- Chunks
+- Phrasal verbs
+- Sound Design English
+- Stored locally and regenerable
 
-See `docs/ARCHITECTURE.md`.
-Confirm deployment by checking for `PRODUCT ARCHITECTURE v17`.
+All v17 modules remain.
+
+Upload the complete project.
+Confirm deployment by checking for `DUAL ENGINE v18`.

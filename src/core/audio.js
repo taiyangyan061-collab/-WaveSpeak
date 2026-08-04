@@ -2,32 +2,6 @@ const audioCache = new Map();
 let activeAudio = null;
 let activeUtterance = null;
 
-function nativeFallback(text, rate, onStatus) {
-  if (!("speechSynthesis" in window)) {
-    onStatus("AI Voice failed, and browser speech is unavailable.");
-    return;
-  }
-  try {
-    activeUtterance = new SpeechSynthesisUtterance(String(text));
-    activeUtterance.lang = "en-US";
-    activeUtterance.rate = Number.isFinite(rate) ? rate : 0.88;
-    activeUtterance.volume = 1;
-    activeUtterance.pitch = 1;
-    activeUtterance.onstart = () => onStatus("Using browser voice fallback…");
-    activeUtterance.onend = () => {
-      onStatus("Now shadow the sentence and record yourself.");
-      activeUtterance = null;
-    };
-    activeUtterance.onerror = () => {
-      onStatus("Both AI Voice and browser voice failed.");
-      activeUtterance = null;
-    };
-    window.speechSynthesis.speak(activeUtterance);
-  } catch {
-    onStatus("Voice playback is unavailable.");
-  }
-}
-
 function instructionsFor(style, rate) {
   const speed = rate <= 0.75
     ? "Speak slowly, with clear pauses between natural thought groups."
@@ -73,68 +47,118 @@ async function requestSpeech({ text, voice, style, rate }) {
   return url;
 }
 
-export function createVoiceService({ getVoice, getStyle, onStatus, onAIStatus }) {
-  async function play(text, rate = 0.88) {
-    try {
-      onStatus("Generating AI Voice…");
-      onAIStatus("Generating natural model speech…");
-      const url = await requestSpeech({
-        text,
-        voice: getVoice() || "marin",
-        style: getStyle() || "natural",
-        rate
-      });
+function browserSpeak(text, rate, onStatus) {
+  return new Promise((resolve, reject) => {
+    if (!("speechSynthesis" in window)) {
+      reject(new Error("Browser speech is unavailable."));
+      return;
+    }
 
-      if (activeAudio) {
-        activeAudio.pause();
-        activeAudio.currentTime = 0;
-      }
-      activeAudio = new Audio(url);
+    try {
+      activeUtterance = new SpeechSynthesisUtterance(String(text));
+      activeUtterance.lang = "en-US";
+      activeUtterance.rate = Number.isFinite(rate) ? rate : 0.88;
+      activeUtterance.volume = 1;
+      activeUtterance.pitch = 1;
+      activeUtterance.onstart = () => onStatus("Playing Browser Voice…");
+      activeUtterance.onend = () => {
+        activeUtterance = null;
+        resolve();
+      };
+      activeUtterance.onerror = event => {
+        const code = event?.error || "unknown";
+        activeUtterance = null;
+        reject(new Error(`Browser Voice failed: ${code}`));
+      };
+      window.speechSynthesis.speak(activeUtterance);
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
+
+export function createVoiceService({
+  getEngine,
+  getVoice,
+  getStyle,
+  onStatus,
+  onAIStatus
+}) {
+  async function playAI(text, rate) {
+    const url = await requestSpeech({
+      text,
+      voice: getVoice() || "marin",
+      style: getStyle() || "natural",
+      rate
+    });
+
+    if (activeAudio) {
+      activeAudio.pause();
+      activeAudio.currentTime = 0;
+    }
+
+    activeAudio = new Audio(url);
+    await new Promise((resolve, reject) => {
       activeAudio.onplay = () => {
-        onStatus("Playing AI model voice…");
+        onStatus("Playing AI Voice…");
         onAIStatus("AI-generated model voice is playing.");
       };
-      activeAudio.onended = () => {
-        onStatus("Now shadow the sentence and record yourself.");
-        onAIStatus("Ready.");
-      };
-      activeAudio.onerror = () => {
-        throw new Error("The generated audio could not be played.");
-      };
-      await activeAudio.play();
+      activeAudio.onended = resolve;
+      activeAudio.onerror = () => reject(new Error("Generated audio could not be played."));
+      activeAudio.play().catch(reject);
+    });
+  }
+
+  async function play(text, rate = 0.88) {
+    const engine = getEngine() || "browser";
+    try {
+      if (engine === "ai") {
+        onStatus("Generating AI Voice…");
+        await playAI(text, rate);
+      } else {
+        await browserSpeak(text, rate, onStatus);
+      }
+      onStatus("Now shadow the sentence and record yourself.");
+      onAIStatus("Ready.");
     } catch (error) {
-      onAIStatus(`AI Voice unavailable: ${error.message}. Using browser fallback.`);
-      nativeFallback(text, rate, onStatus);
+      onStatus(error.message);
+      if (engine === "ai") {
+        onAIStatus("AI Voice unavailable. Falling back to Browser Voice.");
+        try {
+          await browserSpeak(text, rate, onStatus);
+          onStatus("Now shadow the sentence and record yourself.");
+        } catch (fallbackError) {
+          onStatus(fallbackError.message);
+        }
+      }
     }
   }
 
   async function playSequence(parts, rate = 0.78) {
-    onStatus("Preparing phrase-by-phrase AI Voice…");
+    onStatus("Playing phrase by phrase…");
     for (const part of parts) {
-      try {
-        const url = await requestSpeech({
-          text: part,
-          voice: getVoice() || "marin",
-          style: getStyle() || "natural",
-          rate
-        });
-        await new Promise(resolve => {
-          if (activeAudio) {
-            activeAudio.pause();
-            activeAudio.currentTime = 0;
-          }
-          activeAudio = new Audio(url);
-          activeAudio.onended = () => setTimeout(resolve, 300);
-          activeAudio.onerror = resolve;
-          activeAudio.play().catch(resolve);
-        });
-      } catch {
-        nativeFallback(part, rate, onStatus);
-        await new Promise(resolve => setTimeout(resolve, 1600));
-      }
+      await play(part, rate);
+      await new Promise(resolve => setTimeout(resolve, 250));
     }
     onStatus("Phrase playback complete. Record the full sentence.");
   }
 
-  return { play, playSequence };
+  async function checkAIAvailability() {
+    try {
+      const response = await fetch("/api/tts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          text: "WaveSpeak voice test.",
+          voice: getVoice() || "marin",
+          instructions: "Speak clearly and naturally."
+        })
+      });
+      return response.ok;
+    } catch {
+      return false;
+    }
+  }
+
+  return { play, playSequence, checkAIAvailability };
 }

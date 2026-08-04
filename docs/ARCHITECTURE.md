@@ -33,3 +33,10 @@
 4. Learning content belongs under `src/data/` or a future database.
 5. The API key must never be committed to GitHub.
 6. Before release, run JavaScript syntax checks and preserve all existing navigation targets.
+
+
+## v18 Voice Engine
+- Browser Voice is the default free engine.
+- AI Voice is optional and enabled only when `OPENAI_API_KEY` exists.
+- Engine selection is stored in Settings.
+- Core learning modules call the shared `voiceService`; they do not know which provider is active.
