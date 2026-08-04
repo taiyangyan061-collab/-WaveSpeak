@@ -1,12 +1,8 @@
-# WaveSpeak v2
+# WaveSpeak v4
 
-Upload all files to the root of the existing GitHub repository and replace files with the same names. Vercel will redeploy automatically.
+Upload every file and the entire `audio` folder to the root of the existing GitHub repository.
 
-Changes:
-- 20 speaking resources across Daily, Classroom, Studio, Field Recording, Theater, Post-production, Spatial Audio, and Installation
-- Selectable English voices
-- Three playback speeds
-- Phrase-by-phrase playback
-- Favorites and resource library
-- 8 dictation exercises
-- Complete PWA metadata and app icons
+Confirm the update by checking:
+- The homepage displays `VERSION 4`.
+- The homepage has `Dual Spectrum`, `Chunks`, `Phrasal Verbs`, and `Sound English`.
+- If the old page appears, use Command + Shift + R or open `https://wave-speak.vercel.app/?v=4`.
