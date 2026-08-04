@@ -6,104 +6,174 @@
 <meta name="theme-color" content="#18131f">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="WaveSpeak">
-<link rel="manifest" href="/manifest.json?v=4">
-<link rel="icon" href="/icon.svg?v=4">
-<link rel="apple-touch-icon" href="/icon-192.png?v=4">
-<title>WaveSpeak v4</title>
+<link rel="manifest" href="/manifest.json?v=5">
+<link rel="icon" href="/icon.svg?v=5">
+<link rel="apple-touch-icon" href="/icon-192.png?v=5">
+<title>WaveSpeak v5</title>
 <style>
-:root{--bg:#f6f3ef;--ink:#18151c;--muted:#756f79;--line:#e5dfd9;--card:#fff;--accent:#7450d8;--soft:#efe9ff;--dark:#241b30}
+:root{--bg:#f6f3ef;--ink:#18151c;--muted:#756f79;--line:#e5dfd9;--card:#fff;--accent:#7450d8;--soft:#efe9ff;--dark:#241b30;--good:#15803d}
 *{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
-.app{max-width:1120px;margin:auto;padding:16px 16px 96px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand{font-size:26px;font-weight:900}.version{background:#18131f;color:white;border-radius:999px;padding:8px 12px;font-size:12px}
-.hero{background:linear-gradient(135deg,#21192c,#443758);color:#fff;border-radius:28px;padding:27px}.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.65}.hero h1{font-size:34px;line-height:1.06;margin:10px 0}.hero p{opacity:.78;max-width:680px}
+.app{max-width:1160px;margin:auto;padding:16px 16px 100px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand{font-size:26px;font-weight:900}.version{background:#18131f;color:white;border-radius:999px;padding:8px 12px;font-size:12px}
+.hero{background:linear-gradient(135deg,#21192c,#443758);color:#fff;border-radius:28px;padding:27px}.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.65}.hero h1{font-size:34px;line-height:1.06;margin:10px 0}.hero p{opacity:.78;max-width:700px}
+.progress{height:9px;background:#ffffff25;border-radius:99px;overflow:hidden;margin-top:20px}.progress i{display:block;height:100%;background:#c4b5fd;width:0}
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.mode,.card,.item{background:#fff;border:1px solid var(--line);border-radius:21px}.mode{padding:18px;cursor:pointer;min-height:132px}.mode b{display:block;font-size:17px;margin:10px 0 5px}.mode span,.muted{font-size:13px;line-height:1.5;color:var(--muted)}
 .title{font-size:19px;margin:24px 2px 12px}.screen{display:none}.screen.active{display:block}.card{padding:21px}.back{border:0;background:none;color:var(--muted);padding:4px 0 14px;cursor:pointer}
-.topic{display:inline-block;background:var(--soft);color:#4d1f92;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:800}.sentence{font-size:30px;line-height:1.3;margin:17px 0}
+.topic,.tag{display:inline-block;background:var(--soft);color:#4d1f92;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:800}.sentence{font-size:30px;line-height:1.3;margin:17px 0}
 .chunkWrap{background:#faf8ff;border-radius:15px;padding:14px}.chunk{display:inline-block;background:white;border:1px solid #ddd1ff;border-radius:10px;padding:8px 10px;margin:4px;font-weight:750}
-.controls{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.btn{border:0;border-radius:12px;padding:11px 14px;font-weight:750;cursor:pointer}.primary{background:var(--accent);color:#fff}.soft{background:var(--soft);color:#4d1f92}.plain{background:#f0eeeb;color:#333}
-.spectra{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.spectrum{background:#17131e;border-radius:16px;padding:12px;color:white}.spectrum h3{font-size:13px;margin:0 0 8px;color:#d9d0e5}.spectrum canvas{width:100%;height:170px;display:block;background:#0b0910;border-radius:10px}
-.list{display:grid;gap:10px}.item{padding:15px}.item b{font-size:17px}.phraseGrid{display:grid;grid-template-columns:150px 1fr;gap:12px}.phrase{font-size:18px;font-weight:900;color:#4d1f92}
-.bottom{position:fixed;bottom:0;left:0;right:0;background:#ffffffef;backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;justify-content:center;gap:38px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));z-index:5}.bottom button{background:none;border:0;color:var(--muted);font-size:12px}.bottom b{display:block;font-size:20px}
-.notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:12px;border-radius:14px;font-size:13px;margin-top:14px}
-@media(max-width:760px){.grid{grid-template-columns:1fr 1fr}.spectra{grid-template-columns:1fr}.hero h1{font-size:28px}.sentence{font-size:24px}.phraseGrid{grid-template-columns:1fr}.app{padding:13px 13px 90px}}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}.btn{border:0;border-radius:12px;padding:11px 14px;font-weight:750;cursor:pointer}.primary{background:var(--accent);color:#fff}.soft{background:var(--soft);color:#4d1f92}.plain{background:#f0eeeb;color:#333}.danger{background:#fee2e2;color:#991b1b}
+select,input,textarea{font:inherit}select,input[type="search"]{border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px}textarea{width:100%;min-height:130px;border:1px solid var(--line);border-radius:14px;padding:14px}
+.visuals{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}.visual{background:#17131e;border-radius:16px;padding:12px;color:white}.visual h3{font-size:13px;margin:0 0 8px;color:#d9d0e5}.visual canvas{width:100%;height:150px;display:block;background:#0b0910;border-radius:10px}
+.list{display:grid;gap:10px}.item{padding:15px}.item b{font-size:17px}.phraseGrid{display:grid;grid-template-columns:150px 1fr;gap:12px}.phrase{font-size:18px;font-weight:900;color:#4d1f92}.star{float:right;border:0;background:none;font-size:20px;cursor:pointer}
+.tabs{display:flex;gap:8px;overflow:auto;margin-bottom:14px}.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;white-space:nowrap;cursor:pointer}.chip.active{background:var(--dark);color:white}
+.bottom{position:fixed;bottom:0;left:0;right:0;background:#ffffffef;backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;justify-content:center;gap:34px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));z-index:5}.bottom button{background:none;border:0;color:var(--muted);font-size:12px}.bottom b{display:block;font-size:20px}
+.notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:12px;border-radius:14px;font-size:13px;margin-top:14px}.score{font-size:42px;font-weight:900}
+@media(max-width:780px){.grid{grid-template-columns:1fr 1fr}.visuals{grid-template-columns:1fr}.hero h1{font-size:28px}.sentence{font-size:24px}.phraseGrid{grid-template-columns:1fr}.app{padding:13px 13px 92px}.bottom{gap:18px}}
 </style>
 </head>
 <body><div class="app">
-<div class="top"><div class="brand">WaveSpeak</div><div class="version">VERSION 4</div></div>
+<div class="top"><div class="brand">WaveSpeak</div><div class="version">MERGED v5</div></div>
 
 <section id="home" class="screen active">
-<div class="hero"><div class="eyebrow">TODAY'S DAILY ENGLISH THEME</div><h1 id="todayTheme"></h1><p>Every day has a different real-life topic, plus chunks, phrasal verbs, and sound-design English.</p></div>
-<h2 class="title">Today’s learning path</h2>
-<div class="grid">
-<div class="mode" data-open="spectrum"><div>📊</div><b>Dual Spectrum</b><span>Compare the model spectrum with your own recording</span></div>
-<div class="mode" data-open="chunks"><div>🧩</div><b>Chunks</b><span>Learn complete rhythm groups, not isolated words</span></div>
-<div class="mode" data-open="phrasals"><div>↗</div><b>Phrasal Verbs</b><span>Common verb phrases in realistic situations</span></div>
-<div class="mode" data-open="sound"><div>🎚</div><b>Sound English</b><span>Studio, theater, field recording, and mixing</span></div>
+<div class="hero">
+<div class="eyebrow">TODAY'S THEME</div><h1 id="todayTheme"></h1>
+<p>Speaking, listening, dictation, chunks, phrasal verbs, vocabulary, studio English, and audio visualization—all in one version.</p>
+<div class="progress"><i id="homeProgress"></i></div><p><span id="doneCount">0</span> completed today</p>
 </div>
-<div class="notice">看到首页右上角“VERSION 4”，就说明新版已经加载。如果仍显示旧界面，请强制刷新。</div>
+<h2 class="title">Practice</h2>
+<div class="grid">
+<div class="mode" data-open="speaking"><div>🎙</div><b>Speaking</b><span>Natural voice, speed control, phrase-by-phrase, recording</span></div>
+<div class="mode" data-open="visual"><div>📊</div><b>Waveform & Spectrum</b><span>Compare model and personal recordings</span></div>
+<div class="mode" data-open="listening"><div>🎧</div><b>Listening</b><span>Dictation with slow, natural, and challenge speeds</span></div>
+<div class="mode" data-open="chunks"><div>🧩</div><b>Chunks</b><span>Practice complete rhythm groups</span></div>
+<div class="mode" data-open="phrasals"><div>↗</div><b>Phrasal Verbs</b><span>Common verb phrases for real situations</span></div>
+<div class="mode" data-open="library"><div>▤</div><b>Library</b><span>Search all daily and sound-design content</span></div>
+<div class="mode" data-open="studio"><div>🎚</div><b>Studio Mode</b><span>Production conversations and responses</span></div>
+<div class="mode" data-open="progress"><div>✓</div><b>Progress</b><span>Favorites, completed items, and streak</span></div>
+</div>
+<div class="notice">MERGED v5 保留旧功能并加入新功能。看到这个标签就说明加载的是合并版。</div>
 </section>
 
-<section id="spectrum" class="screen"><button class="back" data-home>← Home</button><div class="card">
-<span class="topic" id="topicName"></span><div class="muted" id="counter"></div>
-<div class="sentence" id="sentence"></div>
-<div class="chunkWrap"><div class="muted">Sentence chunks</div><div id="sentenceChunks"></div></div>
+<section id="speaking" class="screen"><button class="back" data-home>← Home</button><div class="card">
+<span class="topic" id="sTopic"></span><span class="tag" id="sFocus"></span><button class="star" id="favBtn">☆</button>
+<div class="muted" id="sCounter"></div><div class="sentence" id="sSentence"></div>
+<div class="chunkWrap"><div class="muted">Sentence chunks</div><div id="sChunks"></div></div>
+<div class="controls"><select id="voiceSelect"></select><select id="speed"><option value=".72">Slow</option><option value=".88" selected>Natural</option><option value="1">Fast</option></select></div>
 <div class="controls">
-<button class="btn primary" id="naturalVoice">▶ Natural Voice</button>
-<button class="btn soft" id="modelAudio">▶ Model for Spectrum</button>
-<button class="btn soft" id="record">● Record</button>
-<button class="btn plain" id="playMine" disabled>Play Mine</button>
-<button class="btn plain" id="nextSentence">Next →</button>
-</div>
-<div class="spectra">
-<div class="spectrum"><h3>MODEL FREQUENCY SPECTRUM</h3><canvas id="modelSpectrum" width="700" height="200"></canvas></div>
-<div class="spectrum"><h3>MY FREQUENCY SPECTRUM</h3><canvas id="mySpectrum" width="700" height="200"></canvas></div>
-</div>
-<p id="status" class="muted">Record yourself, then compare both spectra and listen to both versions.</p>
-</div></section>
+<button class="btn primary" id="listenBtn">▶ Listen</button>
+<button class="btn soft" id="phraseBtn">▶ Phrase by phrase</button>
+<button class="btn soft" id="recordBtn">● Record</button>
+<button class="btn plain" id="playBtn" disabled>Play Mine</button>
+<button class="btn plain" id="randomBtn">Random</button>
+<button class="btn primary" id="completeBtn">Complete & Next →</button>
+</div><p class="muted" id="sStatus">Listen once, then shadow without reading.</p></div></section>
+
+<section id="visual" class="screen"><button class="back" data-home>← Home</button><div class="card">
+<span class="topic" id="vTopic"></span><div class="sentence" id="vSentence"></div>
+<div class="controls"><button class="btn primary" id="modelPlay">▶ Model</button><button class="btn soft" id="visualRecord">● Record</button><button class="btn plain" id="visualMine" disabled>Play Mine</button></div>
+<div class="visuals">
+<div class="visual"><h3>MODEL WAVEFORM</h3><canvas id="modelWave" width="700" height="180"></canvas></div>
+<div class="visual"><h3>MY WAVEFORM</h3><canvas id="myWave" width="700" height="180"></canvas></div>
+<div class="visual"><h3>MODEL SPECTRUM</h3><canvas id="modelSpec" width="700" height="180"></canvas></div>
+<div class="visual"><h3>MY SPECTRUM</h3><canvas id="mySpec" width="700" height="180"></canvas></div>
+</div><p class="muted" id="vStatus">Waveform shows timing and pauses; spectrum shows frequency energy.</p></div></section>
+
+<section id="listening" class="screen"><button class="back" data-home>← Home</button><div class="card">
+<h2>Listening & Dictation</h2><p class="muted" id="dictHint"></p>
+<div class="controls"><button class="btn primary" data-rate=".92">▶ Natural</button><button class="btn plain" data-rate=".72">▶ Slow</button><button class="btn plain" data-rate="1.08">▶ Challenge</button></div>
+<textarea id="dictInput" placeholder="Type what you hear..."></textarea>
+<div class="controls"><button class="btn soft" id="dictCheck">Check</button><button class="btn plain" id="dictNext">Next →</button></div><p id="dictResult" class="muted"></p></div></section>
 
 <section id="chunks" class="screen"><button class="back" data-home>← Home</button><h2>Today’s Chunks</h2><div id="chunkList" class="list"></div></section>
 <section id="phrasals" class="screen"><button class="back" data-home>← Home</button><h2>Today’s Phrasal Verbs</h2><div id="phrasalList" class="list"></div></section>
-<section id="sound" class="screen"><button class="back" data-home>← Home</button><h2>Sound Design English</h2><div id="soundList" class="list"></div></section>
+
+<section id="library" class="screen"><button class="back" data-home>← Home</button><h2>Resource Library</h2>
+<div class="controls"><input id="searchBox" type="search" placeholder="Search sentences, phrases, or sound terms..."><select id="categoryFilter"><option>All</option><option>Daily English</option><option>Sound Design</option></select></div>
+<div id="libraryList" class="list"></div></section>
+
+<section id="studio" class="screen"><button class="back" data-home>← Home</button><div class="card">
+<div class="tag">STUDIO MODE</div><h2 id="studioLead"></h2><div class="sentence" id="studioPrompt"></div><p>Your natural response:</p><div class="chunkWrap"><b id="studioResponse"></b></div>
+<div class="controls"><button class="btn primary" id="studioPromptBtn">▶ Hear Prompt</button><button class="btn soft" id="studioResponseBtn">▶ Hear Response</button><button class="btn plain" id="studioNext">Next →</button></div></div></section>
+
+<section id="progress" class="screen"><button class="back" data-home>← Home</button><div class="grid">
+<div class="card"><h2>Completed</h2><div class="score" id="progressDone">0</div><p class="muted">practice items</p></div>
+<div class="card"><h2>Streak</h2><div class="score" id="streak">1</div><p class="muted">days</p></div>
+<div class="card"><h2>Favorites</h2><div class="score" id="favoriteCount">0</div><p class="muted">saved items</p></div>
+<div class="card"><h2>Review</h2><button class="btn plain" id="resetBtn">Reset local progress</button></div>
+</div><h2 class="title">Saved Practice</h2><div id="favoriteList" class="list"></div></section>
 </div>
 
 <div class="bottom">
 <button data-open="home"><b>⌂</b>Home</button>
-<button data-open="spectrum"><b>📊</b>Spectrum</button>
-<button data-open="chunks"><b>🧩</b>Chunks</button>
-<button data-open="phrasals"><b>↗</b>Phrases</button>
+<button data-open="speaking"><b>◉</b>Speak</button>
+<button data-open="visual"><b>📊</b>Visual</button>
+<button data-open="listening"><b>◖</b>Listen</button>
+<button data-open="library"><b>▤</b>Library</button>
 </div>
 
 <script>
-const DATA={"topics": [{"name": "Ordering Food", "sentences": [{"text": "Could I get the chicken sandwich without onions?", "chunks": ["Could I get…?", "without onions"]}, {"text": "What do you recommend if I want something light?", "chunks": ["What do you recommend…?", "if I want something light"]}, {"text": "Could we have the check whenever you get a chance?", "chunks": ["Could we have the check?", "whenever you get a chance"]}], "phrasals": [["eat out", "在外面吃饭", "We usually eat out on Friday night."], ["pick up", "取餐；顺路拿", "I’ll pick up the order on my way home."], ["cut back on", "减少", "I’m trying to cut back on sugar."]]}, {"name": "Transportation", "sentences": [{"text": "How long does it usually take to get there?", "chunks": ["How long does it take…?", "to get there"]}, {"text": "Could you let me know when we get to the next stop?", "chunks": ["Could you let me know…?", "when we get to…"]}, {"text": "Traffic was backed up, so I ended up taking a different route.", "chunks": ["Traffic was backed up", "I ended up…", "taking a different route"]}], "phrasals": [["get on", "上车", "We got on the train at Union Station."], ["get off", "下车", "You need to get off at the next stop."], ["back up", "堵塞；积压", "Traffic is backing up near the freeway."]]}, {"name": "Classroom", "sentences": [{"text": "Could you go over that one more time?", "chunks": ["Could you go over…?", "one more time"]}, {"text": "I understand the idea, but I’m not sure how to apply it.", "chunks": ["I understand the idea", "I’m not sure how to…"]}, {"text": "Would it be possible to submit the assignment tomorrow?", "chunks": ["Would it be possible to…?", "submit the assignment"]}], "phrasals": [["go over", "复习；再解释", "Could we go over the assignment requirements?"], ["hand in", "提交", "I’ll hand in the project before class."], ["catch up", "赶上进度", "I need to catch up on the reading."]]}, {"name": "Shopping", "sentences": [{"text": "Do you have this in a smaller size?", "chunks": ["Do you have this in…?", "a smaller size"]}, {"text": "I’m just looking, but I’ll let you know if I need help.", "chunks": ["I’m just looking", "I’ll let you know"]}, {"text": "Could I return this if it doesn’t fit?", "chunks": ["Could I return this…?", "if it doesn’t fit"]}], "phrasals": [["try on", "试穿", "Can I try this jacket on?"], ["sell out", "售罄", "The smaller size sold out yesterday."], ["take back", "退回商品", "I need to take this shirt back."]]}, {"name": "Small Talk", "sentences": [{"text": "How has your week been so far?", "chunks": ["How has your week been…?", "so far"]}, {"text": "I’ve been keeping busy with a new sound project.", "chunks": ["I’ve been keeping busy with…", "a new sound project"]}, {"text": "That sounds interesting. How did you get into it?", "chunks": ["That sounds interesting", "How did you get into…?"]}], "phrasals": [["get into", "开始喜欢；进入某领域", "How did you get into sound design?"], ["hang out", "一起消磨时间", "We hung out after rehearsal."], ["run into", "偶遇", "I ran into my classmate at the library."]]}, {"name": "Appointments", "sentences": [{"text": "I’d like to make an appointment for next week.", "chunks": ["I’d like to make an appointment", "for next week"]}, {"text": "Is there anything available on Friday afternoon?", "chunks": ["Is there anything available…?", "on Friday afternoon"]}, {"text": "Could we move the appointment to a later time?", "chunks": ["Could we move the appointment…?", "to a later time"]}], "phrasals": [["set up", "安排", "I need to set up a meeting with my advisor."], ["push back", "推迟", "Could we push the appointment back an hour?"], ["show up", "出现；到场", "Please show up ten minutes early."]]}, {"name": "Plans & Invitations", "sentences": [{"text": "Are you free to grab coffee sometime this week?", "chunks": ["Are you free to…?", "sometime this week"]}, {"text": "I’m not completely sure yet, but I’ll let you know.", "chunks": ["I’m not completely sure yet", "I’ll let you know"]}, {"text": "Something came up, so I may need to reschedule.", "chunks": ["Something came up", "I may need to reschedule"]}], "phrasals": [["come up", "突然发生", "Something came up, so I can’t go tonight."], ["figure out", "弄清楚；决定", "I’ll figure out my schedule tonight."], ["turn down", "拒绝", "I had to turn down the invitation."]]}], "sound": [["ring out", "调试并削减反馈频率", "We need to ring out the monitors before rehearsal."], ["roll off", "逐渐衰减某段频率", "I rolled off some low frequencies below eighty hertz."], ["fade in", "渐入", "The ambience should fade in after the blackout."], ["fade out", "渐出", "Fade out the music as the dialogue begins."], ["route to", "把信号发送到", "Route these tracks to the main output."], ["pick up", "麦克风拾取声音", "The microphone picked up too much wind noise."], ["cut through", "在混音中保持清晰", "The dialogue needs to cut through the music."], ["build up", "逐渐积累", "Low-frequency energy is building up in the room."], ["print stems", "导出分轨", "I’ll print the stems before rehearsal."], ["patch into", "接入系统", "Patch the wireless receiver into input eight."], ["send to", "发送到总线或效果器", "Send the vocal to the reverb bus."], ["bring down", "降低音量", "Bring the music down under the dialogue."]]};
-const topicIndex=(new Date().getDay()+6)%7;
-const topic=DATA.topics[topicIndex];
-let sentenceIndex=0,recorder,parts=[],myUrl=null,modelPlayer=null;
+const DATA={"topics": [{"name": "Ordering Food", "sentences": [{"text": "Could I get the chicken sandwich without onions?", "chunks": ["Could I get…?", "without onions"], "focus": "Linking"}, {"text": "What do you recommend if I want something light?", "chunks": ["What do you recommend…?", "if I want something light"], "focus": "Intonation"}, {"text": "Could we have the check whenever you get a chance?", "chunks": ["Could we have the check?", "whenever you get a chance"], "focus": "Reduction"}], "phrasals": [["eat out", "在外面吃饭", "We usually eat out on Friday night."], ["pick up", "取餐；顺路拿", "I’ll pick up the order on my way home."], ["cut back on", "减少", "I’m trying to cut back on sugar."]]}, {"name": "Transportation", "sentences": [{"text": "How long does it usually take to get there?", "chunks": ["How long does it take…?", "to get there"], "focus": "Rhythm"}, {"text": "Could you let me know when we get to the next stop?", "chunks": ["Could you let me know…?", "when we get to…"], "focus": "Linking"}, {"text": "Traffic was backed up, so I ended up taking a different route.", "chunks": ["Traffic was backed up", "I ended up…", "taking a different route"], "focus": "Stress"}], "phrasals": [["get on", "上车", "We got on the train at Union Station."], ["get off", "下车", "You need to get off at the next stop."], ["back up", "堵塞；积压", "Traffic is backing up near the freeway."]]}, {"name": "Classroom", "sentences": [{"text": "Could you go over that one more time?", "chunks": ["Could you go over…?", "one more time"], "focus": "Linking"}, {"text": "I understand the idea, but I’m not sure how to apply it.", "chunks": ["I understand the idea", "I’m not sure how to…"], "focus": "Stress"}, {"text": "Would it be possible to submit the assignment tomorrow?", "chunks": ["Would it be possible to…?", "submit the assignment"], "focus": "Polite intonation"}], "phrasals": [["go over", "复习；再解释", "Could we go over the assignment requirements?"], ["hand in", "提交", "I’ll hand in the project before class."], ["catch up", "赶上进度", "I need to catch up on the reading."]]}, {"name": "Shopping", "sentences": [{"text": "Do you have this in a smaller size?", "chunks": ["Do you have this in…?", "a smaller size"], "focus": "Intonation"}, {"text": "I’m just looking, but I’ll let you know if I need help.", "chunks": ["I’m just looking", "I’ll let you know"], "focus": "Reduction"}, {"text": "Could I return this if it doesn’t fit?", "chunks": ["Could I return this…?", "if it doesn’t fit"], "focus": "Linking"}], "phrasals": [["try on", "试穿", "Can I try this jacket on?"], ["sell out", "售罄", "The smaller size sold out yesterday."], ["take back", "退回商品", "I need to take this shirt back."]]}, {"name": "Small Talk", "sentences": [{"text": "How has your week been so far?", "chunks": ["How has your week been…?", "so far"], "focus": "Intonation"}, {"text": "I’ve been keeping busy with a new sound project.", "chunks": ["I’ve been keeping busy with…", "a new sound project"], "focus": "Rhythm"}, {"text": "That sounds interesting. How did you get into it?", "chunks": ["That sounds interesting", "How did you get into…?"], "focus": "Linking"}], "phrasals": [["get into", "开始喜欢；进入某领域", "How did you get into sound design?"], ["hang out", "一起消磨时间", "We hung out after rehearsal."], ["run into", "偶遇", "I ran into my classmate at the library."]]}, {"name": "Appointments", "sentences": [{"text": "I’d like to make an appointment for next week.", "chunks": ["I’d like to make an appointment", "for next week"], "focus": "Rhythm"}, {"text": "Is there anything available on Friday afternoon?", "chunks": ["Is there anything available…?", "on Friday afternoon"], "focus": "Intonation"}, {"text": "Could we move the appointment to a later time?", "chunks": ["Could we move the appointment…?", "to a later time"], "focus": "Polite request"}], "phrasals": [["set up", "安排", "I need to set up a meeting with my advisor."], ["push back", "推迟", "Could we push the appointment back an hour?"], ["show up", "出现；到场", "Please show up ten minutes early."]]}, {"name": "Plans & Invitations", "sentences": [{"text": "Are you free to grab coffee sometime this week?", "chunks": ["Are you free to…?", "sometime this week"], "focus": "Intonation"}, {"text": "I’m not completely sure yet, but I’ll let you know.", "chunks": ["I’m not completely sure yet", "I’ll let you know"], "focus": "Stress"}, {"text": "Something came up, so I may need to reschedule.", "chunks": ["Something came up", "I may need to reschedule"], "focus": "Linking"}], "phrasals": [["come up", "突然发生", "Something came up, so I can’t go tonight."], ["figure out", "弄清楚；决定", "I’ll figure out my schedule tonight."], ["turn down", "拒绝", "I had to turn down the invitation."]]}], "sound": [["room tone", "室内空间本底声", "We need thirty seconds of clean room tone.", "Field Recording"], ["gain staging", "增益结构管理", "Good gain staging prevents clipping and excess noise.", "Studio"], ["ring out", "调试并削减反馈频率", "We need to ring out the monitors before rehearsal.", "Theater"], ["roll off", "逐渐衰减某段频率", "I rolled off some low frequencies below eighty hertz.", "Mixing"], ["fade in", "渐入", "The ambience should fade in after the blackout.", "Theater"], ["fade out", "渐出", "Fade out the music as the dialogue begins.", "Theater"], ["route to", "把信号发送到", "Route these tracks to the main output.", "Studio"], ["pick up", "麦克风拾取声音", "The microphone picked up too much wind noise.", "Field Recording"], ["cut through", "在混音中保持清晰", "The dialogue needs to cut through the music.", "Mixing"], ["build up", "逐渐积累", "Low-frequency energy is building up in the room.", "Acoustics"], ["print stems", "导出分轨", "I’ll print the stems before rehearsal.", "Post-production"], ["patch into", "接入系统", "Patch the wireless receiver into input eight.", "Theater"], ["send to", "发送到总线或效果器", "Send the vocal to the reverb bus.", "Studio"], ["bring down", "降低音量", "Bring the music down under the dialogue.", "Mixing"], ["binaural", "双耳录音/渲染", "I made a binaural version for headphone listeners.", "Spatial Audio"], ["impulse response", "脉冲响应", "I used the church impulse response for convolution reverb.", "Acoustics"]], "dictations": [["Could you send me the latest version before rehearsal?", "Listen for the reduced pronunciation of “could you” and “before.”"], ["The microphone picked up more wind noise than I expected.", "Listen for “picked up” and “more than.”"], ["I need a cleaner recording with less background noise.", "Listen for the contrast between “cleaner” and “less.”"], ["The reverb makes the space feel much larger.", "Listen to the final consonants in “makes” and “space.”"], ["We should capture a few minutes of clean room tone.", "Listen for “a few minutes of” as one rhythm group."], ["I’ll export the stems and send them over tonight.", "Listen for “stems and” and “send them.”"], ["The cue should start just before the lights fade.", "Listen for “should start” and “just before.”"], ["Can you hear the low-frequency rumble underneath the dialogue?", "Listen for “low-frequency rumble.”"]], "studio": [["Your instructor says:", "Can you send me the stems before rehearsal?", "Sure. I’ll export them and send them over before rehearsal."], ["The stage manager asks:", "Can we take the cue from the top of the scene?", "Yes. I’m ready to run it again from the top."], ["A mixer asks:", "Could you bring the dialogue up a little?", "Sure. I’ll bring it up by about two decibels."], ["A director says:", "The transition feels too abrupt.", "I can lengthen the crossfade and make it smoother."]]};
 const $=id=>document.getElementById(id);
+const topicIndex=(new Date().getDay()+6)%7, topic=DATA.topics[topicIndex];
+let current=+(localStorage.ws5_current||0),dictIndex=0,studioIndex=0;
+let completed=JSON.parse(localStorage.ws5_completed||"[]"),favorites=JSON.parse(localStorage.ws5_favorites||"[]");
+let voices=[],recorder,parts=[],mineUrl=null,modelPlayer=null,currentModelBuffer=null;
 
-function openScreen(id){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));$(id).classList.add("active");scrollTo(0,0)}
+function openScreen(id){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));$(id).classList.add("active");if(id==="library")renderLibrary();if(id==="progress")renderProgress();scrollTo(0,0)}
 document.querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",()=>openScreen(b.dataset.open)));
 document.querySelectorAll("[data-home]").forEach(b=>b.addEventListener("click",()=>openScreen("home")));
 $("todayTheme").textContent=topic.name;
 
-function globalAudioIndex(){let n=0;for(let i=0;i<topicIndex;i++)n+=DATA.topics[i].sentences.length;return n+sentenceIndex}
-function safeVoices(){const bad=/bells|boing|bubbles|cellos|jester|organ|superstar|trinoids|whisper|zarvox|wobble|bahh|hysterical|singing|novelty|bad news|good news/i;return speechSynthesis.getVoices().filter(v=>v.lang&&v.lang.toLowerCase().startsWith("en")&&!bad.test(v.name))}
-function speak(text){const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=.9;const vs=safeVoices();const v=vs.find(v=>/Samantha|Ava|Allison|Evan|Nathan|Aaron|Tom|Google US English/i.test(v.name))||vs[0];if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u)}
+function allSentences(){return DATA.topics.flatMap((t,ti)=>t.sentences.map((s,si)=>({...s,topic:t.name,ti,si})))}
+function currentSentence(){return topic.sentences[current%topic.sentences.length]}
+function globalIndex(){let n=0;for(let i=0;i<topicIndex;i++)n+=DATA.topics[i].sentences.length;return n+(current%topic.sentences.length)}
+function badVoice(name){return /bells|boing|bubbles|cellos|jester|organ|superstar|trinoids|whisper|zarvox|wobble|bahh|hysterical|singing|novelty|bad news|good news/i.test(name)}
+function loadVoices(){voices=speechSynthesis.getVoices().filter(v=>v.lang&&v.lang.toLowerCase().startsWith("en")&&!badVoice(v.name));$("voiceSelect").innerHTML=voices.map((v,i)=>`<option value="${i}">${v.name} · ${v.lang}</option>`).join("");const p=voices.findIndex(v=>/Samantha|Ava|Allison|Evan|Nathan|Aaron|Tom|Google US English/i.test(v.name));if(p>=0)$("voiceSelect").value=p}
+speechSynthesis.onvoiceschanged=loadVoices;loadVoices();
+function speak(text,rate=+$("speed").value){const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=rate;const v=voices[+$("voiceSelect").value]||voices[0];if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u)}
+function save(){localStorage.ws5_current=current;localStorage.ws5_completed=JSON.stringify(completed);localStorage.ws5_favorites=JSON.stringify(favorites)}
+function renderHome(){ $("doneCount").textContent=completed.length;$("homeProgress").style.width=Math.min(100,completed.length/8*100)+"%"}
+function renderSpeaking(){const s=currentSentence();$("sTopic").textContent=topic.name;$("sFocus").textContent=s.focus;$("sCounter").textContent=`${current%topic.sentences.length+1} of ${topic.sentences.length}`;$("sSentence").textContent=s.text;$("sChunks").innerHTML=s.chunks.map(x=>`<span class="chunk">${x}</span>`).join("");$("favBtn").textContent=favorites.includes(s.text)?"★":"☆";$("vTopic").textContent=topic.name;$("vSentence").textContent=s.text;loadModel();renderHome()}
+$("listenBtn").addEventListener("click",()=>speak(currentSentence().text));
+$("phraseBtn").addEventListener("click",async()=>{for(const p of currentSentence().chunks){await new Promise(resolve=>{const u=new SpeechSynthesisUtterance(p);u.lang="en-US";u.rate=Math.max(.65,+$("speed").value-.08);const v=voices[+$("voiceSelect").value]||voices[0];if(v)u.voice=v;u.onend=()=>setTimeout(resolve,300);speechSynthesis.speak(u)})}});
+$("randomBtn").addEventListener("click",()=>{current=Math.floor(Math.random()*topic.sentences.length);save();renderSpeaking()});
+$("completeBtn").addEventListener("click",()=>{const t=currentSentence().text;if(!completed.includes(t))completed.push(t);current=(current+1)%topic.sentences.length;save();renderSpeaking()});
+$("favBtn").addEventListener("click",()=>{const t=currentSentence().text;favorites=favorites.includes(t)?favorites.filter(x=>x!==t):[...favorites,t];save();renderSpeaking()});
+
+async function recordAudio(statusEl,recordBtn,playBtn,onDecoded){if(recorder&&recorder.state==="recording"){recorder.stop();return}try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});parts=[];recorder=new MediaRecorder(stream);recorder.ondataavailable=e=>parts.push(e.data);recorder.onstop=async()=>{const blob=new Blob(parts,{type:recorder.mimeType});if(mineUrl)URL.revokeObjectURL(mineUrl);mineUrl=URL.createObjectURL(blob);playBtn.disabled=false;recordBtn.textContent="● Record";statusEl.textContent="Recording ready.";const arr=await blob.arrayBuffer(),ctx=new AudioContext();try{const buf=await ctx.decodeAudioData(arr.slice(0));if(onDecoded)onDecoded(buf)}catch{}await ctx.close();stream.getTracks().forEach(t=>t.stop())};recorder.start();recordBtn.textContent="■ Stop";statusEl.textContent="Recording…"}catch{statusEl.textContent="Please allow microphone access."}}
+$("recordBtn").addEventListener("click",()=>recordAudio($("sStatus"),$("recordBtn"),$("playBtn")));
+$("playBtn").addEventListener("click",()=>{if(mineUrl)new Audio(mineUrl).play()});
+$("visualRecord").addEventListener("click",()=>recordAudio($("vStatus"),$("visualRecord"),$("visualMine"),buf=>{drawWave(buf,$("myWave"));drawSpec(buf,$("mySpec"))}));
+$("visualMine").addEventListener("click",()=>{if(mineUrl)new Audio(mineUrl).play()});
 
 function drawEmpty(canvas,label){const c=canvas.getContext("2d");c.fillStyle="#0b0910";c.fillRect(0,0,canvas.width,canvas.height);c.fillStyle="#8f859a";c.font="18px sans-serif";c.textAlign="center";c.fillText(label,canvas.width/2,canvas.height/2)}
+function drawWave(buffer,canvas){const d=buffer.getChannelData(0),c=canvas.getContext("2d"),w=canvas.width,h=canvas.height;c.fillStyle="#0b0910";c.fillRect(0,0,w,h);c.strokeStyle="#a78bfa";c.lineWidth=2;c.beginPath();for(let x=0;x<w;x++){const start=Math.floor(x*d.length/w),end=Math.floor((x+1)*d.length/w);let min=1,max=-1;for(let i=start;i<end;i++){if(d[i]<min)min=d[i];if(d[i]>max)max=d[i]}c.moveTo(x,(1+min)*h/2);c.lineTo(x,(1+max)*h/2)}c.stroke()}
 function dft(samples){const N=samples.length,out=new Float32Array(N/2);for(let k=0;k<N/2;k++){let re=0,im=0;for(let n=0;n<N;n++){const a=2*Math.PI*k*n/N;re+=samples[n]*Math.cos(a);im-=samples[n]*Math.sin(a)}out[k]=Math.hypot(re,im)}return out}
-function drawSpectrum(buffer,canvas){const data=buffer.getChannelData(0),N=512,step=Math.max(1,Math.floor(data.length/N)),sample=new Float32Array(N);for(let i=0;i<N;i++)sample[i]=data[Math.min(data.length-1,i*step)]*(.5-.5*Math.cos(2*Math.PI*i/(N-1)));const spec=dft(sample),max=Math.max(...spec,1e-6),c=canvas.getContext("2d"),w=canvas.width,h=canvas.height;c.fillStyle="#0b0910";c.fillRect(0,0,w,h);c.strokeStyle="#a78bfa";c.lineWidth=3;c.beginPath();for(let x=0;x<w;x++){const j=Math.floor(x/w*(spec.length-1)),db=20*Math.log10(spec[j]/max+1e-8),y=h-Math.max(0,Math.min(1,(db+70)/70))*h;x===0?c.moveTo(x,y):c.lineTo(x,y)}c.stroke()}
+function drawSpec(buffer,canvas){const data=buffer.getChannelData(0),N=512,step=Math.max(1,Math.floor(data.length/N)),sample=new Float32Array(N);for(let i=0;i<N;i++)sample[i]=data[Math.min(data.length-1,i*step)]*(.5-.5*Math.cos(2*Math.PI*i/(N-1)));const spec=dft(sample),max=Math.max(...spec,1e-6),c=canvas.getContext("2d"),w=canvas.width,h=canvas.height;c.fillStyle="#0b0910";c.fillRect(0,0,w,h);c.strokeStyle="#a78bfa";c.lineWidth=3;c.beginPath();for(let x=0;x<w;x++){const j=Math.floor(x/w*(spec.length-1)),db=20*Math.log10(spec[j]/max+1e-8),y=h-Math.max(0,Math.min(1,(db+70)/70))*h;x===0?c.moveTo(x,y):c.lineTo(x,y)}c.stroke()}
+async function loadModel(){const url=`/audio/model_${String(globalIndex()).padStart(2,"0")}.wav?v=5`;modelPlayer=new Audio(url);try{const arr=await fetch(url,{cache:"no-store"}).then(r=>r.arrayBuffer()),ctx=new AudioContext(),buf=await ctx.decodeAudioData(arr);currentModelBuffer=buf;drawWave(buf,$("modelWave"));drawSpec(buf,$("modelSpec"));await ctx.close()}catch{drawEmpty($("modelWave"),"Model unavailable");drawEmpty($("modelSpec"),"Model unavailable")}drawEmpty($("myWave"),"Record your voice");drawEmpty($("mySpec"),"Record your voice")}
+$("modelPlay").addEventListener("click",()=>{if(modelPlayer){modelPlayer.currentTime=0;modelPlayer.play()}});
 
-async function loadModel(){const url=`/audio/model_${String(globalAudioIndex()).padStart(2,"0")}.wav?v=4`;modelPlayer=new Audio(url);try{const arr=await fetch(url,{cache:"no-store"}).then(r=>r.arrayBuffer()),ctx=new AudioContext(),buf=await ctx.decodeAudioData(arr);drawSpectrum(buf,$("modelSpectrum"));await ctx.close()}catch{drawEmpty($("modelSpectrum"),"Model audio unavailable")}}
-function render(){const s=topic.sentences[sentenceIndex];$("topicName").textContent=topic.name;$("counter").textContent=`${sentenceIndex+1} of ${topic.sentences.length}`;$("sentence").textContent=s.text;$("sentenceChunks").innerHTML=s.chunks.map(x=>`<span class="chunk">${x}</span>`).join("");drawEmpty($("mySpectrum"),"Record your voice");loadModel()}
-$("naturalVoice").addEventListener("click",()=>speak(topic.sentences[sentenceIndex].text));
-$("modelAudio").addEventListener("click",()=>{if(modelPlayer){modelPlayer.currentTime=0;modelPlayer.play()}});
-$("nextSentence").addEventListener("click",()=>{sentenceIndex=(sentenceIndex+1)%topic.sentences.length;render()});
-$("record").addEventListener("click",async()=>{if(recorder&&recorder.state==="recording"){recorder.stop();return}try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});parts=[];recorder=new MediaRecorder(stream);recorder.ondataavailable=e=>parts.push(e.data);recorder.onstop=async()=>{const blob=new Blob(parts,{type:recorder.mimeType});if(myUrl)URL.revokeObjectURL(myUrl);myUrl=URL.createObjectURL(blob);$("playMine").disabled=false;$("record").textContent="● Record";$("status").textContent="Recording ready. Compare the two spectra and replay both versions.";const arr=await blob.arrayBuffer(),ctx=new AudioContext();try{const buf=await ctx.decodeAudioData(arr.slice(0));drawSpectrum(buf,$("mySpectrum"))}catch{drawEmpty($("mySpectrum"),"Analysis unavailable")}await ctx.close();stream.getTracks().forEach(t=>t.stop())};recorder.start();$("record").textContent="■ Stop";$("status").textContent="Recording…"}catch{$("status").textContent="Please allow microphone access in Safari."}});
-$("playMine").addEventListener("click",()=>{if(myUrl)new Audio(myUrl).play()});
+document.querySelectorAll("[data-rate]").forEach(b=>b.addEventListener("click",()=>speak(DATA.dictations[dictIndex][0],+b.dataset.rate)));
+function norm(s){return s.toLowerCase().replace(/[^\w\s']/g,"").replace(/\s+/g," ").trim()}
+function renderDict(){ $("dictHint").textContent=DATA.dictations[dictIndex][1];$("dictInput").value="";$("dictResult").textContent=""}
+$("dictCheck").addEventListener("click",()=>{$("dictResult").innerHTML=norm($("dictInput").value)===norm(DATA.dictations[dictIndex][0])?"<b style='color:var(--good)'>Correct!</b>":"Answer: <b>"+DATA.dictations[dictIndex][0]+"</b>"});
+$("dictNext").addEventListener("click",()=>{dictIndex=(dictIndex+1)%DATA.dictations.length;renderDict()});
 
-$("chunkList").innerHTML=topic.sentences.flatMap(s=>s.chunks).map(x=>`<div class="item"><b>${x}</b><p class="muted">把它作为一个整体节奏单位来读，不要逐词停顿。</p><button class="btn soft speakBtn" data-text="${encodeURIComponent(x)}">▶ Listen</button></div>`).join("");
-$("phrasalList").innerHTML=topic.phrasals.map(x=>`<div class="item phraseGrid"><div class="phrase">${x[0]}</div><div><b>${x[1]}</b><p>${x[2]}</p><button class="btn soft speakBtn" data-text="${encodeURIComponent(x[0]+'. '+x[2])}">▶ Listen</button></div></div>`).join("");
-$("soundList").innerHTML=DATA.sound.map(x=>`<div class="item phraseGrid"><div class="phrase">${x[0]}</div><div><b>${x[1]}</b><p>${x[2]}</p><button class="btn soft speakBtn" data-text="${encodeURIComponent(x[0]+'. '+x[2])}">▶ Listen</button></div></div>`).join("");
-document.querySelectorAll(".speakBtn").forEach(b=>b.addEventListener("click",()=>speak(decodeURIComponent(b.dataset.text))));
-render();
-if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).finally(()=>window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js?v=4")))}
-</script></body></html>
+$("chunkList").innerHTML=topic.sentences.flatMap(s=>s.chunks).map(x=>`<div class="item"><b>${x}</b><p class="muted">Say it as one rhythm unit.</p><button class="btn soft speakText" data-text="${encodeURIComponent(x)}">▶ Listen</button></div>`).join("");
+$("phrasalList").innerHTML=topic.phrasals.map(x=>`<div class="item phraseGrid"><div class="phrase">${x[0]}</div><div><b>${x[1]}</b><p>${x[2]}</p><button class="btn soft speakText" data-text="${encodeURIComponent(x[0]+'. '+x[2])}">▶ Listen</button></div></div>`).join("");
+
+function renderLibrary(){const q=$("searchBox").value.toLowerCase(),cat=$("categoryFilter").value;let rows=[];if(cat!=="Sound Design"){rows.push(...allSentences().map(s=>({title:s.text,sub:`Daily English · ${s.topic} · ${s.focus}`,speech:s.text})));rows.push(...DATA.topics.flatMap(t=>t.phrasals.map(x=>({title:x[0],sub:`Phrasal Verb · ${x[1]} · ${x[2]}`,speech:x[0]+'. '+x[2]}))))}if(cat!=="Daily English"){rows.push(...DATA.sound.map(x=>({title:x[0],sub:`Sound Design · ${x[3]} · ${x[1]} · ${x[2]}`,speech:x[0]+'. '+x[2]})))}rows=rows.filter(r=>(r.title+" "+r.sub).toLowerCase().includes(q));$("libraryList").innerHTML=rows.map(r=>`<div class="item"><b>${r.title}</b><p class="muted">${r.sub}</p><button class="btn soft speakText" data-text="${encodeURIComponent(r.speech)}">▶ Listen</button></div>`).join("");bindSpeakButtons()}
+$("searchBox").addEventListener("input",renderLibrary);$("categoryFilter").addEventListener("change",renderLibrary);
+function bindSpeakButtons(){document.querySelectorAll(".speakText").forEach(b=>b.addEventListener("click",()=>speak(decodeURIComponent(b.dataset.text))))}
+bindSpeakButtons();
+
+function renderStudio(){const s=DATA.studio[studioIndex];$("studioLead").textContent=s[0];$("studioPrompt").textContent="“"+s[1]+"”";$("studioResponse").textContent=s[2]}
+$("studioPromptBtn").addEventListener("click",()=>speak(DATA.studio[studioIndex][1]));
+$("studioResponseBtn").addEventListener("click",()=>speak(DATA.studio[studioIndex][2]));
+$("studioNext").addEventListener("click",()=>{studioIndex=(studioIndex+1)%DATA.studio.length;renderStudio()});
+
+function renderProgress(){let last=localStorage.ws5_date,today=new Date().toISOString().slice(0,10),st=+(localStorage.ws5_streak||1);if(last&&last!==today){let d=Math.round((new Date(today)-new Date(last))/86400000);st=d===1?st+1:1}localStorage.ws5_date=today;localStorage.ws5_streak=st;$("progressDone").textContent=completed.length;$("streak").textContent=st;$("favoriteCount").textContent=favorites.length;$("favoriteList").innerHTML=favorites.length?favorites.map(t=>`<div class="item"><b>${t}</b><button class="btn soft speakText" data-text="${encodeURIComponent(t)}">▶ Listen</button></div>`).join(""):'<div class="muted">No saved practice yet.</div>';bindSpeakButtons()}
+$("resetBtn").addEventListener("click",()=>{if(confirm("Reset all local WaveSpeak progress?")){completed=[];favorites=[];current=0;save();renderSpeaking();renderProgress()}});
+renderDict();renderStudio();renderSpeaking();renderLibrary();renderProgress();
+if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).finally(()=>window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js?v=5")))}
+</script>
+</body></html>
