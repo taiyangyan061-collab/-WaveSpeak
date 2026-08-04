@@ -1,22 +1,22 @@
 {
-  "name": "WaveSpeak v15 Browser Compatibility",
+  "name": "WaveSpeak v16 AI Voice",
   "short_name": "WaveSpeak",
   "id": "/",
-  "start_url": "/?v=15",
+  "start_url": "/?v=16",
   "scope": "/",
   "display": "standalone",
   "background_color": "#f6f3ef",
   "theme_color": "#18131f",
-  "description": "WaveSpeak with browser detection and Safari guidance for reliable speech playback on Mac.",
+  "description": "WaveSpeak with cross-browser server-generated AI model voice.",
   "icons": [
     {
-      "src": "/icon-192.png?v=15",
+      "src": "/icon-192.png?v=16",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icon-512.png?v=15",
+      "src": "/icon-512.png?v=16",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

@@ -1,15 +1,26 @@
-# WaveSpeak BROWSER COMPAT v15
+# WaveSpeak AI VOICE v16
 
-This version preserves v14 and adds browser compatibility handling.
+This version preserves the complete v15 learning app and adds cross-browser server-generated AI speech.
 
-Changes:
-- Detects Chrome and Safari on macOS
-- Shows a clear warning in Chrome that browser-generated speech may fail
-- Recommends Safari for Listen and Phrase by phrase
-- Confirms Safari support when opened in Safari
-- Keeps recording, waveform, spectrum, Library, Creative Sound Lab, Content Engine, Studio Mode, and progress available in Chrome
-- Shows browser-specific playback error messages
-- Does not change the learning content or core modules
+## New
+- OpenAI `gpt-4o-mini-tts` through a Vercel serverless function
+- Voices: Marin, Cedar, Coral, Nova
+- Styles: natural, slow teaching, expressive, professional
+- Speaking Listen and Phrase-by-Phrase use the same audio in Safari, Chrome, and mobile
+- Browser speech remains a fallback
+- Clear disclosure that model speech is AI-generated
+- In-memory audio caching during each session
 
-Upload every file and the complete audio folder.
-Confirm deployment by checking for `BROWSER COMPAT v15`.
+## Required Vercel setup
+1. Open the WaveSpeak project in Vercel.
+2. Go to Settings → Environment Variables.
+3. Add:
+   - Name: `OPENAI_API_KEY`
+   - Value: your OpenAI API key
+4. Apply it to Production, Preview, and Development as needed.
+5. Redeploy the latest deployment.
+
+Never place the API key in `index.html`, GitHub, or browser code.
+
+Upload every project file, including the new `api/tts.js`.
+Confirm deployment by checking for `AI VOICE v16`.
