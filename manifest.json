@@ -1,22 +1,22 @@
 {
-  "name": "WaveSpeak v9 Voice Fix",
+  "name": "WaveSpeak v10 Stable Repair",
   "short_name": "WaveSpeak",
   "id": "/",
-  "start_url": "/?v=9",
+  "start_url": "/?v=10",
   "scope": "/",
   "display": "standalone",
   "background_color": "#f6f3ef",
   "theme_color": "#18131f",
-  "description": "WaveSpeak with curated English voices and reliable speech playback fallback.",
+  "description": "Stable repaired WaveSpeak with complete content rendering and safe voice fallback.",
   "icons": [
     {
-      "src": "/icon-192.png?v=9",
+      "src": "/icon-192.png?v=10",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icon-512.png?v=9",
+      "src": "/icon-512.png?v=10",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

@@ -1,12 +1,23 @@
-# WaveSpeak VOICE FIX v9
+# WaveSpeak STABLE REPAIR v10
 
-Fixes:
-- Removes novelty/accessibility voices such as Grandma, Grandpa, Bells, Whisper, Organ, and singing voices
-- Adds `Auto (recommended)` as the default
-- Tries a curated normal English voice first
-- Automatically falls back to the browser/system default voice if the selected voice fails
-- Fixes Phrase-by-Phrase playback fallback
-- Preserves all v8 Content Engine and Creative Sound Lab features
+This repair starts from the last function-complete v8 package.
 
-Upload every file and the entire `audio` folder.
-Confirm deployment by checking for `VOICE FIX v9`.
+It restores and preserves:
+- Speaking sentences and chunks
+- Phrasal verbs
+- Listening and dictation
+- Resource Library
+- Waveform and spectrum displays
+- Recording and playback
+- Creative Sound Lab
+- Content Engine
+- Favorites, Studio Mode, and progress
+
+Voice fix:
+- Hides novelty/accessibility voices such as Grandma and singing voices
+- Defaults to Auto (recommended)
+- Falls back to Safari's system voice if a selected voice fails
+- Repairs Phrase-by-Phrase playback without replacing other application functions
+
+Upload all files and the entire audio folder.
+Confirm deployment by checking for STABLE REPAIR v10.
