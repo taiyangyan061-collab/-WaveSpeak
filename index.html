@@ -6,10 +6,10 @@
 <meta name="theme-color" content="#18131f">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="WaveSpeak">
-<link rel="manifest" href="/manifest.json?v=5">
-<link rel="icon" href="/icon.svg?v=5">
-<link rel="apple-touch-icon" href="/icon-192.png?v=5">
-<title>WaveSpeak v5</title>
+<link rel="manifest" href="/manifest.json?v=6">
+<link rel="icon" href="/icon.svg?v=6">
+<link rel="apple-touch-icon" href="/icon-192.png?v=6">
+<title>WaveSpeak v6</title>
 <style>
 :root{--bg:#f6f3ef;--ink:#18151c;--muted:#756f79;--line:#e5dfd9;--card:#fff;--accent:#7450d8;--soft:#efe9ff;--dark:#241b30;--good:#15803d}
 *{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink)}
@@ -27,11 +27,23 @@ select,input,textarea{font:inherit}select,input[type="search"]{border:1px solid 
 .tabs{display:flex;gap:8px;overflow:auto;margin-bottom:14px}.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;white-space:nowrap;cursor:pointer}.chip.active{background:var(--dark);color:white}
 .bottom{position:fixed;bottom:0;left:0;right:0;background:#ffffffef;backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;justify-content:center;gap:34px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));z-index:5}.bottom button{background:none;border:0;color:var(--muted);font-size:12px}.bottom b{display:block;font-size:20px}
 .notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:12px;border-radius:14px;font-size:13px;margin-top:14px}.score{font-size:42px;font-weight:900}
+
+.labNav{display:flex;gap:8px;overflow:auto;margin:14px 0}.labTab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;white-space:nowrap;cursor:pointer}.labTab.active{background:var(--dark);color:#fff}
+.labPane{display:none}.labPane.active{display:block}.vocabGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.vocabEntry{background:#fff;border:1px solid var(--line);border-radius:17px;padding:14px}
+.vocabEntry h3{margin:0 0 7px;font-size:17px}.definition{font-size:14px;color:var(--muted);line-height:1.5}.example{font-size:14px;line-height:1.5;margin-top:9px}
+.soundStage{background:#17131e;color:white;border-radius:18px;padding:18px;margin:12px 0}.soundStage h3{margin:0 0 8px;font-size:15px}.soundStage p{color:#cfc7d8;font-size:13px}
+.compareGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.choice{border:1px solid var(--line);background:#fff;border-radius:15px;padding:14px;text-align:left;cursor:pointer}.choice.correct{border-color:#16a34a;background:#f0fdf4}.choice.wrong{border-color:#dc2626;background:#fef2f2}
+.rubric{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.rubricItem{background:#f7f5f3;border-radius:13px;padding:10px;font-size:13px}.rubricItem.ok{background:#ecfdf3;color:#166534}
+.builderGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.builderOutput{background:#faf8ff;border:1px solid #ddd1ff;border-radius:15px;padding:15px;font-size:18px;line-height:1.5}
+.contextCard{background:#fff;border:1px solid var(--line);border-radius:17px;padding:14px;cursor:pointer}.contextCard.active{border-color:var(--accent);background:var(--soft)}
+.keyword{display:inline-block;background:#f1edff;color:#4d1f92;border-radius:999px;padding:5px 8px;margin:3px;font-size:12px}
+@media(max-width:760px){.vocabGrid,.compareGrid,.builderGrid{grid-template-columns:1fr}.rubric{grid-template-columns:1fr 1fr}}
+
 @media(max-width:780px){.grid{grid-template-columns:1fr 1fr}.visuals{grid-template-columns:1fr}.hero h1{font-size:28px}.sentence{font-size:24px}.phraseGrid{grid-template-columns:1fr}.app{padding:13px 13px 92px}.bottom{gap:18px}}
 </style>
 </head>
 <body><div class="app">
-<div class="top"><div class="brand">WaveSpeak</div><div class="version">MERGED v5</div></div>
+<div class="top"><div class="brand">WaveSpeak</div><div class="version">CREATIVE LAB v6</div></div>
 
 <section id="home" class="screen active">
 <div class="hero">
@@ -49,8 +61,9 @@ select,input,textarea{font:inherit}select,input[type="search"]{border:1px solid 
 <div class="mode" data-open="library"><div>▤</div><b>Library</b><span>Search all daily and sound-design content</span></div>
 <div class="mode" data-open="studio"><div>🎚</div><b>Studio Mode</b><span>Production conversations and responses</span></div>
 <div class="mode" data-open="progress"><div>✓</div><b>Progress</b><span>Favorites, completed items, and streak</span></div>
+<div class="mode" data-open="creativeLab"><div>🌌</div><b>Creative Sound Lab</b><span>Atmosphere, timbre, space, movement, dramaturgy, and professional description</span></div>
 </div>
-<div class="notice">MERGED v5 保留旧功能并加入新功能。看到这个标签就说明加载的是合并版。</div>
+<div class="notice">CREATIVE LAB v6 保留旧功能并加入新功能。看到这个标签就说明加载的是合并版。</div>
 </section>
 
 <section id="speaking" class="screen"><button class="back" data-home>← Home</button><div class="card">
@@ -94,6 +107,80 @@ select,input,textarea{font:inherit}select,input[type="search"]{border:1px solid 
 <div class="tag">STUDIO MODE</div><h2 id="studioLead"></h2><div class="sentence" id="studioPrompt"></div><p>Your natural response:</p><div class="chunkWrap"><b id="studioResponse"></b></div>
 <div class="controls"><button class="btn primary" id="studioPromptBtn">▶ Hear Prompt</button><button class="btn soft" id="studioResponseBtn">▶ Hear Response</button><button class="btn plain" id="studioNext">Next →</button></div></div></section>
 
+
+<section id="creativeLab" class="screen"><button class="back" data-home>← Home</button>
+<div class="card">
+<span class="topic">CREATIVE SOUND VOCABULARY</span>
+<h2>Sound Description Lab</h2>
+<p class="muted">Build the language to describe atmosphere, timbre, space, movement, density, and dramaturgical function.</p>
+<div class="labNav">
+<button class="labTab active" data-lab="labVocabulary">Vocabulary</button>
+<button class="labTab" data-lab="labListening">Listening Lab</button>
+<button class="labTab" data-lab="labCompare">Word Comparison</button>
+<button class="labTab" data-lab="labSpeak">Speak & Record</button>
+<button class="labTab" data-lab="labBuilder">Sentence Builder</button>
+</div>
+
+<div id="labVocabulary" class="labPane active">
+<div class="tabs" id="creativeCategoryTabs"></div>
+<div id="creativeVocabList" class="vocabGrid"></div>
+</div>
+
+<div id="labListening" class="labPane">
+<div class="soundStage">
+<h3 id="soundExerciseTitle">Sound Example 1</h3>
+<p id="soundExercisePrompt">Listen, then choose the best description.</p>
+<div class="controls"><button class="btn primary" id="playSoundExample">▶ Play Sound</button><button class="btn plain" id="replaySoundExample">Replay</button></div>
+</div>
+<div id="soundChoices" class="compareGrid"></div>
+<p id="soundFeedback" class="muted"></p>
+<div class="controls"><button class="btn plain" id="nextSoundExercise">Next Sound →</button></div>
+</div>
+
+<div id="labCompare" class="labPane">
+<h3 id="comparisonTitle"></h3>
+<p class="muted" id="comparisonPrompt"></p>
+<div id="comparisonChoices" class="compareGrid"></div>
+<div class="soundStage"><p id="comparisonExplanation">Choose the stronger word for the context.</p></div>
+<button class="btn plain" id="nextComparison">Next Comparison →</button>
+</div>
+
+<div id="labSpeak" class="labPane">
+<div class="soundStage">
+<h3>Spoken Sound Description</h3>
+<p id="speakPrompt">Listen to the sound, then describe it for 20–40 seconds as if speaking in a critique.</p>
+<div class="controls"><button class="btn primary" id="speakSoundPlay">▶ Play Prompt Sound</button><button class="btn soft" id="labRecordBtn">● Record Description</button><button class="btn plain" id="labPlayRecording" disabled>Play Recording</button></div>
+</div>
+<label class="muted" for="labTranscript">Transcript or notes (automatic transcription is used when the browser supports it)</label>
+<textarea id="labTranscript" placeholder="Example: The sound begins as a sparse, grainy texture. It gradually swells and becomes more oppressive..."></textarea>
+<div class="controls"><button class="btn primary" id="analyzeDescription">Get Feedback</button><button class="btn plain" id="newSpeakPrompt">New Prompt</button></div>
+<div id="descriptionFeedback" class="card" style="margin-top:12px">
+<p class="muted">Feedback will check vocabulary range, movement, space, dramaturgical meaning, and professional sentence structure.</p>
+</div>
+</div>
+
+<div id="labBuilder" class="labPane">
+<h3>Professional Sentence Building</h3>
+<p class="muted">Choose a professional context, then build a sentence for a critique, presentation, portfolio, or conversation with a director.</p>
+<div id="contextChoices" class="grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:14px"></div>
+<div class="builderGrid">
+<div>
+<label class="muted">Atmosphere / emotion</label><select id="builderAtmosphere" style="width:100%"></select>
+<label class="muted">Timbre / texture</label><select id="builderTimbre" style="width:100%;margin-top:9px"></select>
+<label class="muted">Space / distance</label><select id="builderSpace" style="width:100%;margin-top:9px"></select>
+<label class="muted">Movement / transformation</label><select id="builderMovement" style="width:100%;margin-top:9px"></select>
+<label class="muted">Dramaturgical function</label><select id="builderDrama" style="width:100%;margin-top:9px"></select>
+</div>
+<div>
+<div class="builderOutput" id="builderOutput"></div>
+<div class="controls"><button class="btn primary" id="speakBuiltSentence">▶ Listen</button><button class="btn soft" id="copyVariation">Generate Variation</button></div>
+<p class="muted" id="builderTip"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
 <section id="progress" class="screen"><button class="back" data-home>← Home</button><div class="grid">
 <div class="card"><h2>Completed</h2><div class="score" id="progressDone">0</div><p class="muted">practice items</p></div>
 <div class="card"><h2>Streak</h2><div class="score" id="streak">1</div><p class="muted">days</p></div>
@@ -107,15 +194,15 @@ select,input,textarea{font:inherit}select,input[type="search"]{border:1px solid 
 <button data-open="speaking"><b>◉</b>Speak</button>
 <button data-open="visual"><b>📊</b>Visual</button>
 <button data-open="listening"><b>◖</b>Listen</button>
-<button data-open="library"><b>▤</b>Library</button>
+<button data-open="library"><b>▤</b>Library</button><button data-open="creativeLab"><b>🌌</b>Lab</button>
 </div>
 
 <script>
 const DATA={"topics": [{"name": "Ordering Food", "sentences": [{"text": "Could I get the chicken sandwich without onions?", "chunks": ["Could I get…?", "without onions"], "focus": "Linking"}, {"text": "What do you recommend if I want something light?", "chunks": ["What do you recommend…?", "if I want something light"], "focus": "Intonation"}, {"text": "Could we have the check whenever you get a chance?", "chunks": ["Could we have the check?", "whenever you get a chance"], "focus": "Reduction"}], "phrasals": [["eat out", "在外面吃饭", "We usually eat out on Friday night."], ["pick up", "取餐；顺路拿", "I’ll pick up the order on my way home."], ["cut back on", "减少", "I’m trying to cut back on sugar."]]}, {"name": "Transportation", "sentences": [{"text": "How long does it usually take to get there?", "chunks": ["How long does it take…?", "to get there"], "focus": "Rhythm"}, {"text": "Could you let me know when we get to the next stop?", "chunks": ["Could you let me know…?", "when we get to…"], "focus": "Linking"}, {"text": "Traffic was backed up, so I ended up taking a different route.", "chunks": ["Traffic was backed up", "I ended up…", "taking a different route"], "focus": "Stress"}], "phrasals": [["get on", "上车", "We got on the train at Union Station."], ["get off", "下车", "You need to get off at the next stop."], ["back up", "堵塞；积压", "Traffic is backing up near the freeway."]]}, {"name": "Classroom", "sentences": [{"text": "Could you go over that one more time?", "chunks": ["Could you go over…?", "one more time"], "focus": "Linking"}, {"text": "I understand the idea, but I’m not sure how to apply it.", "chunks": ["I understand the idea", "I’m not sure how to…"], "focus": "Stress"}, {"text": "Would it be possible to submit the assignment tomorrow?", "chunks": ["Would it be possible to…?", "submit the assignment"], "focus": "Polite intonation"}], "phrasals": [["go over", "复习；再解释", "Could we go over the assignment requirements?"], ["hand in", "提交", "I’ll hand in the project before class."], ["catch up", "赶上进度", "I need to catch up on the reading."]]}, {"name": "Shopping", "sentences": [{"text": "Do you have this in a smaller size?", "chunks": ["Do you have this in…?", "a smaller size"], "focus": "Intonation"}, {"text": "I’m just looking, but I’ll let you know if I need help.", "chunks": ["I’m just looking", "I’ll let you know"], "focus": "Reduction"}, {"text": "Could I return this if it doesn’t fit?", "chunks": ["Could I return this…?", "if it doesn’t fit"], "focus": "Linking"}], "phrasals": [["try on", "试穿", "Can I try this jacket on?"], ["sell out", "售罄", "The smaller size sold out yesterday."], ["take back", "退回商品", "I need to take this shirt back."]]}, {"name": "Small Talk", "sentences": [{"text": "How has your week been so far?", "chunks": ["How has your week been…?", "so far"], "focus": "Intonation"}, {"text": "I’ve been keeping busy with a new sound project.", "chunks": ["I’ve been keeping busy with…", "a new sound project"], "focus": "Rhythm"}, {"text": "That sounds interesting. How did you get into it?", "chunks": ["That sounds interesting", "How did you get into…?"], "focus": "Linking"}], "phrasals": [["get into", "开始喜欢；进入某领域", "How did you get into sound design?"], ["hang out", "一起消磨时间", "We hung out after rehearsal."], ["run into", "偶遇", "I ran into my classmate at the library."]]}, {"name": "Appointments", "sentences": [{"text": "I’d like to make an appointment for next week.", "chunks": ["I’d like to make an appointment", "for next week"], "focus": "Rhythm"}, {"text": "Is there anything available on Friday afternoon?", "chunks": ["Is there anything available…?", "on Friday afternoon"], "focus": "Intonation"}, {"text": "Could we move the appointment to a later time?", "chunks": ["Could we move the appointment…?", "to a later time"], "focus": "Polite request"}], "phrasals": [["set up", "安排", "I need to set up a meeting with my advisor."], ["push back", "推迟", "Could we push the appointment back an hour?"], ["show up", "出现；到场", "Please show up ten minutes early."]]}, {"name": "Plans & Invitations", "sentences": [{"text": "Are you free to grab coffee sometime this week?", "chunks": ["Are you free to…?", "sometime this week"], "focus": "Intonation"}, {"text": "I’m not completely sure yet, but I’ll let you know.", "chunks": ["I’m not completely sure yet", "I’ll let you know"], "focus": "Stress"}, {"text": "Something came up, so I may need to reschedule.", "chunks": ["Something came up", "I may need to reschedule"], "focus": "Linking"}], "phrasals": [["come up", "突然发生", "Something came up, so I can’t go tonight."], ["figure out", "弄清楚；决定", "I’ll figure out my schedule tonight."], ["turn down", "拒绝", "I had to turn down the invitation."]]}], "sound": [["room tone", "室内空间本底声", "We need thirty seconds of clean room tone.", "Field Recording"], ["gain staging", "增益结构管理", "Good gain staging prevents clipping and excess noise.", "Studio"], ["ring out", "调试并削减反馈频率", "We need to ring out the monitors before rehearsal.", "Theater"], ["roll off", "逐渐衰减某段频率", "I rolled off some low frequencies below eighty hertz.", "Mixing"], ["fade in", "渐入", "The ambience should fade in after the blackout.", "Theater"], ["fade out", "渐出", "Fade out the music as the dialogue begins.", "Theater"], ["route to", "把信号发送到", "Route these tracks to the main output.", "Studio"], ["pick up", "麦克风拾取声音", "The microphone picked up too much wind noise.", "Field Recording"], ["cut through", "在混音中保持清晰", "The dialogue needs to cut through the music.", "Mixing"], ["build up", "逐渐积累", "Low-frequency energy is building up in the room.", "Acoustics"], ["print stems", "导出分轨", "I’ll print the stems before rehearsal.", "Post-production"], ["patch into", "接入系统", "Patch the wireless receiver into input eight.", "Theater"], ["send to", "发送到总线或效果器", "Send the vocal to the reverb bus.", "Studio"], ["bring down", "降低音量", "Bring the music down under the dialogue.", "Mixing"], ["binaural", "双耳录音/渲染", "I made a binaural version for headphone listeners.", "Spatial Audio"], ["impulse response", "脉冲响应", "I used the church impulse response for convolution reverb.", "Acoustics"]], "dictations": [["Could you send me the latest version before rehearsal?", "Listen for the reduced pronunciation of “could you” and “before.”"], ["The microphone picked up more wind noise than I expected.", "Listen for “picked up” and “more than.”"], ["I need a cleaner recording with less background noise.", "Listen for the contrast between “cleaner” and “less.”"], ["The reverb makes the space feel much larger.", "Listen to the final consonants in “makes” and “space.”"], ["We should capture a few minutes of clean room tone.", "Listen for “a few minutes of” as one rhythm group."], ["I’ll export the stems and send them over tonight.", "Listen for “stems and” and “send them.”"], ["The cue should start just before the lights fade.", "Listen for “should start” and “just before.”"], ["Can you hear the low-frequency rumble underneath the dialogue?", "Listen for “low-frequency rumble.”"]], "studio": [["Your instructor says:", "Can you send me the stems before rehearsal?", "Sure. I’ll export them and send them over before rehearsal."], ["The stage manager asks:", "Can we take the cue from the top of the scene?", "Yes. I’m ready to run it again from the top."], ["A mixer asks:", "Could you bring the dialogue up a little?", "Sure. I’ll bring it up by about two decibels."], ["A director says:", "The transition feels too abrupt.", "I can lengthen the crossfade and make it smoother."]]};
 const $=id=>document.getElementById(id);
 const topicIndex=(new Date().getDay()+6)%7, topic=DATA.topics[topicIndex];
-let current=+(localStorage.ws5_current||0),dictIndex=0,studioIndex=0;
-let completed=JSON.parse(localStorage.ws5_completed||"[]"),favorites=JSON.parse(localStorage.ws5_favorites||"[]");
+let current=+(localStorage.ws6_current||0),dictIndex=0,studioIndex=0;
+let completed=JSON.parse(localStorage.ws6_completed||"[]"),favorites=JSON.parse(localStorage.ws6_favorites||"[]");
 let voices=[],recorder,parts=[],mineUrl=null,modelPlayer=null,currentModelBuffer=null;
 
 function openScreen(id){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));$(id).classList.add("active");if(id==="library")renderLibrary();if(id==="progress")renderProgress();scrollTo(0,0)}
@@ -130,7 +217,7 @@ function badVoice(name){return /bells|boing|bubbles|cellos|jester|organ|supersta
 function loadVoices(){voices=speechSynthesis.getVoices().filter(v=>v.lang&&v.lang.toLowerCase().startsWith("en")&&!badVoice(v.name));$("voiceSelect").innerHTML=voices.map((v,i)=>`<option value="${i}">${v.name} · ${v.lang}</option>`).join("");const p=voices.findIndex(v=>/Samantha|Ava|Allison|Evan|Nathan|Aaron|Tom|Google US English/i.test(v.name));if(p>=0)$("voiceSelect").value=p}
 speechSynthesis.onvoiceschanged=loadVoices;loadVoices();
 function speak(text,rate=+$("speed").value){const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=rate;const v=voices[+$("voiceSelect").value]||voices[0];if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u)}
-function save(){localStorage.ws5_current=current;localStorage.ws5_completed=JSON.stringify(completed);localStorage.ws5_favorites=JSON.stringify(favorites)}
+function save(){localStorage.ws6_current=current;localStorage.ws6_completed=JSON.stringify(completed);localStorage.ws6_favorites=JSON.stringify(favorites)}
 function renderHome(){ $("doneCount").textContent=completed.length;$("homeProgress").style.width=Math.min(100,completed.length/8*100)+"%"}
 function renderSpeaking(){const s=currentSentence();$("sTopic").textContent=topic.name;$("sFocus").textContent=s.focus;$("sCounter").textContent=`${current%topic.sentences.length+1} of ${topic.sentences.length}`;$("sSentence").textContent=s.text;$("sChunks").innerHTML=s.chunks.map(x=>`<span class="chunk">${x}</span>`).join("");$("favBtn").textContent=favorites.includes(s.text)?"★":"☆";$("vTopic").textContent=topic.name;$("vSentence").textContent=s.text;loadModel();renderHome()}
 $("listenBtn").addEventListener("click",()=>speak(currentSentence().text));
@@ -149,7 +236,7 @@ function drawEmpty(canvas,label){const c=canvas.getContext("2d");c.fillStyle="#0
 function drawWave(buffer,canvas){const d=buffer.getChannelData(0),c=canvas.getContext("2d"),w=canvas.width,h=canvas.height;c.fillStyle="#0b0910";c.fillRect(0,0,w,h);c.strokeStyle="#a78bfa";c.lineWidth=2;c.beginPath();for(let x=0;x<w;x++){const start=Math.floor(x*d.length/w),end=Math.floor((x+1)*d.length/w);let min=1,max=-1;for(let i=start;i<end;i++){if(d[i]<min)min=d[i];if(d[i]>max)max=d[i]}c.moveTo(x,(1+min)*h/2);c.lineTo(x,(1+max)*h/2)}c.stroke()}
 function dft(samples){const N=samples.length,out=new Float32Array(N/2);for(let k=0;k<N/2;k++){let re=0,im=0;for(let n=0;n<N;n++){const a=2*Math.PI*k*n/N;re+=samples[n]*Math.cos(a);im-=samples[n]*Math.sin(a)}out[k]=Math.hypot(re,im)}return out}
 function drawSpec(buffer,canvas){const data=buffer.getChannelData(0),N=512,step=Math.max(1,Math.floor(data.length/N)),sample=new Float32Array(N);for(let i=0;i<N;i++)sample[i]=data[Math.min(data.length-1,i*step)]*(.5-.5*Math.cos(2*Math.PI*i/(N-1)));const spec=dft(sample),max=Math.max(...spec,1e-6),c=canvas.getContext("2d"),w=canvas.width,h=canvas.height;c.fillStyle="#0b0910";c.fillRect(0,0,w,h);c.strokeStyle="#a78bfa";c.lineWidth=3;c.beginPath();for(let x=0;x<w;x++){const j=Math.floor(x/w*(spec.length-1)),db=20*Math.log10(spec[j]/max+1e-8),y=h-Math.max(0,Math.min(1,(db+70)/70))*h;x===0?c.moveTo(x,y):c.lineTo(x,y)}c.stroke()}
-async function loadModel(){const url=`/audio/model_${String(globalIndex()).padStart(2,"0")}.wav?v=5`;modelPlayer=new Audio(url);try{const arr=await fetch(url,{cache:"no-store"}).then(r=>r.arrayBuffer()),ctx=new AudioContext(),buf=await ctx.decodeAudioData(arr);currentModelBuffer=buf;drawWave(buf,$("modelWave"));drawSpec(buf,$("modelSpec"));await ctx.close()}catch{drawEmpty($("modelWave"),"Model unavailable");drawEmpty($("modelSpec"),"Model unavailable")}drawEmpty($("myWave"),"Record your voice");drawEmpty($("mySpec"),"Record your voice")}
+async function loadModel(){const url=`/audio/model_${String(globalIndex()).padStart(2,"0")}.wav?v=6`;modelPlayer=new Audio(url);try{const arr=await fetch(url,{cache:"no-store"}).then(r=>r.arrayBuffer()),ctx=new AudioContext(),buf=await ctx.decodeAudioData(arr);currentModelBuffer=buf;drawWave(buf,$("modelWave"));drawSpec(buf,$("modelSpec"));await ctx.close()}catch{drawEmpty($("modelWave"),"Model unavailable");drawEmpty($("modelSpec"),"Model unavailable")}drawEmpty($("myWave"),"Record your voice");drawEmpty($("mySpec"),"Record your voice")}
 $("modelPlay").addEventListener("click",()=>{if(modelPlayer){modelPlayer.currentTime=0;modelPlayer.play()}});
 
 document.querySelectorAll("[data-rate]").forEach(b=>b.addEventListener("click",()=>speak(DATA.dictations[dictIndex][0],+b.dataset.rate)));
@@ -171,9 +258,171 @@ $("studioPromptBtn").addEventListener("click",()=>speak(DATA.studio[studioIndex]
 $("studioResponseBtn").addEventListener("click",()=>speak(DATA.studio[studioIndex][2]));
 $("studioNext").addEventListener("click",()=>{studioIndex=(studioIndex+1)%DATA.studio.length;renderStudio()});
 
-function renderProgress(){let last=localStorage.ws5_date,today=new Date().toISOString().slice(0,10),st=+(localStorage.ws5_streak||1);if(last&&last!==today){let d=Math.round((new Date(today)-new Date(last))/86400000);st=d===1?st+1:1}localStorage.ws5_date=today;localStorage.ws5_streak=st;$("progressDone").textContent=completed.length;$("streak").textContent=st;$("favoriteCount").textContent=favorites.length;$("favoriteList").innerHTML=favorites.length?favorites.map(t=>`<div class="item"><b>${t}</b><button class="btn soft speakText" data-text="${encodeURIComponent(t)}">▶ Listen</button></div>`).join(""):'<div class="muted">No saved practice yet.</div>';bindSpeakButtons()}
+function renderProgress(){let last=localStorage.ws6_date,today=new Date().toISOString().slice(0,10),st=+(localStorage.ws6_streak||1);if(last&&last!==today){let d=Math.round((new Date(today)-new Date(last))/86400000);st=d===1?st+1:1}localStorage.ws6_date=today;localStorage.ws6_streak=st;$("progressDone").textContent=completed.length;$("streak").textContent=st;$("favoriteCount").textContent=favorites.length;$("favoriteList").innerHTML=favorites.length?favorites.map(t=>`<div class="item"><b>${t}</b><button class="btn soft speakText" data-text="${encodeURIComponent(t)}">▶ Listen</button></div>`).join(""):'<div class="muted">No saved practice yet.</div>';bindSpeakButtons()}
 $("resetBtn").addEventListener("click",()=>{if(confirm("Reset all local WaveSpeak progress?")){completed=[];favorites=[];current=0;save();renderSpeaking();renderProgress()}});
+
+const CREATIVE={
+ categories:{
+  "Atmosphere & Emotion":[
+   ["eerie","strangely unsettling or uncanny","An eerie high tone hangs above the scene, making the familiar room feel unsafe."],
+   ["ominous","suggesting that something threatening may happen","A low, ominous drone foreshadows the character’s arrival."],
+   ["haunting","emotionally persistent and difficult to forget","The haunting vocal fragment returns like a memory that cannot be erased."],
+   ["ethereal","light, delicate, and seemingly otherworldly","An ethereal layer of harmonics floats above the dialogue."],
+   ["oppressive","heavy, restrictive, or psychologically suffocating","The oppressive low-frequency pressure makes the space feel impossible to escape."],
+   ["serene","calm, peaceful, and balanced","A serene field of soft wind and distant birds opens the scene."],
+   ["dreamlike","resembling a dream; blurred, fluid, or unreal","The dreamlike transition dissolves the boundary between memory and present time."]
+  ],
+  "Timbre & Texture":[
+   ["grainy","rough, particulate, or made of many small sonic fragments","The recording has a grainy texture that reveals the instability of the signal."],
+   ["brittle","thin, hard, and easily perceived as breaking","The brittle high frequencies make each impact feel fragile and sharp."],
+   ["glassy","clear, hard, smooth, and bright like glass","A glassy synth tone reflects light without feeling warm."],
+   ["metallic","resembling resonating metal","The metallic resonance gives the footsteps an industrial character."],
+   ["abrasive","harsh and physically irritating","An abrasive band of noise cuts through the mix and creates discomfort."],
+   ["muffled","softened or obscured, with reduced high frequencies","The muffled dialogue sounds as if it is coming through a wall."],
+   ["resonant","rich in sustained or emphasized frequencies","The resonant body of the drum makes the room feel larger."],
+   ["warm","full, rounded, and comfortable, often with strong low-mid energy","A warm saturated pad supports the performer without drawing attention."],
+   ["saturated","enriched or compressed through harmonic distortion","The saturated tape texture gives the memory sequence a worn physical presence."]
+  ],
+  "Space & Distance":[
+   ["intimate","very close, private, and immediate","The intimate breathing places the listener inside the character’s personal space."],
+   ["distant","far away or psychologically removed","A distant siren suggests the city without defining a precise location."],
+   ["enclosed","contained within a small or restricted space","The enclosed reflections make the room feel airless."],
+   ["cavernous","extremely large, deep, and echoing","The cavernous reverb transforms the corridor into an impossible architecture."],
+   ["diffuse","spread broadly without a precise source","A diffuse noise field surrounds the audience without revealing its origin."],
+   ["localized","clearly positioned at a specific point","The localized whisper moves from the rear-left speaker to the center."],
+   ["immersive","surrounding and involving the listener","The immersive sound field places the audience inside the storm."],
+   ["dry","with little or no reverberation","The dry voice feels direct, exposed, and emotionally close."],
+   ["reverberant","rich in reflections and sustained spatial decay","The reverberant bell connects the present action to the memory of the church."]
+  ],
+  "Movement & Transformation":[
+   ["emerge","to become gradually audible or perceptible","A low pulse emerges from the room tone."],
+   ["dissolve","to fade or lose definition gradually","The mechanical rhythm dissolves into breath."],
+   ["swell","to increase gradually in intensity or size","The strings swell beneath the final line."],
+   ["recede","to move away or become less prominent","The traffic recedes as the character enters the interior space."],
+   ["drift","to move slowly without a fixed direction","Fragments of speech drift across the surround field."],
+   ["accumulate","to gather or increase through addition","Small clicks accumulate into a dense rhythmic mass."],
+   ["scatter","to spread rapidly in multiple directions","The granular fragments scatter across the speaker array."],
+   ["morph","to transform gradually from one identity into another","The train sound morphs into a sustained vocal tone."],
+   ["collapse","to break down suddenly or lose structure","The layered sound world collapses into a single dry breath."]
+  ],
+  "Density, Rhythm & Energy":[
+   ["sparse","containing few elements with significant space between them","A sparse texture leaves room for the audience to notice each breath."],
+   ["dense","containing many simultaneous or closely packed elements","The dense mix creates sensory overload."],
+   ["layered","constructed from multiple distinguishable levels","The layered ambience combines traffic, voices, ventilation, and distant music."],
+   ["fragmented","broken into incomplete or discontinuous parts","Fragmented speech mirrors the character’s unstable memory."],
+   ["restrained","controlled and deliberately limited","The restrained score avoids forcing the emotional interpretation."],
+   ["chaotic","disordered, unpredictable, and highly active","A chaotic burst of alarms and footsteps overwhelms the scene."],
+   ["pulsating","moving or repeating with a regular energetic pulse","A pulsating bass tone drives the transition forward."]
+  ],
+  "Creative & Dramaturgical":[
+   ["sonic world","the complete aural environment and aesthetic logic of a work","The sonic world combines domestic realism with unstable electronic memory."],
+   ["sonic motif","a recurring sound idea associated with a character, theme, or action","The closing door becomes a sonic motif for separation."],
+   ["emotional arc","the progression of emotional intensity or character experience","The emotional arc moves from serenity to psychological pressure."],
+   ["dramatic tension","sonic pressure that supports uncertainty, conflict, or expectation","The unresolved pulse increases dramatic tension without becoming louder."],
+   ["psychological space","an aural environment representing an internal mental state","The distorted room tone creates a psychological space rather than a realistic room."],
+   ["sonic memory","a sound that functions as remembered experience","The childhood song returns as a degraded sonic memory."],
+   ["sense of place","the recognizable identity and atmosphere of a location","The layered street recordings establish a specific sense of place."],
+   ["narrative function","the role sound plays in communicating or structuring the story","The silence has a narrative function: it marks the moment the character understands the loss."]
+  ]
+ },
+ listening:[
+  {type:"eerie",choices:["eerie","serene","warm"],explain:"The unstable high partials and low drone create an eerie, uncanny atmosphere."},
+  {type:"muffled",choices:["muffled","glassy","resonant"],explain:"The reduced high frequencies and softened attack make the sound muffled."},
+  {type:"cavernous",choices:["intimate","dry","cavernous"],explain:"Long delays and repeating reflections create a cavernous sense of scale."},
+  {type:"pulsating",choices:["pulsating","sparse","restrained"],explain:"A repeating amplitude pattern creates a pulsating energy."},
+  {type:"accumulate",choices:["scatter","accumulate","recede"],explain:"More layers enter over time, so the texture accumulates."}
+ ],
+ comparisons:[
+  {title:"Eerie vs. Ominous",prompt:"A strange, uncanny toy melody makes the room feel subtly wrong, but no specific threat is suggested.",answer:"eerie",options:["eerie","ominous"],explain:"Use eerie for uncanniness. Use ominous when the sound strongly suggests future danger."},
+  {title:"Warm vs. Muffled",prompt:"The voice has rich low-mid energy and soft harmonics, but it remains clear and intelligible.",answer:"warm",options:["warm","muffled"],explain:"Warm describes a pleasing tonal balance. Muffled means clarity is obscured by reduced high frequencies."},
+  {title:"Diffuse vs. Distant",prompt:"Noise surrounds the audience from many speakers, and no exact source can be located.",answer:"diffuse",options:["diffuse","distant"],explain:"Diffuse describes spread and unclear localization. Distant describes perceived physical or psychological distance."},
+  {title:"Dense vs. Layered",prompt:"The ambience contains several clearly distinguishable levels: traffic, voices, wind, and machinery.",answer:"layered",options:["dense","layered"],explain:"Layered emphasizes organized levels. Dense emphasizes the amount and compactness of material."},
+  {title:"Dissolve vs. Recede",prompt:"A rhythmic texture gradually loses its identity and becomes an undifferentiated wash.",answer:"dissolve",options:["dissolve","recede"],explain:"Dissolve means losing definition. Recede means moving farther away or becoming less prominent."}
+ ],
+ contexts:{
+  "Critique":"The sound begins with a {atmosphere}, {timbre} texture in a {space} space. It gradually {movement}s, creating {drama}.",
+  "Presentation":"My design establishes a {atmosphere} sonic world through {timbre} material and a {space} spatial perspective. As the scene develops, the sound {movement}s to support {drama}.",
+  "Portfolio":"This project explores a {atmosphere} sound language built from {timbre} textures and a {space} listening perspective. The material {movement}s across the piece, giving the sound a clear {drama}.",
+  "Director Conversation":"I’m thinking of making this moment more {atmosphere}. We could use a {timbre} texture that feels {space}, then let it {movement} so it strengthens the {drama} without covering the dialogue."
+ }
+};
+
+let creativeCategory=Object.keys(CREATIVE.categories)[0],listenIndex=0,compareIndex=0,builderContext="Critique",labRecorder,labParts=[],labUrl=null,currentLabSound=0;
+
+function renderCreativeCategories(){
+ $("creativeCategoryTabs").innerHTML=Object.keys(CREATIVE.categories).map(c=>`<button class="chip ${c===creativeCategory?"active":""}" data-creative-cat="${c}">${c}</button>`).join("");
+ document.querySelectorAll("[data-creative-cat]").forEach(b=>b.addEventListener("click",()=>{creativeCategory=b.dataset.creativeCat;renderCreativeCategories();renderCreativeVocabulary()}));
+}
+function renderCreativeVocabulary(){
+ $("creativeVocabList").innerHTML=CREATIVE.categories[creativeCategory].map(v=>`<div class="vocabEntry"><h3>${v[0]}</h3><div class="definition">${v[1]}</div><div class="example">${v[2]}</div><div class="controls"><button class="btn soft creativeSpeak" data-text="${encodeURIComponent(v[0]+'. '+v[2])}">▶ Listen</button></div></div>`).join("");
+ bindCreativeSpeak();
+}
+function bindCreativeSpeak(){document.querySelectorAll(".creativeSpeak").forEach(b=>b.addEventListener("click",()=>speak(decodeURIComponent(b.dataset.text))))}
+document.querySelectorAll(".labTab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".labTab").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".labPane").forEach(x=>x.classList.remove("active"));b.classList.add("active");$(b.dataset.lab).classList.add("active")}));
+
+let labAudioCtx;
+function ensureLabCtx(){if(!labAudioCtx)labAudioCtx=new (window.AudioContext||window.webkitAudioContext)();if(labAudioCtx.state==="suspended")labAudioCtx.resume();return labAudioCtx}
+function createLabSound(type){
+ const ctx=ensureLabCtx(),now=ctx.currentTime,duration=4,master=ctx.createGain();master.gain.setValueAtTime(.0001,now);master.gain.exponentialRampToValueAtTime(.25,now+.08);master.gain.exponentialRampToValueAtTime(.0001,now+duration);master.connect(ctx.destination);
+ if(type==="eerie"){const o1=ctx.createOscillator(),o2=ctx.createOscillator(),lfo=ctx.createOscillator(),lg=ctx.createGain();o1.type="sine";o2.type="sine";o1.frequency.value=220;o2.frequency.value=331;lfo.frequency.value=.35;lg.gain.value=18;lfo.connect(lg);lg.connect(o2.frequency);o1.connect(master);o2.connect(master);o1.start();o2.start();lfo.start();o1.stop(now+duration);o2.stop(now+duration);lfo.stop(now+duration)}
+ if(type==="muffled"){const osc=ctx.createOscillator(),filter=ctx.createBiquadFilter();osc.type="sawtooth";osc.frequency.value=95;filter.type="lowpass";filter.frequency.value=420;osc.connect(filter);filter.connect(master);osc.start();osc.stop(now+duration)}
+ if(type==="cavernous"){for(let i=0;i<7;i++){const o=ctx.createOscillator(),g=ctx.createGain();o.type="sine";o.frequency.value=120+i*34;g.gain.setValueAtTime(.12/(i+1),now+i*.38);g.gain.exponentialRampToValueAtTime(.0001,now+duration);o.connect(g);g.connect(master);o.start(now+i*.38);o.stop(now+duration)}}
+ if(type==="pulsating"){const o=ctx.createOscillator(),g=ctx.createGain(),lfo=ctx.createOscillator(),lg=ctx.createGain();o.type="sine";o.frequency.value=85;lfo.frequency.value=2.2;lg.gain.value=.45;lfo.connect(lg);lg.connect(g.gain);g.gain.value=.5;o.connect(g);g.connect(master);o.start();lfo.start();o.stop(now+duration);lfo.stop(now+duration)}
+ if(type==="accumulate"){for(let i=0;i<9;i++){const o=ctx.createOscillator(),g=ctx.createGain();o.type=i%2?"triangle":"sine";o.frequency.value=120+i*47;g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(.045,now+i*.35+.1);g.gain.exponentialRampToValueAtTime(.0001,now+duration);o.connect(g);g.connect(master);o.start();o.stop(now+duration)}}
+}
+function renderListeningExercise(){
+ const ex=CREATIVE.listening[listenIndex];$("soundExerciseTitle").textContent=`Sound Example ${listenIndex+1} of ${CREATIVE.listening.length}`;$("soundChoices").innerHTML=ex.choices.map(c=>`<button class="choice" data-sound-choice="${c}"><b>${c}</b></button>`).join("");$("soundFeedback").textContent="";
+ document.querySelectorAll("[data-sound-choice]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-sound-choice]").forEach(x=>x.disabled=true);if(b.dataset.soundChoice===ex.type){b.classList.add("correct");$("soundFeedback").innerHTML=`<b style="color:var(--good)">Correct.</b> ${ex.explain}`}else{b.classList.add("wrong");document.querySelector(`[data-sound-choice="${ex.type}"]`).classList.add("correct");$("soundFeedback").innerHTML=`The best word is <b>${ex.type}</b>. ${ex.explain}`}}))
+}
+$("playSoundExample").addEventListener("click",()=>createLabSound(CREATIVE.listening[listenIndex].type));
+$("replaySoundExample").addEventListener("click",()=>createLabSound(CREATIVE.listening[listenIndex].type));
+$("nextSoundExercise").addEventListener("click",()=>{listenIndex=(listenIndex+1)%CREATIVE.listening.length;renderListeningExercise()});
+
+function renderComparison(){
+ const ex=CREATIVE.comparisons[compareIndex];$("comparisonTitle").textContent=ex.title;$("comparisonPrompt").textContent=ex.prompt;$("comparisonChoices").innerHTML=ex.options.map(x=>`<button class="choice" data-comparison="${x}"><b>${x}</b></button>`).join("");$("comparisonExplanation").textContent="Choose the stronger word for the context.";
+ document.querySelectorAll("[data-comparison]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-comparison]").forEach(x=>x.disabled=true);if(b.dataset.comparison===ex.answer)b.classList.add("correct");else{b.classList.add("wrong");document.querySelector(`[data-comparison="${ex.answer}"]`).classList.add("correct")}$("comparisonExplanation").innerHTML=`<b>${ex.answer}</b>: ${ex.explain}`}))
+}
+$("nextComparison").addEventListener("click",()=>{compareIndex=(compareIndex+1)%CREATIVE.comparisons.length;renderComparison()});
+
+const speakSoundTypes=["eerie","muffled","cavernous","pulsating","accumulate"];
+$("speakSoundPlay").addEventListener("click",()=>createLabSound(speakSoundTypes[currentLabSound]));
+$("newSpeakPrompt").addEventListener("click",()=>{currentLabSound=(currentLabSound+1)%speakSoundTypes.length;$("speakPrompt").textContent=`Describe this ${currentLabSound+1} of ${speakSoundTypes.length} sound for 20–40 seconds. Discuss atmosphere, texture, space, movement, and narrative function.`;$("labTranscript").value="";$("descriptionFeedback").innerHTML='<p class="muted">Record or type your description, then request feedback.</p>'});
+
+$("labRecordBtn").addEventListener("click",async()=>{if(labRecorder&&labRecorder.state==="recording"){labRecorder.stop();return}try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});labParts=[];labRecorder=new MediaRecorder(stream);labRecorder.ondataavailable=e=>labParts.push(e.data);labRecorder.onstop=()=>{const blob=new Blob(labParts,{type:labRecorder.mimeType});if(labUrl)URL.revokeObjectURL(labUrl);labUrl=URL.createObjectURL(blob);$("labPlayRecording").disabled=false;$("labRecordBtn").textContent="● Record Description";stream.getTracks().forEach(t=>t.stop())};labRecorder.start();$("labRecordBtn").textContent="■ Stop Recording";
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(SR){const sr=new SR();sr.lang="en-US";sr.continuous=true;sr.interimResults=true;sr.onresult=e=>{let text="";for(let i=0;i<e.results.length;i++)text+=e.results[i][0].transcript+" ";$("labTranscript").value=text.trim()};sr.start();labRecorder.addEventListener("stop",()=>{try{sr.stop()}catch{}},{once:true})}
+ }catch{$("descriptionFeedback").innerHTML='<p>Please allow microphone access.</p>'}});
+$("labPlayRecording").addEventListener("click",()=>{if(labUrl)new Audio(labUrl).play()});
+
+$("analyzeDescription").addEventListener("click",()=>{const text=$("labTranscript").value.toLowerCase();const groups={
+ "Atmosphere":["eerie","ominous","haunting","ethereal","oppressive","serene","dreamlike"],
+ "Timbre":["grainy","brittle","glassy","metallic","abrasive","muffled","resonant","warm","saturated"],
+ "Space":["intimate","distant","enclosed","cavernous","diffuse","localized","immersive","dry","reverberant"],
+ "Movement":["emerge","emerges","dissolve","dissolves","swell","swells","recede","recedes","drift","drifts","accumulate","accumulates","scatter","scatters","morph","morphs","collapse","collapses"],
+ "Dramaturgy":["sonic world","sonic motif","emotional arc","dramatic tension","psychological space","sonic memory","sense of place","narrative function"]
+ };let found={},score=0;Object.entries(groups).forEach(([g,ws])=>{found[g]=ws.filter(w=>text.includes(w));if(found[g].length)score++});const professional=/begins|gradually|creates|supports|suggests|establishes|functions|transforms|develops|throughout/.test(text);if(professional)score++;
+ const wordCount=text.trim()?text.trim().split(/\s+/).length:0;
+ $("descriptionFeedback").innerHTML=`<h3>Feedback</h3><div class="rubric">${Object.keys(groups).map(g=>`<div class="rubricItem ${found[g].length?"ok":""}"><b>${g}</b><br>${found[g].length?found[g].join(", "):"Add one term"}</div>`).join("")}<div class="rubricItem ${professional?"ok":""}"><b>Professional structure</b><br>${professional?"Clear descriptive verb used":"Add begins / creates / supports / transforms"}</div></div><p><b>Coverage: ${score}/6</b> · ${wordCount} words</p><p class="muted">${score>=5?"Strong professional description. Add one precise contrast or narrative consequence for more depth.":score>=3?"Good foundation. Add vocabulary from the missing categories and explain what the sound does dramatically.":"Build the description in this order: atmosphere → timbre → space → movement → narrative function."}</p>`;
+});
+
+const builderWords={
+ atmosphere:["eerie","ominous","haunting","ethereal","oppressive","serene","dreamlike"],
+ timbre:["grainy","brittle","glassy","metallic","abrasive","muffled","resonant","warm","saturated"],
+ space:["intimate","distant","enclosed","cavernous","diffuse","localized","immersive","dry","reverberant"],
+ movement:["emerge","dissolve","swell","recede","drift","accumulate","scatter","morph","collapse"],
+ drama:["sonic motif","emotional arc","dramatic tension","psychological space","sonic memory","sense of place","narrative function"]
+};
+function fillSelect(id,arr){$(id).innerHTML=arr.map(x=>`<option>${x}</option>`).join("")}
+fillSelect("builderAtmosphere",builderWords.atmosphere);fillSelect("builderTimbre",builderWords.timbre);fillSelect("builderSpace",builderWords.space);fillSelect("builderMovement",builderWords.movement);fillSelect("builderDrama",builderWords.drama);
+$("contextChoices").innerHTML=Object.keys(CREATIVE.contexts).map(c=>`<div class="contextCard ${c===builderContext?"active":""}" data-context="${c}"><b>${c}</b></div>`).join("");
+function renderBuilderContexts(){document.querySelectorAll("[data-context]").forEach(c=>c.classList.toggle("active",c.dataset.context===builderContext))}
+document.querySelectorAll("[data-context]").forEach(c=>c.addEventListener("click",()=>{builderContext=c.dataset.context;renderBuilderContexts();renderBuiltSentence()}));
+function renderBuiltSentence(variation=false){let template=CREATIVE.contexts[builderContext],vals={atmosphere:$("builderAtmosphere").value,timbre:$("builderTimbre").value,space:$("builderSpace").value,movement:$("builderMovement").value,drama:$("builderDrama").value};let sentence=template.replace(/\{(\w+)\}/g,(_,k)=>vals[k]);if(variation){const starters=["In this moment, ","Across the transition, ","From a dramaturgical perspective, "];sentence=starters[Math.floor(Math.random()*starters.length)]+sentence.charAt(0).toLowerCase()+sentence.slice(1)}$("builderOutput").textContent=sentence;$("builderTip").textContent=builderContext==="Director Conversation"?"Keep the language collaborative and connect the sonic choice to the scene, performer, or dialogue.":builderContext==="Portfolio"?"Describe both your artistic intention and the technique used to achieve it.":"Use precise adjectives, active transformation verbs, and a clear dramatic consequence."}
+["builderAtmosphere","builderTimbre","builderSpace","builderMovement","builderDrama"].forEach(id=>$(id).addEventListener("change",()=>renderBuiltSentence()));
+$("speakBuiltSentence").addEventListener("click",()=>speak($("builderOutput").textContent));
+$("copyVariation").addEventListener("click",()=>renderBuiltSentence(true));
+renderCreativeCategories();renderCreativeVocabulary();renderListeningExercise();renderComparison();renderBuiltSentence();
+
 renderDict();renderStudio();renderSpeaking();renderLibrary();renderProgress();
-if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).finally(()=>window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js?v=5")))}
+if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).finally(()=>window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js?v=6")))}
 </script>
 </body></html>
