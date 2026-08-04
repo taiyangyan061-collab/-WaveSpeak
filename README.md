@@ -1,26 +1,28 @@
-# WaveSpeak AI VOICE v16
+# WaveSpeak PRODUCT ARCHITECTURE v17
 
-This version preserves the complete v15 learning app and adds cross-browser server-generated AI speech.
+This is the first modular product version.
 
-## New
-- OpenAI `gpt-4o-mini-tts` through a Vercel serverless function
-- Voices: Marin, Cedar, Coral, Nova
-- Styles: natural, slow teaching, expressive, professional
-- Speaking Listen and Phrase-by-Phrase use the same audio in Safari, Chrome, and mobile
-- Browser speech remains a fallback
-- Clear disclosure that model speech is AI-generated
-- In-memory audio caching during each session
+## Upload
+Upload the complete project, including:
+- `src/`
+- `api/`
+- `docs/`
+- `index.html`
+- all JSON files
+- the existing `audio/` folder
 
-## Required Vercel setup
-1. Open the WaveSpeak project in Vercel.
-2. Go to Settings → Environment Variables.
-3. Add:
-   - Name: `OPENAI_API_KEY`
-   - Value: your OpenAI API key
-4. Apply it to Production, Preview, and Development as needed.
-5. Redeploy the latest deployment.
+## Required Vercel environment variable
+`OPENAI_API_KEY`
 
-Never place the API key in `index.html`, GitHub, or browser code.
+The key belongs in Vercel Settings → Environment Variables. Do not put it in GitHub.
 
-Upload every project file, including the new `api/tts.js`.
-Confirm deployment by checking for `AI VOICE v16`.
+## Product structure
+- UI and styles are separate
+- AI Voice is a core service
+- navigation is a core service
+- storage is a core service
+- learning content is separate from application logic
+- the TTS endpoint remains server-side
+
+See `docs/ARCHITECTURE.md`.
+Confirm deployment by checking for `PRODUCT ARCHITECTURE v17`.

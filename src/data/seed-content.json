@@ -1,0 +1,1117 @@
+{
+  "topics": [
+    {
+      "name": "Ordering Food",
+      "sentences": [
+        {
+          "text": "Could I get the chicken sandwich without onions?",
+          "chunks": [
+            "Could I get…?",
+            "without onions"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "What do you recommend if I want something light?",
+          "chunks": [
+            "What do you recommend…?",
+            "if I want something light"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "Could we have the check whenever you get a chance?",
+          "chunks": [
+            "Could we have the check?",
+            "whenever you get a chance"
+          ],
+          "focus": "Reduction"
+        },
+        {
+          "text": "Is the soup made with dairy or is it dairy-free?",
+          "chunks": [
+            "Is the soup made with…?",
+            "or is it…?"
+          ],
+          "focus": "Rhythm"
+        },
+        {
+          "text": "Could you put the dressing on the side?",
+          "chunks": [
+            "Could you put…?",
+            "on the side"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "I’ll have the same thing, but with no cheese.",
+          "chunks": [
+            "I’ll have the same thing",
+            "but with no cheese"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "Could I substitute the fries for a salad?",
+          "chunks": [
+            "Could I substitute…?",
+            "for a salad"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "We’re ready to order whenever you are.",
+          "chunks": [
+            "We’re ready to order",
+            "whenever you are"
+          ],
+          "focus": "Reduction"
+        },
+        {
+          "text": "Could you split the check between the two of us?",
+          "chunks": [
+            "Could you split the check…?",
+            "between the two of us"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "Everything was great. Could I get a box for this?",
+          "chunks": [
+            "Everything was great",
+            "Could I get a box…?"
+          ],
+          "focus": "Intonation"
+        }
+      ],
+      "phrasals": [
+        [
+          "eat out",
+          "在外面吃饭",
+          "We usually eat out on Friday night."
+        ],
+        [
+          "pick up",
+          "取餐；顺路拿",
+          "I’ll pick up the order on my way home."
+        ],
+        [
+          "cut back on",
+          "减少",
+          "I’m trying to cut back on sugar."
+        ],
+        [
+          "warm up",
+          "加热",
+          "Could you warm this up for me?"
+        ],
+        [
+          "send back",
+          "退回菜品",
+          "I had to send the soup back because it was cold."
+        ],
+        [
+          "run out of",
+          "用完",
+          "They ran out of the daily special."
+        ],
+        [
+          "fill up",
+          "吃饱",
+          "That appetizer filled me up."
+        ],
+        [
+          "go with",
+          "选择",
+          "I’ll go with the grilled chicken."
+        ],
+        [
+          "take out",
+          "外带",
+          "Can I get this order to take out?"
+        ],
+        [
+          "leave out",
+          "不放",
+          "Please leave out the onions."
+        ]
+      ]
+    },
+    {
+      "name": "Transportation",
+      "sentences": [
+        {
+          "text": "How long does it usually take to get there?",
+          "chunks": [
+            "How long does it take…?",
+            "to get there"
+          ],
+          "focus": "Rhythm"
+        },
+        {
+          "text": "Could you let me know when we get to the next stop?",
+          "chunks": [
+            "Could you let me know…?",
+            "when we get to…"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "Traffic was backed up, so I ended up taking a different route.",
+          "chunks": [
+            "Traffic was backed up",
+            "I ended up…"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "Does this bus go all the way to downtown?",
+          "chunks": [
+            "Does this bus go…?",
+            "all the way to…"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "I think I missed my stop. Where should I get off?",
+          "chunks": [
+            "I think I missed my stop",
+            "Where should I get off?"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "The train is running about ten minutes late.",
+          "chunks": [
+            "The train is running…",
+            "about ten minutes late"
+          ],
+          "focus": "Rhythm"
+        },
+        {
+          "text": "Could you drop me off near the main entrance?",
+          "chunks": [
+            "Could you drop me off…?",
+            "near the main entrance"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "I’m trying to avoid the freeway during rush hour.",
+          "chunks": [
+            "I’m trying to avoid…",
+            "during rush hour"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "Is there a transfer between these two lines?",
+          "chunks": [
+            "Is there a transfer…?",
+            "between these two lines"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "I’ll check the route before I leave.",
+          "chunks": [
+            "I’ll check the route",
+            "before I leave"
+          ],
+          "focus": "Reduction"
+        }
+      ],
+      "phrasals": [
+        [
+          "get on",
+          "上车",
+          "We got on the train at Union Station."
+        ],
+        [
+          "get off",
+          "下车",
+          "You need to get off at the next stop."
+        ],
+        [
+          "back up",
+          "堵塞",
+          "Traffic is backing up near the freeway."
+        ],
+        [
+          "drop off",
+          "送到",
+          "Could you drop me off at the station?"
+        ],
+        [
+          "pick up",
+          "接人",
+          "I’ll pick you up after class."
+        ],
+        [
+          "pull over",
+          "靠边停车",
+          "The driver pulled over near the entrance."
+        ],
+        [
+          "speed up",
+          "加速",
+          "Traffic started to speed up."
+        ],
+        [
+          "slow down",
+          "减速",
+          "You should slow down in this area."
+        ],
+        [
+          "head back",
+          "返回",
+          "I’m going to head back before traffic gets worse."
+        ],
+        [
+          "set off",
+          "出发",
+          "We set off early in the morning."
+        ]
+      ]
+    },
+    {
+      "name": "Classroom",
+      "sentences": [
+        {
+          "text": "Could you go over that one more time?",
+          "chunks": [
+            "Could you go over…?",
+            "one more time"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "I understand the idea, but I’m not sure how to apply it.",
+          "chunks": [
+            "I understand the idea",
+            "I’m not sure how to…"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "Would it be possible to submit the assignment tomorrow?",
+          "chunks": [
+            "Would it be possible to…?",
+            "submit the assignment"
+          ],
+          "focus": "Polite intonation"
+        },
+        {
+          "text": "Could you explain what you mean by spatial perspective?",
+          "chunks": [
+            "Could you explain…?",
+            "what you mean by…?"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "I have a question about the second part of the assignment.",
+          "chunks": [
+            "I have a question about…",
+            "the second part of…"
+          ],
+          "focus": "Rhythm"
+        },
+        {
+          "text": "I’m still working through the reading, but I understand the main argument.",
+          "chunks": [
+            "I’m still working through…",
+            "but I understand…"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "Would you mind giving me an example?",
+          "chunks": [
+            "Would you mind…?",
+            "giving me an example"
+          ],
+          "focus": "Reduction"
+        },
+        {
+          "text": "I’d like to build on what she just said.",
+          "chunks": [
+            "I’d like to build on…",
+            "what she just said"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "I’m not completely convinced by that interpretation.",
+          "chunks": [
+            "I’m not completely convinced",
+            "by that interpretation"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "Could we talk about this after class?",
+          "chunks": [
+            "Could we talk about this…?",
+            "after class"
+          ],
+          "focus": "Intonation"
+        }
+      ],
+      "phrasals": [
+        [
+          "go over",
+          "复习；再解释",
+          "Could we go over the assignment requirements?"
+        ],
+        [
+          "hand in",
+          "提交",
+          "I’ll hand in the project before class."
+        ],
+        [
+          "catch up",
+          "赶上进度",
+          "I need to catch up on the reading."
+        ],
+        [
+          "work through",
+          "逐步处理",
+          "I’m still working through the article."
+        ],
+        [
+          "build on",
+          "继续发展",
+          "I’d like to build on that idea."
+        ],
+        [
+          "bring up",
+          "提出",
+          "She brought up an important question."
+        ],
+        [
+          "point out",
+          "指出",
+          "The professor pointed out a problem."
+        ],
+        [
+          "look into",
+          "进一步调查",
+          "I’ll look into that source."
+        ],
+        [
+          "write down",
+          "写下",
+          "Could you write that term down?"
+        ],
+        [
+          "sum up",
+          "总结",
+          "Could you sum up the main point?"
+        ]
+      ]
+    },
+    {
+      "name": "Shopping",
+      "sentences": [
+        {
+          "text": "Do you have this in a smaller size?",
+          "chunks": [
+            "Do you have this in…?",
+            "a smaller size"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "I’m just looking, but I’ll let you know if I need help.",
+          "chunks": [
+            "I’m just looking",
+            "I’ll let you know"
+          ],
+          "focus": "Reduction"
+        },
+        {
+          "text": "Could I return this if it doesn’t fit?",
+          "chunks": [
+            "Could I return this…?",
+            "if it doesn’t fit"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "Is this the final price, or is there an additional discount?",
+          "chunks": [
+            "Is this the final price…?",
+            "or is there…?"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "Could you check whether another store has it in stock?",
+          "chunks": [
+            "Could you check whether…?",
+            "has it in stock"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "I’m looking for something lightweight and easy to carry.",
+          "chunks": [
+            "I’m looking for something…",
+            "lightweight and easy to carry"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "This is a little more expensive than I expected.",
+          "chunks": [
+            "This is a little more expensive",
+            "than I expected"
+          ],
+          "focus": "Rhythm"
+        },
+        {
+          "text": "Can I pay with two different cards?",
+          "chunks": [
+            "Can I pay with…?",
+            "two different cards"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "I’d like to exchange this for a different color.",
+          "chunks": [
+            "I’d like to exchange this",
+            "for a different color"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "Could I see the receipt before I leave?",
+          "chunks": [
+            "Could I see the receipt…?",
+            "before I leave"
+          ],
+          "focus": "Reduction"
+        }
+      ],
+      "phrasals": [
+        [
+          "try on",
+          "试穿",
+          "Can I try this jacket on?"
+        ],
+        [
+          "sell out",
+          "售罄",
+          "The smaller size sold out yesterday."
+        ],
+        [
+          "take back",
+          "退回商品",
+          "I need to take this shirt back."
+        ],
+        [
+          "look for",
+          "寻找",
+          "I’m looking for a lightweight jacket."
+        ],
+        [
+          "check out",
+          "查看",
+          "I want to check out the new collection."
+        ],
+        [
+          "pay for",
+          "付款",
+          "I’ll pay for this separately."
+        ],
+        [
+          "mark down",
+          "降价",
+          "They marked down all the winter coats."
+        ],
+        [
+          "pick out",
+          "挑选",
+          "Could you help me pick out a color?"
+        ],
+        [
+          "wear out",
+          "穿坏",
+          "These shoes wore out quickly."
+        ],
+        [
+          "shop around",
+          "货比三家",
+          "I’m going to shop around before deciding."
+        ]
+      ]
+    },
+    {
+      "name": "Small Talk",
+      "sentences": [
+        {
+          "text": "How has your week been so far?",
+          "chunks": [
+            "How has your week been…?",
+            "so far"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "I’ve been keeping busy with a new sound project.",
+          "chunks": [
+            "I’ve been keeping busy with…",
+            "a new sound project"
+          ],
+          "focus": "Rhythm"
+        },
+        {
+          "text": "That sounds interesting. How did you get into it?",
+          "chunks": [
+            "That sounds interesting",
+            "How did you get into…?"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "Have you been working on anything exciting lately?",
+          "chunks": [
+            "Have you been working on…?",
+            "anything exciting lately"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "I haven’t seen you in a while. How have things been?",
+          "chunks": [
+            "I haven’t seen you in a while",
+            "How have things been?"
+          ],
+          "focus": "Rhythm"
+        },
+        {
+          "text": "The weather has been surprisingly nice this week.",
+          "chunks": [
+            "The weather has been…",
+            "surprisingly nice this week"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "I’ve been trying to spend more time outside.",
+          "chunks": [
+            "I’ve been trying to…",
+            "spend more time outside"
+          ],
+          "focus": "Reduction"
+        },
+        {
+          "text": "Did you end up going to that event?",
+          "chunks": [
+            "Did you end up…?",
+            "going to that event"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "I heard you’re working on a new production.",
+          "chunks": [
+            "I heard you’re working on…",
+            "a new production"
+          ],
+          "focus": "Rhythm"
+        },
+        {
+          "text": "We should catch up sometime next week.",
+          "chunks": [
+            "We should catch up",
+            "sometime next week"
+          ],
+          "focus": "Reduction"
+        }
+      ],
+      "phrasals": [
+        [
+          "get into",
+          "开始喜欢",
+          "How did you get into sound design?"
+        ],
+        [
+          "hang out",
+          "一起消磨时间",
+          "We hung out after rehearsal."
+        ],
+        [
+          "run into",
+          "偶遇",
+          "I ran into my classmate."
+        ],
+        [
+          "catch up",
+          "叙旧",
+          "We should catch up over coffee."
+        ],
+        [
+          "end up",
+          "最终",
+          "Did you end up going?"
+        ],
+        [
+          "keep up with",
+          "跟上",
+          "It’s hard to keep up with everyone’s projects."
+        ],
+        [
+          "come across",
+          "偶然发现",
+          "I came across a great recording."
+        ],
+        [
+          "open up",
+          "愿意交流",
+          "He opened up during the conversation."
+        ],
+        [
+          "bring up",
+          "提到",
+          "She brought up your new project."
+        ],
+        [
+          "get along",
+          "相处融洽",
+          "Do you get along with your classmates?"
+        ]
+      ]
+    },
+    {
+      "name": "Appointments",
+      "sentences": [
+        {
+          "text": "I’d like to make an appointment for next week.",
+          "chunks": [
+            "I’d like to make an appointment",
+            "for next week"
+          ],
+          "focus": "Rhythm"
+        },
+        {
+          "text": "Is there anything available on Friday afternoon?",
+          "chunks": [
+            "Is there anything available…?",
+            "on Friday afternoon"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "Could we move the appointment to a later time?",
+          "chunks": [
+            "Could we move the appointment…?",
+            "to a later time"
+          ],
+          "focus": "Polite request"
+        },
+        {
+          "text": "I’m calling to confirm my appointment for tomorrow.",
+          "chunks": [
+            "I’m calling to confirm…",
+            "my appointment for tomorrow"
+          ],
+          "focus": "Rhythm"
+        },
+        {
+          "text": "Would it be possible to meet earlier in the day?",
+          "chunks": [
+            "Would it be possible to…?",
+            "meet earlier in the day"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "I may be about ten minutes late because of traffic.",
+          "chunks": [
+            "I may be about ten minutes late",
+            "because of traffic"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "Could you send me a confirmation by email?",
+          "chunks": [
+            "Could you send me…?",
+            "a confirmation by email"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "I need to cancel and reschedule my appointment.",
+          "chunks": [
+            "I need to cancel",
+            "and reschedule my appointment"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "Is there a cancellation fee if I change the time?",
+          "chunks": [
+            "Is there a cancellation fee…?",
+            "if I change the time"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "Thank you for fitting me into the schedule.",
+          "chunks": [
+            "Thank you for fitting me in",
+            "to the schedule"
+          ],
+          "focus": "Linking"
+        }
+      ],
+      "phrasals": [
+        [
+          "set up",
+          "安排",
+          "I need to set up a meeting."
+        ],
+        [
+          "push back",
+          "推迟",
+          "Could we push the appointment back?"
+        ],
+        [
+          "show up",
+          "到场",
+          "Please show up ten minutes early."
+        ],
+        [
+          "fit in",
+          "安排进时间表",
+          "They were able to fit me in."
+        ],
+        [
+          "call back",
+          "回电话",
+          "Could you call me back?"
+        ],
+        [
+          "write down",
+          "记下",
+          "Could you write down my confirmation number?"
+        ],
+        [
+          "move up",
+          "提前",
+          "Can we move the meeting up?"
+        ],
+        [
+          "put off",
+          "推迟",
+          "I don’t want to put it off."
+        ],
+        [
+          "check in",
+          "报到",
+          "Please check in at the front desk."
+        ],
+        [
+          "follow up",
+          "跟进",
+          "I’m calling to follow up."
+        ]
+      ]
+    },
+    {
+      "name": "Plans & Invitations",
+      "sentences": [
+        {
+          "text": "Are you free to grab coffee sometime this week?",
+          "chunks": [
+            "Are you free to…?",
+            "sometime this week"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "I’m not completely sure yet, but I’ll let you know.",
+          "chunks": [
+            "I’m not completely sure yet",
+            "I’ll let you know"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "Something came up, so I may need to reschedule.",
+          "chunks": [
+            "Something came up",
+            "I may need to reschedule"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "Would you like to come with us on Saturday?",
+          "chunks": [
+            "Would you like to…?",
+            "come with us on Saturday"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "I’d love to, but I already have plans that evening.",
+          "chunks": [
+            "I’d love to",
+            "but I already have plans"
+          ],
+          "focus": "Stress"
+        },
+        {
+          "text": "Let’s figure out a time that works for everyone.",
+          "chunks": [
+            "Let’s figure out a time",
+            "that works for everyone"
+          ],
+          "focus": "Rhythm"
+        },
+        {
+          "text": "I might be able to join you later in the evening.",
+          "chunks": [
+            "I might be able to…",
+            "join you later"
+          ],
+          "focus": "Reduction"
+        },
+        {
+          "text": "Could we meet somewhere closer to downtown?",
+          "chunks": [
+            "Could we meet somewhere…?",
+            "closer to downtown"
+          ],
+          "focus": "Intonation"
+        },
+        {
+          "text": "I’ll check my schedule and get back to you.",
+          "chunks": [
+            "I’ll check my schedule",
+            "and get back to you"
+          ],
+          "focus": "Linking"
+        },
+        {
+          "text": "Thanks for inviting me. I had a really good time.",
+          "chunks": [
+            "Thanks for inviting me",
+            "I had a really good time"
+          ],
+          "focus": "Rhythm"
+        }
+      ],
+      "phrasals": [
+        [
+          "come up",
+          "突然发生",
+          "Something came up."
+        ],
+        [
+          "figure out",
+          "弄清楚",
+          "I’ll figure out my schedule."
+        ],
+        [
+          "turn down",
+          "拒绝",
+          "I had to turn down the invitation."
+        ],
+        [
+          "get back to",
+          "稍后回复",
+          "I’ll get back to you tomorrow."
+        ],
+        [
+          "meet up",
+          "见面",
+          "Let’s meet up near the station."
+        ],
+        [
+          "come along",
+          "一起参加",
+          "Would you like to come along?"
+        ],
+        [
+          "drop by",
+          "顺便拜访",
+          "You can drop by after rehearsal."
+        ],
+        [
+          "stay over",
+          "留宿",
+          "She stayed over after the party."
+        ],
+        [
+          "head out",
+          "出发",
+          "We’re heading out around seven."
+        ],
+        [
+          "call off",
+          "取消",
+          "They called off the event."
+        ]
+      ]
+    }
+  ],
+  "sound": [
+    [
+      "room tone",
+      "室内空间本底声",
+      "We need thirty seconds of clean room tone.",
+      "Field Recording"
+    ],
+    [
+      "gain staging",
+      "增益结构管理",
+      "Good gain staging prevents clipping and excess noise.",
+      "Studio"
+    ],
+    [
+      "ring out",
+      "调试并削减反馈频率",
+      "We need to ring out the monitors before rehearsal.",
+      "Theater"
+    ],
+    [
+      "roll off",
+      "逐渐衰减某段频率",
+      "I rolled off some low frequencies below eighty hertz.",
+      "Mixing"
+    ],
+    [
+      "fade in",
+      "渐入",
+      "The ambience should fade in after the blackout.",
+      "Theater"
+    ],
+    [
+      "fade out",
+      "渐出",
+      "Fade out the music as the dialogue begins.",
+      "Theater"
+    ],
+    [
+      "route to",
+      "把信号发送到",
+      "Route these tracks to the main output.",
+      "Studio"
+    ],
+    [
+      "pick up",
+      "麦克风拾取声音",
+      "The microphone picked up too much wind noise.",
+      "Field Recording"
+    ],
+    [
+      "cut through",
+      "在混音中保持清晰",
+      "The dialogue needs to cut through the music.",
+      "Mixing"
+    ],
+    [
+      "build up",
+      "逐渐积累",
+      "Low-frequency energy is building up in the room.",
+      "Acoustics"
+    ],
+    [
+      "print stems",
+      "导出分轨",
+      "I’ll print the stems before rehearsal.",
+      "Post-production"
+    ],
+    [
+      "patch into",
+      "接入系统",
+      "Patch the wireless receiver into input eight.",
+      "Theater"
+    ],
+    [
+      "send to",
+      "发送到总线或效果器",
+      "Send the vocal to the reverb bus.",
+      "Studio"
+    ],
+    [
+      "bring down",
+      "降低音量",
+      "Bring the music down under the dialogue.",
+      "Mixing"
+    ],
+    [
+      "binaural",
+      "双耳录音/渲染",
+      "I made a binaural version for headphone listeners.",
+      "Spatial Audio"
+    ],
+    [
+      "impulse response",
+      "脉冲响应",
+      "I used the church impulse response for convolution reverb.",
+      "Acoustics"
+    ]
+  ],
+  "dictations": [
+    [
+      "Could you send me the latest version before rehearsal?",
+      "Listen for the reduced pronunciation of “could you” and “before.”"
+    ],
+    [
+      "The microphone picked up more wind noise than I expected.",
+      "Listen for “picked up” and “more than.”"
+    ],
+    [
+      "I need a cleaner recording with less background noise.",
+      "Listen for the contrast between “cleaner” and “less.”"
+    ],
+    [
+      "The reverb makes the space feel much larger.",
+      "Listen to the final consonants in “makes” and “space.”"
+    ],
+    [
+      "We should capture a few minutes of clean room tone.",
+      "Listen for “a few minutes of” as one rhythm group."
+    ],
+    [
+      "I’ll export the stems and send them over tonight.",
+      "Listen for “stems and” and “send them.”"
+    ],
+    [
+      "The cue should start just before the lights fade.",
+      "Listen for “should start” and “just before.”"
+    ],
+    [
+      "Can you hear the low-frequency rumble underneath the dialogue?",
+      "Listen for “low-frequency rumble.”"
+    ]
+  ],
+  "studio": [
+    [
+      "Your instructor says:",
+      "Can you send me the stems before rehearsal?",
+      "Sure. I’ll export them and send them over before rehearsal."
+    ],
+    [
+      "The stage manager asks:",
+      "Can we take the cue from the top of the scene?",
+      "Yes. I’m ready to run it again from the top."
+    ],
+    [
+      "A mixer asks:",
+      "Could you bring the dialogue up a little?",
+      "Sure. I’ll bring it up by about two decibels."
+    ],
+    [
+      "A director says:",
+      "The transition feels too abrupt.",
+      "I can lengthen the crossfade and make it smoother."
+    ]
+  ]
+}

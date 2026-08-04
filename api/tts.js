@@ -51,7 +51,7 @@ export default async function handler(req, res) {
 
     const audio = Buffer.from(await response.arrayBuffer());
     res.setHeader("Content-Type", "audio/mpeg");
-    res.setHeader("Cache-Control", "public, max-age=86400, s-maxage=86400");
+    res.setHeader("Cache-Control", "private, max-age=86400");
     return res.status(200).send(audio);
   } catch (error) {
     return res.status(500).json({

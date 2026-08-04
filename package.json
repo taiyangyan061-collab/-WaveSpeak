@@ -1,0 +1,9 @@
+{
+  "name": "wavespeak",
+  "version": "17.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check src/app.js && node --check src/core/audio.js && node --check src/core/router.js && node --check src/core/storage.js && node --check src/core/browser.js && node --check api/tts.js"
+  }
+}
