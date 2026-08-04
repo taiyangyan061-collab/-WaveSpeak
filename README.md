@@ -1,23 +1,19 @@
-# WaveSpeak STABLE REPAIR v10
+# WaveSpeak BUNDLED AUDIO v11
 
-This repair starts from the last function-complete v8 package.
+Core Listen no longer uses Safari speech synthesis.
 
-It restores and preserves:
-- Speaking sentences and chunks
-- Phrasal verbs
-- Listening and dictation
-- Resource Library
-- Waveform and spectrum displays
-- Recording and playback
-- Creative Sound Lab
-- Content Engine
-- Favorites, Studio Mode, and progress
+Bundled audio is included for:
+- Speaking sentences
+- Phrase-by-phrase chunks
+- Daily Chunks
+- Phrasal Verbs
+- Dictation
+- Studio Mode
+- Resource Library static items
+- Creative Sound Vocabulary examples
 
-Voice fix:
-- Hides novelty/accessibility voices such as Grandma and singing voices
-- Defaults to Auto (recommended)
-- Falls back to Safari's system voice if a selected voice fails
-- Repairs Phrase-by-Phrase playback without replacing other application functions
+Bundled audio files: 358
 
-Upload all files and the entire audio folder.
-Confirm deployment by checking for STABLE REPAIR v10.
+Important:
+Upload `audio-map.json` and the complete `audio/tts` folder, as well as every other project file.
+Confirm deployment by checking for `BUNDLED AUDIO v11`.
