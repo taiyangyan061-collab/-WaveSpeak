@@ -1,0 +1,4255 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-04T17:20:30.930995+00:00",
+  "counts": {
+    "sentences": 70,
+    "chunks": 137,
+    "phrasal_verbs": 70,
+    "sound_terms": 16,
+    "dictations": 8,
+    "studio_scenarios": 4
+  },
+  "daily_sentences": [
+    {
+      "id": "daily-01-001",
+      "kind": "daily_sentence",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "text": "Could I get the chicken sandwich without onions?",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-3f9afa34d8",
+        "chunk-1fe25213e2"
+      ],
+      "audio": "audio/model_00.wav",
+      "tags": [
+        "daily",
+        "ordering-food"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-01-002",
+      "kind": "daily_sentence",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "text": "What do you recommend if I want something light?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-a3de6704e5",
+        "chunk-4c729f9634"
+      ],
+      "audio": "audio/model_01.wav",
+      "tags": [
+        "daily",
+        "ordering-food"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-01-003",
+      "kind": "daily_sentence",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "text": "Could we have the check whenever you get a chance?",
+      "focus": "Reduction",
+      "chunk_ids": [
+        "chunk-68e3a29264",
+        "chunk-dd6aa1645a"
+      ],
+      "audio": "audio/model_02.wav",
+      "tags": [
+        "daily",
+        "ordering-food"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-01-004",
+      "kind": "daily_sentence",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "text": "Is the soup made with dairy or is it dairy-free?",
+      "focus": "Rhythm",
+      "chunk_ids": [
+        "chunk-d4e16740d7",
+        "chunk-75597c9ebc"
+      ],
+      "audio": "audio/model_03.wav",
+      "tags": [
+        "daily",
+        "ordering-food"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-01-005",
+      "kind": "daily_sentence",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "text": "Could you put the dressing on the side?",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-ae5e33545a",
+        "chunk-cb47b93c2f"
+      ],
+      "audio": "audio/model_04.wav",
+      "tags": [
+        "daily",
+        "ordering-food"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-01-006",
+      "kind": "daily_sentence",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "text": "I’ll have the same thing, but with no cheese.",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-425d53c866",
+        "chunk-f8d5ed74dd"
+      ],
+      "audio": "audio/model_05.wav",
+      "tags": [
+        "daily",
+        "ordering-food"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-01-007",
+      "kind": "daily_sentence",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "text": "Could I substitute the fries for a salad?",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-b4df1ee831",
+        "chunk-0c87e23740"
+      ],
+      "audio": "audio/model_06.wav",
+      "tags": [
+        "daily",
+        "ordering-food"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-01-008",
+      "kind": "daily_sentence",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "text": "We’re ready to order whenever you are.",
+      "focus": "Reduction",
+      "chunk_ids": [
+        "chunk-7c8739bd3f",
+        "chunk-76f7590235"
+      ],
+      "audio": "audio/model_07.wav",
+      "tags": [
+        "daily",
+        "ordering-food"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-01-009",
+      "kind": "daily_sentence",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "text": "Could you split the check between the two of us?",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-0d93ff536f",
+        "chunk-55b6557fc4"
+      ],
+      "audio": "audio/model_08.wav",
+      "tags": [
+        "daily",
+        "ordering-food"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-01-010",
+      "kind": "daily_sentence",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "text": "Everything was great. Could I get a box for this?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-faf243889e",
+        "chunk-1ce5db90a1"
+      ],
+      "audio": "audio/model_09.wav",
+      "tags": [
+        "daily",
+        "ordering-food"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-02-001",
+      "kind": "daily_sentence",
+      "topic": "Transportation",
+      "level": "B1",
+      "text": "How long does it usually take to get there?",
+      "focus": "Rhythm",
+      "chunk_ids": [
+        "chunk-f86d88f85b",
+        "chunk-5939920f38"
+      ],
+      "audio": "audio/model_10.wav",
+      "tags": [
+        "daily",
+        "transportation"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-02-002",
+      "kind": "daily_sentence",
+      "topic": "Transportation",
+      "level": "B1",
+      "text": "Could you let me know when we get to the next stop?",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-264a27d4cf",
+        "chunk-c7c96c4d10"
+      ],
+      "audio": "audio/model_11.wav",
+      "tags": [
+        "daily",
+        "transportation"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-02-003",
+      "kind": "daily_sentence",
+      "topic": "Transportation",
+      "level": "B1",
+      "text": "Traffic was backed up, so I ended up taking a different route.",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-0908a524c3",
+        "chunk-484a6dc4ae"
+      ],
+      "audio": "audio/model_12.wav",
+      "tags": [
+        "daily",
+        "transportation"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-02-004",
+      "kind": "daily_sentence",
+      "topic": "Transportation",
+      "level": "B1",
+      "text": "Does this bus go all the way to downtown?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-0b8d3f12b1",
+        "chunk-2d7b108571"
+      ],
+      "audio": "audio/model_13.wav",
+      "tags": [
+        "daily",
+        "transportation"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-02-005",
+      "kind": "daily_sentence",
+      "topic": "Transportation",
+      "level": "B1",
+      "text": "I think I missed my stop. Where should I get off?",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-8cbfbaee75",
+        "chunk-8aee72ca84"
+      ],
+      "audio": "audio/model_14.wav",
+      "tags": [
+        "daily",
+        "transportation"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-02-006",
+      "kind": "daily_sentence",
+      "topic": "Transportation",
+      "level": "B1",
+      "text": "The train is running about ten minutes late.",
+      "focus": "Rhythm",
+      "chunk_ids": [
+        "chunk-8fd60ef0ad",
+        "chunk-0e3edc97d7"
+      ],
+      "audio": "audio/model_15.wav",
+      "tags": [
+        "daily",
+        "transportation"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-02-007",
+      "kind": "daily_sentence",
+      "topic": "Transportation",
+      "level": "B1",
+      "text": "Could you drop me off near the main entrance?",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-be8b1cb7b2",
+        "chunk-42486c360a"
+      ],
+      "audio": "audio/model_16.wav",
+      "tags": [
+        "daily",
+        "transportation"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-02-008",
+      "kind": "daily_sentence",
+      "topic": "Transportation",
+      "level": "B1",
+      "text": "I’m trying to avoid the freeway during rush hour.",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-690299f3cc",
+        "chunk-b2183b4a09"
+      ],
+      "audio": "audio/model_17.wav",
+      "tags": [
+        "daily",
+        "transportation"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-02-009",
+      "kind": "daily_sentence",
+      "topic": "Transportation",
+      "level": "B1",
+      "text": "Is there a transfer between these two lines?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-7d45774bfb",
+        "chunk-b983f073b4"
+      ],
+      "audio": "audio/model_18.wav",
+      "tags": [
+        "daily",
+        "transportation"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-02-010",
+      "kind": "daily_sentence",
+      "topic": "Transportation",
+      "level": "B1",
+      "text": "I’ll check the route before I leave.",
+      "focus": "Reduction",
+      "chunk_ids": [
+        "chunk-a08b6c6ca0",
+        "chunk-a95f722625"
+      ],
+      "audio": "audio/model_19.wav",
+      "tags": [
+        "daily",
+        "transportation"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-03-001",
+      "kind": "daily_sentence",
+      "topic": "Classroom",
+      "level": "B1",
+      "text": "Could you go over that one more time?",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-492f03ea72",
+        "chunk-11a5abb1b8"
+      ],
+      "audio": "audio/model_20.wav",
+      "tags": [
+        "daily",
+        "classroom"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-03-002",
+      "kind": "daily_sentence",
+      "topic": "Classroom",
+      "level": "B1",
+      "text": "I understand the idea, but I’m not sure how to apply it.",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-d3ae975fde",
+        "chunk-a3d189a593"
+      ],
+      "audio": "audio/model_21.wav",
+      "tags": [
+        "daily",
+        "classroom"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-03-003",
+      "kind": "daily_sentence",
+      "topic": "Classroom",
+      "level": "B1",
+      "text": "Would it be possible to submit the assignment tomorrow?",
+      "focus": "Polite intonation",
+      "chunk_ids": [
+        "chunk-40d22698eb",
+        "chunk-0bc0e0a59f"
+      ],
+      "audio": "audio/model_22.wav",
+      "tags": [
+        "daily",
+        "classroom"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-03-004",
+      "kind": "daily_sentence",
+      "topic": "Classroom",
+      "level": "B1",
+      "text": "Could you explain what you mean by spatial perspective?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-ab8028bc7e",
+        "chunk-eb40ab6f60"
+      ],
+      "audio": "audio/model_23.wav",
+      "tags": [
+        "daily",
+        "classroom"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-03-005",
+      "kind": "daily_sentence",
+      "topic": "Classroom",
+      "level": "B1",
+      "text": "I have a question about the second part of the assignment.",
+      "focus": "Rhythm",
+      "chunk_ids": [
+        "chunk-080e381f89",
+        "chunk-2ddffc2468"
+      ],
+      "audio": "audio/model_24.wav",
+      "tags": [
+        "daily",
+        "classroom"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-03-006",
+      "kind": "daily_sentence",
+      "topic": "Classroom",
+      "level": "B1",
+      "text": "I’m still working through the reading, but I understand the main argument.",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-dc340c9c02",
+        "chunk-0fa3d36ade"
+      ],
+      "audio": "audio/model_25.wav",
+      "tags": [
+        "daily",
+        "classroom"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-03-007",
+      "kind": "daily_sentence",
+      "topic": "Classroom",
+      "level": "B1",
+      "text": "Would you mind giving me an example?",
+      "focus": "Reduction",
+      "chunk_ids": [
+        "chunk-4afd7d39a7",
+        "chunk-348231e224"
+      ],
+      "audio": "audio/model_26.wav",
+      "tags": [
+        "daily",
+        "classroom"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-03-008",
+      "kind": "daily_sentence",
+      "topic": "Classroom",
+      "level": "B1",
+      "text": "I’d like to build on what she just said.",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-37da33105e",
+        "chunk-2def496b06"
+      ],
+      "audio": "audio/model_27.wav",
+      "tags": [
+        "daily",
+        "classroom"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-03-009",
+      "kind": "daily_sentence",
+      "topic": "Classroom",
+      "level": "B1",
+      "text": "I’m not completely convinced by that interpretation.",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-0dd5c9a99b",
+        "chunk-30228983cc"
+      ],
+      "audio": "audio/model_28.wav",
+      "tags": [
+        "daily",
+        "classroom"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-03-010",
+      "kind": "daily_sentence",
+      "topic": "Classroom",
+      "level": "B1",
+      "text": "Could we talk about this after class?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-ce5a539460",
+        "chunk-65eebaf5a7"
+      ],
+      "audio": "audio/model_29.wav",
+      "tags": [
+        "daily",
+        "classroom"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-04-001",
+      "kind": "daily_sentence",
+      "topic": "Shopping",
+      "level": "B1",
+      "text": "Do you have this in a smaller size?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-a85ef97cbc",
+        "chunk-a5c27b17d9"
+      ],
+      "audio": "audio/model_30.wav",
+      "tags": [
+        "daily",
+        "shopping"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-04-002",
+      "kind": "daily_sentence",
+      "topic": "Shopping",
+      "level": "B1",
+      "text": "I’m just looking, but I’ll let you know if I need help.",
+      "focus": "Reduction",
+      "chunk_ids": [
+        "chunk-27c49a993d",
+        "chunk-b288e905a3"
+      ],
+      "audio": "audio/model_31.wav",
+      "tags": [
+        "daily",
+        "shopping"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-04-003",
+      "kind": "daily_sentence",
+      "topic": "Shopping",
+      "level": "B1",
+      "text": "Could I return this if it doesn’t fit?",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-878bf0201b",
+        "chunk-55216f18da"
+      ],
+      "audio": "audio/model_32.wav",
+      "tags": [
+        "daily",
+        "shopping"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-04-004",
+      "kind": "daily_sentence",
+      "topic": "Shopping",
+      "level": "B1",
+      "text": "Is this the final price, or is there an additional discount?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-1fc118f37d",
+        "chunk-206f4f7e64"
+      ],
+      "audio": "audio/model_33.wav",
+      "tags": [
+        "daily",
+        "shopping"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-04-005",
+      "kind": "daily_sentence",
+      "topic": "Shopping",
+      "level": "B1",
+      "text": "Could you check whether another store has it in stock?",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-232a4c678c",
+        "chunk-ea8820e0e2"
+      ],
+      "audio": "audio/model_34.wav",
+      "tags": [
+        "daily",
+        "shopping"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-04-006",
+      "kind": "daily_sentence",
+      "topic": "Shopping",
+      "level": "B1",
+      "text": "I’m looking for something lightweight and easy to carry.",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-00b908cc5a",
+        "chunk-80c4b8a540"
+      ],
+      "audio": "audio/model_35.wav",
+      "tags": [
+        "daily",
+        "shopping"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-04-007",
+      "kind": "daily_sentence",
+      "topic": "Shopping",
+      "level": "B1",
+      "text": "This is a little more expensive than I expected.",
+      "focus": "Rhythm",
+      "chunk_ids": [
+        "chunk-6511c1ac52",
+        "chunk-bb5cae2ed6"
+      ],
+      "audio": "audio/model_36.wav",
+      "tags": [
+        "daily",
+        "shopping"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-04-008",
+      "kind": "daily_sentence",
+      "topic": "Shopping",
+      "level": "B1",
+      "text": "Can I pay with two different cards?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-9f55e0b4a2",
+        "chunk-1a82b792e3"
+      ],
+      "audio": "audio/model_37.wav",
+      "tags": [
+        "daily",
+        "shopping"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-04-009",
+      "kind": "daily_sentence",
+      "topic": "Shopping",
+      "level": "B1",
+      "text": "I’d like to exchange this for a different color.",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-0af4ffb2f9",
+        "chunk-2378f64375"
+      ],
+      "audio": "audio/model_38.wav",
+      "tags": [
+        "daily",
+        "shopping"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-04-010",
+      "kind": "daily_sentence",
+      "topic": "Shopping",
+      "level": "B1",
+      "text": "Could I see the receipt before I leave?",
+      "focus": "Reduction",
+      "chunk_ids": [
+        "chunk-aae18e712d",
+        "chunk-a95f722625"
+      ],
+      "audio": "audio/model_39.wav",
+      "tags": [
+        "daily",
+        "shopping"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-05-001",
+      "kind": "daily_sentence",
+      "topic": "Small Talk",
+      "level": "B1",
+      "text": "How has your week been so far?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-442b436a7f",
+        "chunk-fa03c6b80d"
+      ],
+      "audio": "audio/model_40.wav",
+      "tags": [
+        "daily",
+        "small-talk"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-05-002",
+      "kind": "daily_sentence",
+      "topic": "Small Talk",
+      "level": "B1",
+      "text": "I’ve been keeping busy with a new sound project.",
+      "focus": "Rhythm",
+      "chunk_ids": [
+        "chunk-c411c79b09",
+        "chunk-b3676cfdbe"
+      ],
+      "audio": "audio/model_41.wav",
+      "tags": [
+        "daily",
+        "small-talk"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-05-003",
+      "kind": "daily_sentence",
+      "topic": "Small Talk",
+      "level": "B1",
+      "text": "That sounds interesting. How did you get into it?",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-769ca3081c",
+        "chunk-6a30c84c16"
+      ],
+      "audio": "audio/model_42.wav",
+      "tags": [
+        "daily",
+        "small-talk"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-05-004",
+      "kind": "daily_sentence",
+      "topic": "Small Talk",
+      "level": "B1",
+      "text": "Have you been working on anything exciting lately?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-3b62d6166e",
+        "chunk-bbb605552b"
+      ],
+      "audio": "audio/model_43.wav",
+      "tags": [
+        "daily",
+        "small-talk"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-05-005",
+      "kind": "daily_sentence",
+      "topic": "Small Talk",
+      "level": "B1",
+      "text": "I haven’t seen you in a while. How have things been?",
+      "focus": "Rhythm",
+      "chunk_ids": [
+        "chunk-478d9564c1",
+        "chunk-8e707daf6f"
+      ],
+      "audio": "audio/model_44.wav",
+      "tags": [
+        "daily",
+        "small-talk"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-05-006",
+      "kind": "daily_sentence",
+      "topic": "Small Talk",
+      "level": "B1",
+      "text": "The weather has been surprisingly nice this week.",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-4875e44b81",
+        "chunk-c61ee1f3a3"
+      ],
+      "audio": "audio/model_45.wav",
+      "tags": [
+        "daily",
+        "small-talk"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-05-007",
+      "kind": "daily_sentence",
+      "topic": "Small Talk",
+      "level": "B1",
+      "text": "I’ve been trying to spend more time outside.",
+      "focus": "Reduction",
+      "chunk_ids": [
+        "chunk-a7c82a0b42",
+        "chunk-6db9792608"
+      ],
+      "audio": "audio/model_46.wav",
+      "tags": [
+        "daily",
+        "small-talk"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-05-008",
+      "kind": "daily_sentence",
+      "topic": "Small Talk",
+      "level": "B1",
+      "text": "Did you end up going to that event?",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-9e4571238b",
+        "chunk-6e252284d4"
+      ],
+      "audio": "audio/model_47.wav",
+      "tags": [
+        "daily",
+        "small-talk"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-05-009",
+      "kind": "daily_sentence",
+      "topic": "Small Talk",
+      "level": "B1",
+      "text": "I heard you’re working on a new production.",
+      "focus": "Rhythm",
+      "chunk_ids": [
+        "chunk-804a4daa2e",
+        "chunk-00a17a32ae"
+      ],
+      "audio": "audio/model_48.wav",
+      "tags": [
+        "daily",
+        "small-talk"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-05-010",
+      "kind": "daily_sentence",
+      "topic": "Small Talk",
+      "level": "B1",
+      "text": "We should catch up sometime next week.",
+      "focus": "Reduction",
+      "chunk_ids": [
+        "chunk-1c1b863d37",
+        "chunk-085ebd8afc"
+      ],
+      "audio": "audio/model_49.wav",
+      "tags": [
+        "daily",
+        "small-talk"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-06-001",
+      "kind": "daily_sentence",
+      "topic": "Appointments",
+      "level": "B1",
+      "text": "I’d like to make an appointment for next week.",
+      "focus": "Rhythm",
+      "chunk_ids": [
+        "chunk-454424196f",
+        "chunk-4deb540366"
+      ],
+      "audio": "audio/model_50.wav",
+      "tags": [
+        "daily",
+        "appointments"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-06-002",
+      "kind": "daily_sentence",
+      "topic": "Appointments",
+      "level": "B1",
+      "text": "Is there anything available on Friday afternoon?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-e2b3051aae",
+        "chunk-d068fae100"
+      ],
+      "audio": "audio/model_51.wav",
+      "tags": [
+        "daily",
+        "appointments"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-06-003",
+      "kind": "daily_sentence",
+      "topic": "Appointments",
+      "level": "B1",
+      "text": "Could we move the appointment to a later time?",
+      "focus": "Polite request",
+      "chunk_ids": [
+        "chunk-fe8f3da316",
+        "chunk-695352f9fa"
+      ],
+      "audio": "audio/model_52.wav",
+      "tags": [
+        "daily",
+        "appointments"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-06-004",
+      "kind": "daily_sentence",
+      "topic": "Appointments",
+      "level": "B1",
+      "text": "I’m calling to confirm my appointment for tomorrow.",
+      "focus": "Rhythm",
+      "chunk_ids": [
+        "chunk-b77ef61be3",
+        "chunk-2468179cb1"
+      ],
+      "audio": "audio/model_53.wav",
+      "tags": [
+        "daily",
+        "appointments"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-06-005",
+      "kind": "daily_sentence",
+      "topic": "Appointments",
+      "level": "B1",
+      "text": "Would it be possible to meet earlier in the day?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-40d22698eb",
+        "chunk-6dee411194"
+      ],
+      "audio": "audio/model_54.wav",
+      "tags": [
+        "daily",
+        "appointments"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-06-006",
+      "kind": "daily_sentence",
+      "topic": "Appointments",
+      "level": "B1",
+      "text": "I may be about ten minutes late because of traffic.",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-e7c1ca7e4d",
+        "chunk-5b648dd104"
+      ],
+      "audio": "audio/model_55.wav",
+      "tags": [
+        "daily",
+        "appointments"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-06-007",
+      "kind": "daily_sentence",
+      "topic": "Appointments",
+      "level": "B1",
+      "text": "Could you send me a confirmation by email?",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-241ebf26b4",
+        "chunk-e5dc2706b5"
+      ],
+      "audio": "audio/model_56.wav",
+      "tags": [
+        "daily",
+        "appointments"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-06-008",
+      "kind": "daily_sentence",
+      "topic": "Appointments",
+      "level": "B1",
+      "text": "I need to cancel and reschedule my appointment.",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-9add5aa586",
+        "chunk-e99e5ada00"
+      ],
+      "audio": "audio/model_57.wav",
+      "tags": [
+        "daily",
+        "appointments"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-06-009",
+      "kind": "daily_sentence",
+      "topic": "Appointments",
+      "level": "B1",
+      "text": "Is there a cancellation fee if I change the time?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-eb9ef1abd5",
+        "chunk-ce0455a5b0"
+      ],
+      "audio": "audio/model_58.wav",
+      "tags": [
+        "daily",
+        "appointments"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-06-010",
+      "kind": "daily_sentence",
+      "topic": "Appointments",
+      "level": "B1",
+      "text": "Thank you for fitting me into the schedule.",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-6e45aa5a55",
+        "chunk-a979e278b8"
+      ],
+      "audio": "audio/model_59.wav",
+      "tags": [
+        "daily",
+        "appointments"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-07-001",
+      "kind": "daily_sentence",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "text": "Are you free to grab coffee sometime this week?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-4506a7ee85",
+        "chunk-bce06c3cf3"
+      ],
+      "audio": "audio/model_60.wav",
+      "tags": [
+        "daily",
+        "plans-&-invitations"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-07-002",
+      "kind": "daily_sentence",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "text": "I’m not completely sure yet, but I’ll let you know.",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-cfee0bbc93",
+        "chunk-b288e905a3"
+      ],
+      "audio": "audio/model_61.wav",
+      "tags": [
+        "daily",
+        "plans-&-invitations"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-07-003",
+      "kind": "daily_sentence",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "text": "Something came up, so I may need to reschedule.",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-9b2da1a865",
+        "chunk-47725ecc60"
+      ],
+      "audio": "audio/model_62.wav",
+      "tags": [
+        "daily",
+        "plans-&-invitations"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-07-004",
+      "kind": "daily_sentence",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "text": "Would you like to come with us on Saturday?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-94305d5390",
+        "chunk-a2a85ceb37"
+      ],
+      "audio": "audio/model_63.wav",
+      "tags": [
+        "daily",
+        "plans-&-invitations"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-07-005",
+      "kind": "daily_sentence",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "text": "I’d love to, but I already have plans that evening.",
+      "focus": "Stress",
+      "chunk_ids": [
+        "chunk-4c77b8178d",
+        "chunk-be53a061e8"
+      ],
+      "audio": "audio/model_64.wav",
+      "tags": [
+        "daily",
+        "plans-&-invitations"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-07-006",
+      "kind": "daily_sentence",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "text": "Let’s figure out a time that works for everyone.",
+      "focus": "Rhythm",
+      "chunk_ids": [
+        "chunk-142dc1ba2c",
+        "chunk-e1109a4baa"
+      ],
+      "audio": "audio/model_65.wav",
+      "tags": [
+        "daily",
+        "plans-&-invitations"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-07-007",
+      "kind": "daily_sentence",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "text": "I might be able to join you later in the evening.",
+      "focus": "Reduction",
+      "chunk_ids": [
+        "chunk-1ef986214d",
+        "chunk-70a11c9e29"
+      ],
+      "audio": "audio/model_66.wav",
+      "tags": [
+        "daily",
+        "plans-&-invitations"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-07-008",
+      "kind": "daily_sentence",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "text": "Could we meet somewhere closer to downtown?",
+      "focus": "Intonation",
+      "chunk_ids": [
+        "chunk-a5316a2b8e",
+        "chunk-39f527691a"
+      ],
+      "audio": "audio/model_67.wav",
+      "tags": [
+        "daily",
+        "plans-&-invitations"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-07-009",
+      "kind": "daily_sentence",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "text": "I’ll check my schedule and get back to you.",
+      "focus": "Linking",
+      "chunk_ids": [
+        "chunk-b5b85937d4",
+        "chunk-281c137613"
+      ],
+      "audio": "audio/model_68.wav",
+      "tags": [
+        "daily",
+        "plans-&-invitations"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    },
+    {
+      "id": "daily-07-010",
+      "kind": "daily_sentence",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "text": "Thanks for inviting me. I had a really good time.",
+      "focus": "Rhythm",
+      "chunk_ids": [
+        "chunk-7dbef510ee",
+        "chunk-ab254072d1"
+      ],
+      "audio": "audio/model_69.wav",
+      "tags": [
+        "daily",
+        "plans-&-invitations"
+      ],
+      "review_interval_days": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    }
+  ],
+  "chunks": [
+    {
+      "id": "chunk-3f9afa34d8",
+      "text": "Could I get…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-1fe25213e2",
+      "text": "without onions",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-a3de6704e5",
+      "text": "What do you recommend…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-4c729f9634",
+      "text": "if I want something light",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-68e3a29264",
+      "text": "Could we have the check?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-dd6aa1645a",
+      "text": "whenever you get a chance",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-d4e16740d7",
+      "text": "Is the soup made with…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-75597c9ebc",
+      "text": "or is it…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-ae5e33545a",
+      "text": "Could you put…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-cb47b93c2f",
+      "text": "on the side",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-425d53c866",
+      "text": "I’ll have the same thing",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-f8d5ed74dd",
+      "text": "but with no cheese",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-b4df1ee831",
+      "text": "Could I substitute…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-0c87e23740",
+      "text": "for a salad",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-7c8739bd3f",
+      "text": "We’re ready to order",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-76f7590235",
+      "text": "whenever you are",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-0d93ff536f",
+      "text": "Could you split the check…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-55b6557fc4",
+      "text": "between the two of us",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-faf243889e",
+      "text": "Everything was great",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-1ce5db90a1",
+      "text": "Could I get a box…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Ordering Food"
+      ]
+    },
+    {
+      "id": "chunk-f86d88f85b",
+      "text": "How long does it take…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-5939920f38",
+      "text": "to get there",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-264a27d4cf",
+      "text": "Could you let me know…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-c7c96c4d10",
+      "text": "when we get to…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-0908a524c3",
+      "text": "Traffic was backed up",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-484a6dc4ae",
+      "text": "I ended up…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-0b8d3f12b1",
+      "text": "Does this bus go…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-2d7b108571",
+      "text": "all the way to…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-8cbfbaee75",
+      "text": "I think I missed my stop",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-8aee72ca84",
+      "text": "Where should I get off?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-8fd60ef0ad",
+      "text": "The train is running…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-0e3edc97d7",
+      "text": "about ten minutes late",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-be8b1cb7b2",
+      "text": "Could you drop me off…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-42486c360a",
+      "text": "near the main entrance",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-690299f3cc",
+      "text": "I’m trying to avoid…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-b2183b4a09",
+      "text": "during rush hour",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-7d45774bfb",
+      "text": "Is there a transfer…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-b983f073b4",
+      "text": "between these two lines",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-a08b6c6ca0",
+      "text": "I’ll check the route",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation"
+      ]
+    },
+    {
+      "id": "chunk-a95f722625",
+      "text": "before I leave",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Transportation",
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-492f03ea72",
+      "text": "Could you go over…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-11a5abb1b8",
+      "text": "one more time",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-d3ae975fde",
+      "text": "I understand the idea",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-a3d189a593",
+      "text": "I’m not sure how to…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-40d22698eb",
+      "text": "Would it be possible to…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom",
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-0bc0e0a59f",
+      "text": "submit the assignment",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-ab8028bc7e",
+      "text": "Could you explain…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-eb40ab6f60",
+      "text": "what you mean by…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-080e381f89",
+      "text": "I have a question about…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-2ddffc2468",
+      "text": "the second part of…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-dc340c9c02",
+      "text": "I’m still working through…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-0fa3d36ade",
+      "text": "but I understand…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-4afd7d39a7",
+      "text": "Would you mind…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-348231e224",
+      "text": "giving me an example",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-37da33105e",
+      "text": "I’d like to build on…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-2def496b06",
+      "text": "what she just said",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-0dd5c9a99b",
+      "text": "I’m not completely convinced",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-30228983cc",
+      "text": "by that interpretation",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-ce5a539460",
+      "text": "Could we talk about this…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-65eebaf5a7",
+      "text": "after class",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Classroom"
+      ]
+    },
+    {
+      "id": "chunk-a85ef97cbc",
+      "text": "Do you have this in…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-a5c27b17d9",
+      "text": "a smaller size",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-27c49a993d",
+      "text": "I’m just looking",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-b288e905a3",
+      "text": "I’ll let you know",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping",
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-878bf0201b",
+      "text": "Could I return this…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-55216f18da",
+      "text": "if it doesn’t fit",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-1fc118f37d",
+      "text": "Is this the final price…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-206f4f7e64",
+      "text": "or is there…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-232a4c678c",
+      "text": "Could you check whether…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-ea8820e0e2",
+      "text": "has it in stock",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-00b908cc5a",
+      "text": "I’m looking for something…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-80c4b8a540",
+      "text": "lightweight and easy to carry",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-6511c1ac52",
+      "text": "This is a little more expensive",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-bb5cae2ed6",
+      "text": "than I expected",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-9f55e0b4a2",
+      "text": "Can I pay with…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-1a82b792e3",
+      "text": "two different cards",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-0af4ffb2f9",
+      "text": "I’d like to exchange this",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-2378f64375",
+      "text": "for a different color",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-aae18e712d",
+      "text": "Could I see the receipt…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Shopping"
+      ]
+    },
+    {
+      "id": "chunk-442b436a7f",
+      "text": "How has your week been…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-fa03c6b80d",
+      "text": "so far",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-c411c79b09",
+      "text": "I’ve been keeping busy with…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-b3676cfdbe",
+      "text": "a new sound project",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-769ca3081c",
+      "text": "That sounds interesting",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-6a30c84c16",
+      "text": "How did you get into…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-3b62d6166e",
+      "text": "Have you been working on…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-bbb605552b",
+      "text": "anything exciting lately",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-478d9564c1",
+      "text": "I haven’t seen you in a while",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-8e707daf6f",
+      "text": "How have things been?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-4875e44b81",
+      "text": "The weather has been…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-c61ee1f3a3",
+      "text": "surprisingly nice this week",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-a7c82a0b42",
+      "text": "I’ve been trying to…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-6db9792608",
+      "text": "spend more time outside",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-9e4571238b",
+      "text": "Did you end up…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-6e252284d4",
+      "text": "going to that event",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-804a4daa2e",
+      "text": "I heard you’re working on…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-00a17a32ae",
+      "text": "a new production",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-1c1b863d37",
+      "text": "We should catch up",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-085ebd8afc",
+      "text": "sometime next week",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Small Talk"
+      ]
+    },
+    {
+      "id": "chunk-454424196f",
+      "text": "I’d like to make an appointment",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-4deb540366",
+      "text": "for next week",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-e2b3051aae",
+      "text": "Is there anything available…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-d068fae100",
+      "text": "on Friday afternoon",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-fe8f3da316",
+      "text": "Could we move the appointment…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-695352f9fa",
+      "text": "to a later time",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-b77ef61be3",
+      "text": "I’m calling to confirm…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-2468179cb1",
+      "text": "my appointment for tomorrow",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-6dee411194",
+      "text": "meet earlier in the day",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-e7c1ca7e4d",
+      "text": "I may be about ten minutes late",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-5b648dd104",
+      "text": "because of traffic",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-241ebf26b4",
+      "text": "Could you send me…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-e5dc2706b5",
+      "text": "a confirmation by email",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-9add5aa586",
+      "text": "I need to cancel",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-e99e5ada00",
+      "text": "and reschedule my appointment",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-eb9ef1abd5",
+      "text": "Is there a cancellation fee…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-ce0455a5b0",
+      "text": "if I change the time",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-6e45aa5a55",
+      "text": "Thank you for fitting me in",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-a979e278b8",
+      "text": "to the schedule",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Appointments"
+      ]
+    },
+    {
+      "id": "chunk-4506a7ee85",
+      "text": "Are you free to…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-bce06c3cf3",
+      "text": "sometime this week",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-cfee0bbc93",
+      "text": "I’m not completely sure yet",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-9b2da1a865",
+      "text": "Something came up",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-47725ecc60",
+      "text": "I may need to reschedule",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-94305d5390",
+      "text": "Would you like to…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-a2a85ceb37",
+      "text": "come with us on Saturday",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-4c77b8178d",
+      "text": "I’d love to",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-be53a061e8",
+      "text": "but I already have plans",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-142dc1ba2c",
+      "text": "Let’s figure out a time",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-e1109a4baa",
+      "text": "that works for everyone",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-1ef986214d",
+      "text": "I might be able to…",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-70a11c9e29",
+      "text": "join you later",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-a5316a2b8e",
+      "text": "Could we meet somewhere…?",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-39f527691a",
+      "text": "closer to downtown",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-b5b85937d4",
+      "text": "I’ll check my schedule",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-281c137613",
+      "text": "and get back to you",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-7dbef510ee",
+      "text": "Thanks for inviting me",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    },
+    {
+      "id": "chunk-ab254072d1",
+      "text": "I had a really good time",
+      "translation": "",
+      "level": "B1",
+      "frequency": "high",
+      "topics": [
+        "Plans & Invitations"
+      ]
+    }
+  ],
+  "phrasal_verbs": [
+    {
+      "id": "phrasal-97cfbdfb55",
+      "verb": "eat out",
+      "translation": "在外面吃饭",
+      "example": "We usually eat out on Friday night.",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "ordering-food"
+      ]
+    },
+    {
+      "id": "phrasal-e44216e7a9",
+      "verb": "pick up",
+      "translation": "取餐；顺路拿",
+      "example": "I’ll pick up the order on my way home.",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "ordering-food"
+      ]
+    },
+    {
+      "id": "phrasal-cf1415e112",
+      "verb": "cut back on",
+      "translation": "减少",
+      "example": "I’m trying to cut back on sugar.",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "ordering-food"
+      ]
+    },
+    {
+      "id": "phrasal-09200f817b",
+      "verb": "warm up",
+      "translation": "加热",
+      "example": "Could you warm this up for me?",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "ordering-food"
+      ]
+    },
+    {
+      "id": "phrasal-b431965660",
+      "verb": "send back",
+      "translation": "退回菜品",
+      "example": "I had to send the soup back because it was cold.",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "ordering-food"
+      ]
+    },
+    {
+      "id": "phrasal-1e4db54dfa",
+      "verb": "run out of",
+      "translation": "用完",
+      "example": "They ran out of the daily special.",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "ordering-food"
+      ]
+    },
+    {
+      "id": "phrasal-b7b0e834cb",
+      "verb": "fill up",
+      "translation": "吃饱",
+      "example": "That appetizer filled me up.",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "ordering-food"
+      ]
+    },
+    {
+      "id": "phrasal-7291d38b27",
+      "verb": "go with",
+      "translation": "选择",
+      "example": "I’ll go with the grilled chicken.",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "ordering-food"
+      ]
+    },
+    {
+      "id": "phrasal-e4c5fdcecc",
+      "verb": "take out",
+      "translation": "外带",
+      "example": "Can I get this order to take out?",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "ordering-food"
+      ]
+    },
+    {
+      "id": "phrasal-453722aca4",
+      "verb": "leave out",
+      "translation": "不放",
+      "example": "Please leave out the onions.",
+      "topic": "Ordering Food",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "ordering-food"
+      ]
+    },
+    {
+      "id": "phrasal-b785bf074a",
+      "verb": "get on",
+      "translation": "上车",
+      "example": "We got on the train at Union Station.",
+      "topic": "Transportation",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "transportation"
+      ]
+    },
+    {
+      "id": "phrasal-2681574212",
+      "verb": "get off",
+      "translation": "下车",
+      "example": "You need to get off at the next stop.",
+      "topic": "Transportation",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "transportation"
+      ]
+    },
+    {
+      "id": "phrasal-3170a31dc4",
+      "verb": "back up",
+      "translation": "堵塞",
+      "example": "Traffic is backing up near the freeway.",
+      "topic": "Transportation",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "transportation"
+      ]
+    },
+    {
+      "id": "phrasal-b216832ac0",
+      "verb": "drop off",
+      "translation": "送到",
+      "example": "Could you drop me off at the station?",
+      "topic": "Transportation",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "transportation"
+      ]
+    },
+    {
+      "id": "phrasal-272b5facf5",
+      "verb": "pick up",
+      "translation": "接人",
+      "example": "I’ll pick you up after class.",
+      "topic": "Transportation",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "transportation"
+      ]
+    },
+    {
+      "id": "phrasal-3785b1b934",
+      "verb": "pull over",
+      "translation": "靠边停车",
+      "example": "The driver pulled over near the entrance.",
+      "topic": "Transportation",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "transportation"
+      ]
+    },
+    {
+      "id": "phrasal-24a7464360",
+      "verb": "speed up",
+      "translation": "加速",
+      "example": "Traffic started to speed up.",
+      "topic": "Transportation",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "transportation"
+      ]
+    },
+    {
+      "id": "phrasal-75482b8f7b",
+      "verb": "slow down",
+      "translation": "减速",
+      "example": "You should slow down in this area.",
+      "topic": "Transportation",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "transportation"
+      ]
+    },
+    {
+      "id": "phrasal-ce5dfd0f6a",
+      "verb": "head back",
+      "translation": "返回",
+      "example": "I’m going to head back before traffic gets worse.",
+      "topic": "Transportation",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "transportation"
+      ]
+    },
+    {
+      "id": "phrasal-dedaeba7a8",
+      "verb": "set off",
+      "translation": "出发",
+      "example": "We set off early in the morning.",
+      "topic": "Transportation",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "transportation"
+      ]
+    },
+    {
+      "id": "phrasal-ac7e850a5f",
+      "verb": "go over",
+      "translation": "复习；再解释",
+      "example": "Could we go over the assignment requirements?",
+      "topic": "Classroom",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "classroom"
+      ]
+    },
+    {
+      "id": "phrasal-1433c13298",
+      "verb": "hand in",
+      "translation": "提交",
+      "example": "I’ll hand in the project before class.",
+      "topic": "Classroom",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "classroom"
+      ]
+    },
+    {
+      "id": "phrasal-a9f5509bf6",
+      "verb": "catch up",
+      "translation": "赶上进度",
+      "example": "I need to catch up on the reading.",
+      "topic": "Classroom",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "classroom"
+      ]
+    },
+    {
+      "id": "phrasal-045015de32",
+      "verb": "work through",
+      "translation": "逐步处理",
+      "example": "I’m still working through the article.",
+      "topic": "Classroom",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "classroom"
+      ]
+    },
+    {
+      "id": "phrasal-4b2c883f44",
+      "verb": "build on",
+      "translation": "继续发展",
+      "example": "I’d like to build on that idea.",
+      "topic": "Classroom",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "classroom"
+      ]
+    },
+    {
+      "id": "phrasal-3fd314e2f8",
+      "verb": "bring up",
+      "translation": "提出",
+      "example": "She brought up an important question.",
+      "topic": "Classroom",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "classroom"
+      ]
+    },
+    {
+      "id": "phrasal-8b680b8ae8",
+      "verb": "point out",
+      "translation": "指出",
+      "example": "The professor pointed out a problem.",
+      "topic": "Classroom",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "classroom"
+      ]
+    },
+    {
+      "id": "phrasal-0ea9ca4759",
+      "verb": "look into",
+      "translation": "进一步调查",
+      "example": "I’ll look into that source.",
+      "topic": "Classroom",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "classroom"
+      ]
+    },
+    {
+      "id": "phrasal-e156afd4ff",
+      "verb": "write down",
+      "translation": "写下",
+      "example": "Could you write that term down?",
+      "topic": "Classroom",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "classroom"
+      ]
+    },
+    {
+      "id": "phrasal-1ae53a4ca9",
+      "verb": "sum up",
+      "translation": "总结",
+      "example": "Could you sum up the main point?",
+      "topic": "Classroom",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "classroom"
+      ]
+    },
+    {
+      "id": "phrasal-95253744d5",
+      "verb": "try on",
+      "translation": "试穿",
+      "example": "Can I try this jacket on?",
+      "topic": "Shopping",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "shopping"
+      ]
+    },
+    {
+      "id": "phrasal-b07f925547",
+      "verb": "sell out",
+      "translation": "售罄",
+      "example": "The smaller size sold out yesterday.",
+      "topic": "Shopping",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "shopping"
+      ]
+    },
+    {
+      "id": "phrasal-f3efd922de",
+      "verb": "take back",
+      "translation": "退回商品",
+      "example": "I need to take this shirt back.",
+      "topic": "Shopping",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "shopping"
+      ]
+    },
+    {
+      "id": "phrasal-d1234d11d1",
+      "verb": "look for",
+      "translation": "寻找",
+      "example": "I’m looking for a lightweight jacket.",
+      "topic": "Shopping",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "shopping"
+      ]
+    },
+    {
+      "id": "phrasal-6172f45b45",
+      "verb": "check out",
+      "translation": "查看",
+      "example": "I want to check out the new collection.",
+      "topic": "Shopping",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "shopping"
+      ]
+    },
+    {
+      "id": "phrasal-e3eef1ad25",
+      "verb": "pay for",
+      "translation": "付款",
+      "example": "I’ll pay for this separately.",
+      "topic": "Shopping",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "shopping"
+      ]
+    },
+    {
+      "id": "phrasal-2aae212acd",
+      "verb": "mark down",
+      "translation": "降价",
+      "example": "They marked down all the winter coats.",
+      "topic": "Shopping",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "shopping"
+      ]
+    },
+    {
+      "id": "phrasal-b2e487f561",
+      "verb": "pick out",
+      "translation": "挑选",
+      "example": "Could you help me pick out a color?",
+      "topic": "Shopping",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "shopping"
+      ]
+    },
+    {
+      "id": "phrasal-61be34925c",
+      "verb": "wear out",
+      "translation": "穿坏",
+      "example": "These shoes wore out quickly.",
+      "topic": "Shopping",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "shopping"
+      ]
+    },
+    {
+      "id": "phrasal-066095dfae",
+      "verb": "shop around",
+      "translation": "货比三家",
+      "example": "I’m going to shop around before deciding.",
+      "topic": "Shopping",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "shopping"
+      ]
+    },
+    {
+      "id": "phrasal-953eed9643",
+      "verb": "get into",
+      "translation": "开始喜欢",
+      "example": "How did you get into sound design?",
+      "topic": "Small Talk",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "small-talk"
+      ]
+    },
+    {
+      "id": "phrasal-02a3a349d0",
+      "verb": "hang out",
+      "translation": "一起消磨时间",
+      "example": "We hung out after rehearsal.",
+      "topic": "Small Talk",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "small-talk"
+      ]
+    },
+    {
+      "id": "phrasal-9536753e70",
+      "verb": "run into",
+      "translation": "偶遇",
+      "example": "I ran into my classmate.",
+      "topic": "Small Talk",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "small-talk"
+      ]
+    },
+    {
+      "id": "phrasal-781f2b373c",
+      "verb": "catch up",
+      "translation": "叙旧",
+      "example": "We should catch up over coffee.",
+      "topic": "Small Talk",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "small-talk"
+      ]
+    },
+    {
+      "id": "phrasal-c099926ba7",
+      "verb": "end up",
+      "translation": "最终",
+      "example": "Did you end up going?",
+      "topic": "Small Talk",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "small-talk"
+      ]
+    },
+    {
+      "id": "phrasal-3553794760",
+      "verb": "keep up with",
+      "translation": "跟上",
+      "example": "It’s hard to keep up with everyone’s projects.",
+      "topic": "Small Talk",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "small-talk"
+      ]
+    },
+    {
+      "id": "phrasal-9c5489d299",
+      "verb": "come across",
+      "translation": "偶然发现",
+      "example": "I came across a great recording.",
+      "topic": "Small Talk",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "small-talk"
+      ]
+    },
+    {
+      "id": "phrasal-60d4dc5b2e",
+      "verb": "open up",
+      "translation": "愿意交流",
+      "example": "He opened up during the conversation.",
+      "topic": "Small Talk",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "small-talk"
+      ]
+    },
+    {
+      "id": "phrasal-888fbb39cd",
+      "verb": "bring up",
+      "translation": "提到",
+      "example": "She brought up your new project.",
+      "topic": "Small Talk",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "small-talk"
+      ]
+    },
+    {
+      "id": "phrasal-ad79ab3b7b",
+      "verb": "get along",
+      "translation": "相处融洽",
+      "example": "Do you get along with your classmates?",
+      "topic": "Small Talk",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "small-talk"
+      ]
+    },
+    {
+      "id": "phrasal-0970b34fbe",
+      "verb": "set up",
+      "translation": "安排",
+      "example": "I need to set up a meeting.",
+      "topic": "Appointments",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "appointments"
+      ]
+    },
+    {
+      "id": "phrasal-9bcb16f9f5",
+      "verb": "push back",
+      "translation": "推迟",
+      "example": "Could we push the appointment back?",
+      "topic": "Appointments",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "appointments"
+      ]
+    },
+    {
+      "id": "phrasal-c1dc8ba576",
+      "verb": "show up",
+      "translation": "到场",
+      "example": "Please show up ten minutes early.",
+      "topic": "Appointments",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "appointments"
+      ]
+    },
+    {
+      "id": "phrasal-39c9e9cd27",
+      "verb": "fit in",
+      "translation": "安排进时间表",
+      "example": "They were able to fit me in.",
+      "topic": "Appointments",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "appointments"
+      ]
+    },
+    {
+      "id": "phrasal-a020203509",
+      "verb": "call back",
+      "translation": "回电话",
+      "example": "Could you call me back?",
+      "topic": "Appointments",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "appointments"
+      ]
+    },
+    {
+      "id": "phrasal-1e95cd4f9b",
+      "verb": "write down",
+      "translation": "记下",
+      "example": "Could you write down my confirmation number?",
+      "topic": "Appointments",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "appointments"
+      ]
+    },
+    {
+      "id": "phrasal-7ef46b1a14",
+      "verb": "move up",
+      "translation": "提前",
+      "example": "Can we move the meeting up?",
+      "topic": "Appointments",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "appointments"
+      ]
+    },
+    {
+      "id": "phrasal-e42647706d",
+      "verb": "put off",
+      "translation": "推迟",
+      "example": "I don’t want to put it off.",
+      "topic": "Appointments",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "appointments"
+      ]
+    },
+    {
+      "id": "phrasal-d63eced13f",
+      "verb": "check in",
+      "translation": "报到",
+      "example": "Please check in at the front desk.",
+      "topic": "Appointments",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "appointments"
+      ]
+    },
+    {
+      "id": "phrasal-2635c8dcf3",
+      "verb": "follow up",
+      "translation": "跟进",
+      "example": "I’m calling to follow up.",
+      "topic": "Appointments",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "appointments"
+      ]
+    },
+    {
+      "id": "phrasal-f9cf84429b",
+      "verb": "come up",
+      "translation": "突然发生",
+      "example": "Something came up.",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "plans-&-invitations"
+      ]
+    },
+    {
+      "id": "phrasal-d5d89755fe",
+      "verb": "figure out",
+      "translation": "弄清楚",
+      "example": "I’ll figure out my schedule.",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "plans-&-invitations"
+      ]
+    },
+    {
+      "id": "phrasal-6d7dae0a03",
+      "verb": "turn down",
+      "translation": "拒绝",
+      "example": "I had to turn down the invitation.",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "plans-&-invitations"
+      ]
+    },
+    {
+      "id": "phrasal-754cc39f21",
+      "verb": "get back to",
+      "translation": "稍后回复",
+      "example": "I’ll get back to you tomorrow.",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "plans-&-invitations"
+      ]
+    },
+    {
+      "id": "phrasal-26d1767252",
+      "verb": "meet up",
+      "translation": "见面",
+      "example": "Let’s meet up near the station.",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "plans-&-invitations"
+      ]
+    },
+    {
+      "id": "phrasal-eae7fd48bb",
+      "verb": "come along",
+      "translation": "一起参加",
+      "example": "Would you like to come along?",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "plans-&-invitations"
+      ]
+    },
+    {
+      "id": "phrasal-78243aef7c",
+      "verb": "drop by",
+      "translation": "顺便拜访",
+      "example": "You can drop by after rehearsal.",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "plans-&-invitations"
+      ]
+    },
+    {
+      "id": "phrasal-9dd848ab55",
+      "verb": "stay over",
+      "translation": "留宿",
+      "example": "She stayed over after the party.",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "plans-&-invitations"
+      ]
+    },
+    {
+      "id": "phrasal-ccd3e2e43d",
+      "verb": "head out",
+      "translation": "出发",
+      "example": "We’re heading out around seven.",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "plans-&-invitations"
+      ]
+    },
+    {
+      "id": "phrasal-29ffb53c28",
+      "verb": "call off",
+      "translation": "取消",
+      "example": "They called off the event.",
+      "topic": "Plans & Invitations",
+      "level": "B1",
+      "frequency": "high",
+      "tags": [
+        "phrasal-verb",
+        "plans-&-invitations"
+      ]
+    }
+  ],
+  "sound_terms": [
+    {
+      "id": "sound-001",
+      "term": "room tone",
+      "translation": "室内空间本底声",
+      "example": "We need thirty seconds of clean room tone.",
+      "category": "Field Recording",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "field-recording"
+      ]
+    },
+    {
+      "id": "sound-002",
+      "term": "gain staging",
+      "translation": "增益结构管理",
+      "example": "Good gain staging prevents clipping and excess noise.",
+      "category": "Studio",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "studio"
+      ]
+    },
+    {
+      "id": "sound-003",
+      "term": "ring out",
+      "translation": "调试并削减反馈频率",
+      "example": "We need to ring out the monitors before rehearsal.",
+      "category": "Theater",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "theater"
+      ]
+    },
+    {
+      "id": "sound-004",
+      "term": "roll off",
+      "translation": "逐渐衰减某段频率",
+      "example": "I rolled off some low frequencies below eighty hertz.",
+      "category": "Mixing",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "mixing"
+      ]
+    },
+    {
+      "id": "sound-005",
+      "term": "fade in",
+      "translation": "渐入",
+      "example": "The ambience should fade in after the blackout.",
+      "category": "Theater",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "theater"
+      ]
+    },
+    {
+      "id": "sound-006",
+      "term": "fade out",
+      "translation": "渐出",
+      "example": "Fade out the music as the dialogue begins.",
+      "category": "Theater",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "theater"
+      ]
+    },
+    {
+      "id": "sound-007",
+      "term": "route to",
+      "translation": "把信号发送到",
+      "example": "Route these tracks to the main output.",
+      "category": "Studio",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "studio"
+      ]
+    },
+    {
+      "id": "sound-008",
+      "term": "pick up",
+      "translation": "麦克风拾取声音",
+      "example": "The microphone picked up too much wind noise.",
+      "category": "Field Recording",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "field-recording"
+      ]
+    },
+    {
+      "id": "sound-009",
+      "term": "cut through",
+      "translation": "在混音中保持清晰",
+      "example": "The dialogue needs to cut through the music.",
+      "category": "Mixing",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "mixing"
+      ]
+    },
+    {
+      "id": "sound-010",
+      "term": "build up",
+      "translation": "逐渐积累",
+      "example": "Low-frequency energy is building up in the room.",
+      "category": "Acoustics",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "acoustics"
+      ]
+    },
+    {
+      "id": "sound-011",
+      "term": "print stems",
+      "translation": "导出分轨",
+      "example": "I’ll print the stems before rehearsal.",
+      "category": "Post-production",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "post-production"
+      ]
+    },
+    {
+      "id": "sound-012",
+      "term": "patch into",
+      "translation": "接入系统",
+      "example": "Patch the wireless receiver into input eight.",
+      "category": "Theater",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "theater"
+      ]
+    },
+    {
+      "id": "sound-013",
+      "term": "send to",
+      "translation": "发送到总线或效果器",
+      "example": "Send the vocal to the reverb bus.",
+      "category": "Studio",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "studio"
+      ]
+    },
+    {
+      "id": "sound-014",
+      "term": "bring down",
+      "translation": "降低音量",
+      "example": "Bring the music down under the dialogue.",
+      "category": "Mixing",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "mixing"
+      ]
+    },
+    {
+      "id": "sound-015",
+      "term": "binaural",
+      "translation": "双耳录音/渲染",
+      "example": "I made a binaural version for headphone listeners.",
+      "category": "Spatial Audio",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "spatial-audio"
+      ]
+    },
+    {
+      "id": "sound-016",
+      "term": "impulse response",
+      "translation": "脉冲响应",
+      "example": "I used the church impulse response for convolution reverb.",
+      "category": "Acoustics",
+      "level": "B1-B2",
+      "tags": [
+        "sound-design",
+        "acoustics"
+      ]
+    }
+  ],
+  "dictations": [
+    {
+      "id": "dictation-001",
+      "text": "Could you send me the latest version before rehearsal?",
+      "hint": "Listen for the reduced pronunciation of “could you” and “before.”",
+      "level": "B1"
+    },
+    {
+      "id": "dictation-002",
+      "text": "The microphone picked up more wind noise than I expected.",
+      "hint": "Listen for “picked up” and “more than.”",
+      "level": "B1"
+    },
+    {
+      "id": "dictation-003",
+      "text": "I need a cleaner recording with less background noise.",
+      "hint": "Listen for the contrast between “cleaner” and “less.”",
+      "level": "B1"
+    },
+    {
+      "id": "dictation-004",
+      "text": "The reverb makes the space feel much larger.",
+      "hint": "Listen to the final consonants in “makes” and “space.”",
+      "level": "B1"
+    },
+    {
+      "id": "dictation-005",
+      "text": "We should capture a few minutes of clean room tone.",
+      "hint": "Listen for “a few minutes of” as one rhythm group.",
+      "level": "B1"
+    },
+    {
+      "id": "dictation-006",
+      "text": "I’ll export the stems and send them over tonight.",
+      "hint": "Listen for “stems and” and “send them.”",
+      "level": "B1"
+    },
+    {
+      "id": "dictation-007",
+      "text": "The cue should start just before the lights fade.",
+      "hint": "Listen for “should start” and “just before.”",
+      "level": "B1"
+    },
+    {
+      "id": "dictation-008",
+      "text": "Can you hear the low-frequency rumble underneath the dialogue?",
+      "hint": "Listen for “low-frequency rumble.”",
+      "level": "B1"
+    }
+  ],
+  "studio_scenarios": [
+    {
+      "id": "studio-001",
+      "lead": "Your instructor says:",
+      "prompt": "Can you send me the stems before rehearsal?",
+      "response": "Sure. I’ll export them and send them over before rehearsal.",
+      "level": "B1-B2"
+    },
+    {
+      "id": "studio-002",
+      "lead": "The stage manager asks:",
+      "prompt": "Can we take the cue from the top of the scene?",
+      "response": "Yes. I’m ready to run it again from the top.",
+      "level": "B1-B2"
+    },
+    {
+      "id": "studio-003",
+      "lead": "A mixer asks:",
+      "prompt": "Could you bring the dialogue up a little?",
+      "response": "Sure. I’ll bring it up by about two decibels.",
+      "level": "B1-B2"
+    },
+    {
+      "id": "studio-004",
+      "lead": "A director says:",
+      "prompt": "The transition feels too abrupt.",
+      "response": "I can lengthen the crossfade and make it smoother.",
+      "level": "B1-B2"
+    }
+  ]
+}

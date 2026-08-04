@@ -1,19 +1,21 @@
-# WaveSpeak CREATIVE LAB v6
+# WaveSpeak CONTENT ENGINE v8
 
-This version preserves the merged v5 features and adds a complete Creative Sound Vocabulary / Sound Description Lab.
+This version keeps all v7 and Creative Sound Lab features and adds a scalable content system.
 
-New module:
-- Atmosphere and emotion vocabulary
-- Timbre and texture vocabulary
-- Space and distance vocabulary
-- Movement and transformation verbs
-- Density, rhythm, and energy vocabulary
-- Creative and dramaturgical terminology
-- Synthesized sound listening exercises
-- Word-comparison exercises
-- Spoken sound-description recording
-- Browser-supported transcription and vocabulary feedback
-- Professional sentence builder for critiques, presentations, portfolios, and director conversations
+Architecture:
+- `content-catalog.json`: structured sentence, chunk, phrasal-verb, sound-term, dictation, and studio records
+- `topic-index.json`: fast topic-to-content index
+- Content Engine screen: catalog counts, topic browser, adaptive daily plan, and local spaced review
+- Each sentence has an ID, topic, CEFR level, focus, chunk references, audio reference, tags, and review intervals
 
-Upload every file and the entire `audio` folder to the root of the existing GitHub repository.
-Confirm the deployment by checking for `CREATIVE LAB v6` in the top-right corner.
+Current seed database:
+- 70 daily sentences
+- Unique normalized chunks
+- 70 phrasal verbs
+- Sound-design vocabulary
+- Dictations and studio scenarios
+
+The important change is that future content can be appended to JSON records without rewriting the app interface.
+
+Upload every file and the entire `audio` folder.
+Confirm deployment by checking for `CONTENT ENGINE v8`.

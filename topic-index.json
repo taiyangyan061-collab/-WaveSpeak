@@ -1,0 +1,86 @@
+{
+  "Ordering Food": [
+    "daily-01-001",
+    "daily-01-002",
+    "daily-01-003",
+    "daily-01-004",
+    "daily-01-005",
+    "daily-01-006",
+    "daily-01-007",
+    "daily-01-008",
+    "daily-01-009",
+    "daily-01-010"
+  ],
+  "Transportation": [
+    "daily-02-001",
+    "daily-02-002",
+    "daily-02-003",
+    "daily-02-004",
+    "daily-02-005",
+    "daily-02-006",
+    "daily-02-007",
+    "daily-02-008",
+    "daily-02-009",
+    "daily-02-010"
+  ],
+  "Classroom": [
+    "daily-03-001",
+    "daily-03-002",
+    "daily-03-003",
+    "daily-03-004",
+    "daily-03-005",
+    "daily-03-006",
+    "daily-03-007",
+    "daily-03-008",
+    "daily-03-009",
+    "daily-03-010"
+  ],
+  "Shopping": [
+    "daily-04-001",
+    "daily-04-002",
+    "daily-04-003",
+    "daily-04-004",
+    "daily-04-005",
+    "daily-04-006",
+    "daily-04-007",
+    "daily-04-008",
+    "daily-04-009",
+    "daily-04-010"
+  ],
+  "Small Talk": [
+    "daily-05-001",
+    "daily-05-002",
+    "daily-05-003",
+    "daily-05-004",
+    "daily-05-005",
+    "daily-05-006",
+    "daily-05-007",
+    "daily-05-008",
+    "daily-05-009",
+    "daily-05-010"
+  ],
+  "Appointments": [
+    "daily-06-001",
+    "daily-06-002",
+    "daily-06-003",
+    "daily-06-004",
+    "daily-06-005",
+    "daily-06-006",
+    "daily-06-007",
+    "daily-06-008",
+    "daily-06-009",
+    "daily-06-010"
+  ],
+  "Plans & Invitations": [
+    "daily-07-001",
+    "daily-07-002",
+    "daily-07-003",
+    "daily-07-004",
+    "daily-07-005",
+    "daily-07-006",
+    "daily-07-007",
+    "daily-07-008",
+    "daily-07-009",
+    "daily-07-010"
+  ]
+}
