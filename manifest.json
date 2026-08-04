@@ -1,22 +1,22 @@
 {
-  "name": "WaveSpeak v13 Simple TTS",
+  "name": "WaveSpeak v15 Browser Compatibility",
   "short_name": "WaveSpeak",
   "id": "/",
-  "start_url": "/?v=13",
+  "start_url": "/?v=15",
   "scope": "/",
   "display": "standalone",
   "background_color": "#f6f3ef",
   "theme_color": "#18131f",
-  "description": "WaveSpeak using simple fresh browser TTS on every click.",
+  "description": "WaveSpeak with browser detection and Safari guidance for reliable speech playback on Mac.",
   "icons": [
     {
-      "src": "/icon-192.png?v=13",
+      "src": "/icon-192.png?v=15",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icon-512.png?v=13",
+      "src": "/icon-512.png?v=15",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

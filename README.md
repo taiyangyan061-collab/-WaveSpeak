@@ -1,17 +1,15 @@
-# WaveSpeak SIMPLE TTS v13
+# WaveSpeak BROWSER COMPAT v15
 
-This version starts from the function-complete v10 package.
+This version preserves v14 and adds browser compatibility handling.
 
-Playback changes:
-- Removes the voice dropdown
-- Removes cached/stored voice objects
-- Removes uploaded TTS audio
-- Calls `speechSynthesis.getVoices()` fresh every time Listen is clicked
-- Prefers a normal en-US voice such as Samantha
-- Falls back to any available English voice or the browser default
-- Phrase-by-Phrase also requests a fresh voice for every phrase
+Changes:
+- Detects Chrome and Safari on macOS
+- Shows a clear warning in Chrome that browser-generated speech may fail
+- Recommends Safari for Listen and Phrase by phrase
+- Confirms Safari support when opened in Safari
+- Keeps recording, waveform, spectrum, Library, Creative Sound Lab, Content Engine, Studio Mode, and progress available in Chrome
+- Shows browser-specific playback error messages
+- Does not change the learning content or core modules
 
-All existing learning content and features remain unchanged.
-
-Upload every file and the complete `audio` folder.
-Confirm deployment by checking for `SIMPLE TTS v13`.
+Upload every file and the complete audio folder.
+Confirm deployment by checking for `BROWSER COMPAT v15`.
