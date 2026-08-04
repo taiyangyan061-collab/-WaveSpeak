@@ -6,14 +6,14 @@
 <meta name="theme-color" content="#18131f">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="WaveSpeak">
-<link rel="manifest" href="/manifest.json?v=18">
-<link rel="icon" href="/icon.svg?v=18">
-<link rel="apple-touch-icon" href="/icon-192.png?v=18">
-<title>WaveSpeak v18</title>
-<link rel="stylesheet" href="/src/styles/app.css?v=18">
+<link rel="manifest" href="/manifest.json?v=19">
+<link rel="icon" href="/icon.svg?v=19">
+<link rel="apple-touch-icon" href="/icon-192.png?v=19">
+<title>WaveSpeak v19</title>
+<link rel="stylesheet" href="/src/styles/app.css?v=19">
 </head>
 <body><div class="app">
-<div class="top"><div class="brand">WaveSpeak</div><div class="version">DUAL ENGINE v18</div></div>
+<div class="top"><div class="brand">WaveSpeak</div><div class="version">STUDY & REVIEW v19</div></div>
 <div id="compatBanner" class="compatBanner" role="status" aria-live="polite">
   <b id="compatTitle"></b>
   <span id="compatText"></span>
@@ -42,9 +42,11 @@
 <div class="mode" data-open="contentEngine"><div>🗂</div><b>Content Engine</b><span>Topics, levels, review queue, database counts, and scalable curriculum</span></div>
 <div class="mode" data-open="dailyPlan"><div>📅</div><b>Daily Plan</b><span>Ten speaking items, chunks, phrasal verbs, listening, and review</span></div>
 <div class="mode" data-open="settings"><div>⚙</div><b>Settings</b><span>Choose Browser Voice or AI Voice and save your preferences</span></div>
+<div class="mode" data-open="studyStats"><div>⏱</div><b>Study Time</b><span>Today, seven-day, and total learning time</span></div>
+<div class="mode" data-open="review"><div>↻</div><b>Review</b><span>Spaced review for completed sentences, chunks, phrases, and sound terms</span></div>
 <div class="mode" data-open="creativeLab"><div>🌌</div><b>Creative Sound Lab</b><span>Atmosphere, timbre, space, movement, dramaturgy, and professional description</span></div>
 </div>
-<div class="notice">DUAL ENGINE v18 保留旧功能并加入新功能。看到这个标签就说明加载的是合并版。</div>
+<div class="notice">STUDY & REVIEW v19 保留旧功能并加入新功能。看到这个标签就说明加载的是合并版。</div>
 </section>
 
 <section id="speaking" class="screen"><button class="back" data-home>← Home</button><div class="card">
@@ -211,16 +213,18 @@
 </div></section>
 
 
+
 <section id="dailyPlan" class="screen"><button class="back" data-home>← Home</button>
 <div class="card">
 <span class="topic">TODAY'S TRAINING</span>
 <h2 id="planTitle">Daily Plan</h2>
-<p class="muted">A balanced plan built from new content and review items.</p>
+<p class="muted">Complete items individually. Finished material is added to spaced review.</p>
 <div id="dailyPlanSummary" class="grid" style="grid-template-columns:repeat(4,1fr);margin:14px 0"></div>
+<div class="notice" id="activeStudyNotice">Study timer starts automatically while you use WaveSpeak.</div>
 <div id="dailyPlanItems" class="list"></div>
 <div class="controls">
-<button class="btn primary" id="regenerateDailyPlan">Regenerate Plan</button>
-<button class="btn soft" id="completeDailyPlan">Complete Today</button>
+<button class="btn primary" id="regenerateDailyPlan" type="button">Regenerate Plan</button>
+<button class="btn soft" id="completeDailyPlan" type="button">Complete Remaining Items</button>
 </div>
 <p class="muted" id="dailyPlanStatus"></p>
 </div>
@@ -281,6 +285,47 @@
 </div>
 </section>
 
+
+<section id="studyStats" class="screen"><button class="back" data-home>← Home</button>
+<div class="card">
+<span class="topic">LEARNING TIME</span>
+<h2>Study Time</h2>
+<div class="grid" style="margin:14px 0">
+<div class="card"><div class="score" id="todayStudyMinutes">0</div><p class="muted">minutes today</p></div>
+<div class="card"><div class="score" id="weekStudyMinutes">0</div><p class="muted">minutes in 7 days</p></div>
+<div class="card"><div class="score" id="totalStudyMinutes">0</div><p class="muted">total minutes</p></div>
+<div class="card"><div class="score" id="studyDays">0</div><p class="muted">active days</p></div>
+</div>
+<h3>Recent Study</h3>
+<div id="studyHistoryList" class="list"></div>
+<div class="controls">
+<button class="btn plain" id="pauseStudyTimer" type="button">Pause Timer</button>
+<button class="btn soft" id="resumeStudyTimer" type="button">Resume Timer</button>
+</div>
+<p class="muted" id="timerStatus"></p>
+</div>
+</section>
+
+<section id="review" class="screen"><button class="back" data-home>← Home</button>
+<div class="card">
+<span class="topic">SPACED REVIEW</span>
+<h2>Review Queue</h2>
+<div class="grid" style="margin:14px 0">
+<div class="card"><div class="score" id="dueReviewCount">0</div><p class="muted">due now</p></div>
+<div class="card"><div class="score" id="futureReviewCount">0</div><p class="muted">scheduled</p></div>
+<div class="card"><div class="score" id="masteredReviewCount">0</div><p class="muted">strong items</p></div>
+<div class="card"><div class="score" id="reviewedTodayCount">0</div><p class="muted">reviewed today</p></div>
+</div>
+<div class="tabs">
+<button class="chip active" data-review-filter="due">Due</button>
+<button class="chip" data-review-filter="all">All</button>
+<button class="chip" data-review-filter="future">Future</button>
+</div>
+<div id="reviewList" class="list"></div>
+<p id="reviewStatus" class="muted"></p>
+</div>
+</section>
+
 <section id="progress" class="screen"><button class="back" data-home>← Home</button><div class="grid">
 <div class="card"><h2>Completed</h2><div class="score" id="progressDone">0</div><p class="muted">practice items</p></div>
 <div class="card"><h2>Streak</h2><div class="score" id="streak">1</div><p class="muted">days</p></div>
@@ -294,8 +339,8 @@
 <button data-open="speaking"><b>◉</b>Speak</button>
 <button data-open="visual"><b>📊</b>Visual</button>
 <button data-open="listening"><b>◖</b>Listen</button>
-<button data-open="library"><b>▤</b>Library</button><button data-open="contentEngine"><b>🗂</b>Engine</button><button data-open="settings"><b>⚙</b>Settings</button><button data-open="creativeLab"><b>🌌</b>Lab</button>
+<button data-open="library"><b>▤</b>Library</button><button data-open="contentEngine"><b>🗂</b>Engine</button><button data-open="settings"><b>⚙</b>Settings</button><button data-open="review"><b>↻</b>Review</button><button data-open="creativeLab"><b>🌌</b>Lab</button>
 </div>
 
-<script type="module" src="/src/app.js?v=18"></script>
+<script type="module" src="/src/app.js?v=19"></script>
 </body></html>

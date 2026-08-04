@@ -41,3 +41,12 @@ select,input,textarea{font:inherit}select,input[type="search"]{border:1px solid 
 .aiDisclosure{font-size:12px;color:var(--muted);margin-top:8px}
 
 @media(max-width:780px){.grid{grid-template-columns:1fr 1fr}.visuals{grid-template-columns:1fr}.hero h1{font-size:28px}.sentence{font-size:24px}.phraseGrid{grid-template-columns:1fr}.app{padding:13px 13px 92px}.bottom{gap:18px}}
+
+.planItem{position:relative;padding-left:54px}
+.planCheck{position:absolute;left:15px;top:18px;width:26px;height:26px;accent-color:var(--accent);cursor:pointer}
+.planItem.completed{opacity:.66;background:#f3f8f3}
+.planItem.completed b{text-decoration:line-through}
+.reviewActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.reviewDate{font-size:12px;color:var(--muted)}
+.timerLive{color:#166534;background:#f0fdf4;border-color:#bbf7d0}
+.timerPaused{color:#92400e;background:#fffbeb;border-color:#fde68a}

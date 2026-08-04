@@ -1,22 +1,22 @@
 {
-  "name": "WaveSpeak v18 Dual Engine",
+  "name": "WaveSpeak v19 Study & Review",
   "short_name": "WaveSpeak",
   "id": "/",
-  "start_url": "/?v=18",
+  "start_url": "/?v=19",
   "scope": "/",
   "display": "standalone",
   "background_color": "#f6f3ef",
   "theme_color": "#18131f",
-  "description": "WaveSpeak with Browser Voice, optional AI Voice, settings, and daily planning.",
+  "description": "WaveSpeak with study-time tracking, functional daily planning, and spaced review.",
   "icons": [
     {
-      "src": "/icon-192.png?v=18",
+      "src": "/icon-192.png?v=19",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/icon-512.png?v=18",
+      "src": "/icon-512.png?v=19",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

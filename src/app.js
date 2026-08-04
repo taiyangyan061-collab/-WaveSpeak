@@ -4,14 +4,14 @@ import { createRouter } from "./core/router.js";
 import { mountBrowserCompatibility } from "./core/browser.js";
 import { createJSONStore } from "./core/storage.js";
 
-const response = await fetch("/src/data/seed-content.json?v=18", { cache: "no-store" });
+const response = await fetch("/src/data/seed-content.json?v=19", { cache: "no-store" });
 if (!response.ok) throw new Error("WaveSpeak content failed to load.");
 const DATA = await response.json();
 
 
 const $=id=>document.getElementById(id);id=>document.getElementById(id);
 
-const store = createJSONStore("ws18_");
+const store = createJSONStore("ws19_");
 const defaultSettings = {
   voiceEngine: "browser",
   aiVoice: "marin",
@@ -35,7 +35,7 @@ mountBrowserCompatibility({
   title: $("compatTitle"),
   text: $("compatText"),
   dismiss: $("dismissCompat"),
-  storageKey: "ws18_hide_compat"
+  storageKey: "ws19_hide_compat"
 });
 
 const topicIndex=(new Date().getDay()+6)%7, topic=DATA.topics[topicIndex];
@@ -48,7 +48,9 @@ const router = createRouter({
     if (id === "library") renderLibrary();
     if (id === "progress") renderProgress();
     if (id === "settings") { syncSettingsUI(); updateEngineAvailability(); }
-    if (id === "dailyPlan") renderDailyPlanV18();
+    if (id === "dailyPlan") renderDailyPlanV19(false);
+    if (id === "studyStats") renderStudyStats();
+    if (id === "review") renderReview();
   }
 });
 router.mount();
@@ -79,7 +81,7 @@ function drawEmpty(canvas,label){const c=canvas.getContext("2d");c.fillStyle="#0
 function drawWave(buffer,canvas){const d=buffer.getChannelData(0),c=canvas.getContext("2d"),w=canvas.width,h=canvas.height;c.fillStyle="#0b0910";c.fillRect(0,0,w,h);c.strokeStyle="#a78bfa";c.lineWidth=2;c.beginPath();for(let x=0;x<w;x++){const start=Math.floor(x*d.length/w),end=Math.floor((x+1)*d.length/w);let min=1,max=-1;for(let i=start;i<end;i++){if(d[i]<min)min=d[i];if(d[i]>max)max=d[i]}c.moveTo(x,(1+min)*h/2);c.lineTo(x,(1+max)*h/2)}c.stroke()}
 function dft(samples){const N=samples.length,out=new Float32Array(N/2);for(let k=0;k<N/2;k++){let re=0,im=0;for(let n=0;n<N;n++){const a=2*Math.PI*k*n/N;re+=samples[n]*Math.cos(a);im-=samples[n]*Math.sin(a)}out[k]=Math.hypot(re,im)}return out}
 function drawSpec(buffer,canvas){const data=buffer.getChannelData(0),N=512,step=Math.max(1,Math.floor(data.length/N)),sample=new Float32Array(N);for(let i=0;i<N;i++)sample[i]=data[Math.min(data.length-1,i*step)]*(.5-.5*Math.cos(2*Math.PI*i/(N-1)));const spec=dft(sample),max=Math.max(...spec,1e-6),c=canvas.getContext("2d"),w=canvas.width,h=canvas.height;c.fillStyle="#0b0910";c.fillRect(0,0,w,h);c.strokeStyle="#a78bfa";c.lineWidth=3;c.beginPath();for(let x=0;x<w;x++){const j=Math.floor(x/w*(spec.length-1)),db=20*Math.log10(spec[j]/max+1e-8),y=h-Math.max(0,Math.min(1,(db+70)/70))*h;x===0?c.moveTo(x,y):c.lineTo(x,y)}c.stroke()}
-async function loadModel(){const url=`/audio/model_${String(globalIndex()).padStart(2,"0")}.wav?v=18`;modelPlayer=new Audio(url);try{const arr=await fetch(url,{cache:"no-store"}).then(r=>r.arrayBuffer()),ctx=new AudioContext(),buf=await ctx.decodeAudioData(arr);currentModelBuffer=buf;drawWave(buf,$("modelWave"));drawSpec(buf,$("modelSpec"));await ctx.close()}catch{drawEmpty($("modelWave"),"Model unavailable");drawEmpty($("modelSpec"),"Model unavailable")}drawEmpty($("myWave"),"Record your voice");drawEmpty($("mySpec"),"Record your voice")}
+async function loadModel(){const url=`/audio/model_${String(globalIndex()).padStart(2,"0")}.wav?v=19`;modelPlayer=new Audio(url);try{const arr=await fetch(url,{cache:"no-store"}).then(r=>r.arrayBuffer()),ctx=new AudioContext(),buf=await ctx.decodeAudioData(arr);currentModelBuffer=buf;drawWave(buf,$("modelWave"));drawSpec(buf,$("modelSpec"));await ctx.close()}catch{drawEmpty($("modelWave"),"Model unavailable");drawEmpty($("modelSpec"),"Model unavailable")}drawEmpty($("myWave"),"Record your voice");drawEmpty($("mySpec"),"Record your voice")}
 $("modelPlay").addEventListener("click",()=>{if(modelPlayer){modelPlayer.currentTime=0;modelPlayer.play()}});
 
 document.querySelectorAll("[data-rate]").forEach(b=>b.addEventListener("click",()=>speak(DATA.dictations[dictIndex][0],+b.dataset.rate)));
@@ -183,7 +185,7 @@ renderCreativeCategories();renderCreativeVocabulary();renderListeningExercise();
 let CONTENT_CATALOG=null;
 async function loadContentCatalog(){
  try{
-  const response=await fetch("/content-catalog.json?v=18",{cache:"no-store"});
+  const response=await fetch("/content-catalog.json?v=19",{cache:"no-store"});
   if(!response.ok)throw new Error("catalog");
   CONTENT_CATALOG=await response.json();
   renderContentEngine();
@@ -262,6 +264,21 @@ loadContentCatalog();
 
 
 
+
+function localDateKey(date = new Date()) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+function addDays(dateString, days) {
+  const date = new Date(`${dateString}T12:00:00`);
+  date.setDate(date.getDate() + days);
+  return localDateKey(date);
+}
+
+/* ---------- Settings ---------- */
 function saveSettingsFromUI() {
   const selectedEngine = document.querySelector('input[name="voiceEngine"]:checked')?.value || "browser";
   appSettings = {
@@ -274,6 +291,7 @@ function saveSettingsFromUI() {
   store.set("settings", appSettings);
   $("settingsStatus").textContent = "Settings saved.";
   syncSettingsUI();
+  renderDailyPlanV19(false);
 }
 
 function syncSettingsUI() {
@@ -296,44 +314,247 @@ async function updateEngineAvailability() {
     : "<b>AI Voice not configured.</b> Browser Voice remains available. Add OPENAI_API_KEY in Vercel to enable AI Voice.";
 }
 
-function buildDailyPlanV18() {
+/* ---------- Study timer ---------- */
+let studyTimerPaused = store.get("studyTimerPaused", false);
+let studyLastTick = Date.now();
+let studyTimerInterval = null;
+
+function getStudyLog() {
+  return store.get("studyLog", {});
+}
+
+function addStudySeconds(seconds) {
+  if (!Number.isFinite(seconds) || seconds <= 0 || seconds > 120) return;
+  const log = getStudyLog();
+  const key = localDateKey();
+  log[key] = Math.round((log[key] || 0) + seconds);
+  store.set("studyLog", log);
+}
+
+function timerShouldRun() {
+  return !studyTimerPaused && !document.hidden;
+}
+
+function studyTimerTick() {
+  const now = Date.now();
+  const elapsed = (now - studyLastTick) / 1000;
+  studyLastTick = now;
+  if (timerShouldRun()) addStudySeconds(Math.min(elapsed, 15));
+}
+
+function startStudyTimer() {
+  if (studyTimerInterval) clearInterval(studyTimerInterval);
+  studyLastTick = Date.now();
+  studyTimerInterval = setInterval(studyTimerTick, 5000);
+  renderTimerStatus();
+}
+
+function pauseStudyTimer() {
+  studyTimerTick();
+  studyTimerPaused = true;
+  store.set("studyTimerPaused", true);
+  renderTimerStatus();
+}
+
+function resumeStudyTimer() {
+  studyTimerPaused = false;
+  studyLastTick = Date.now();
+  store.set("studyTimerPaused", false);
+  renderTimerStatus();
+}
+
+function renderTimerStatus() {
+  const status = $("timerStatus");
+  const notice = $("activeStudyNotice");
+  if (status) status.textContent = studyTimerPaused ? "Study timer is paused." : "Study timer is running while this tab is active.";
+  if (notice) {
+    notice.textContent = studyTimerPaused
+      ? "Study timer is paused. Resume it from Study Time."
+      : "Study timer is recording active time while this tab is visible.";
+    notice.classList.toggle("timerLive", !studyTimerPaused);
+    notice.classList.toggle("timerPaused", studyTimerPaused);
+  }
+}
+
+document.addEventListener("visibilitychange", () => {
+  studyTimerTick();
+  studyLastTick = Date.now();
+});
+window.addEventListener("beforeunload", studyTimerTick);
+
+/* ---------- Review ---------- */
+const REVIEW_INTERVALS = [1, 3, 7, 14, 30, 60];
+let reviewFilter = "due";
+
+function getReviewData() {
+  return store.get("reviewData", {});
+}
+
+function scheduleReview(item) {
+  const data = getReviewData();
+  const today = localDateKey();
+  const existing = data[item.id] || {
+    id: item.id,
+    type: item.type,
+    title: item.title,
+    subtitle: item.subtitle,
+    speech: item.speech,
+    level: 0,
+    reviews: 0,
+    created: today
+  };
+  existing.lastReviewed = today;
+  existing.nextReview = addDays(today, REVIEW_INTERVALS[Math.min(existing.level, REVIEW_INTERVALS.length - 1)]);
+  data[item.id] = existing;
+  store.set("reviewData", data);
+}
+
+function gradeReview(id, grade) {
+  const data = getReviewData();
+  const item = data[id];
+  if (!item) return;
+  const today = localDateKey();
+  item.reviews = (item.reviews || 0) + 1;
+  item.lastReviewed = today;
+
+  if (grade === "again") item.level = 0;
+  if (grade === "good") item.level = Math.min((item.level || 0) + 1, REVIEW_INTERVALS.length - 1);
+  if (grade === "easy") item.level = Math.min((item.level || 0) + 2, REVIEW_INTERVALS.length - 1);
+
+  const interval = grade === "again" ? 1 : REVIEW_INTERVALS[item.level];
+  item.nextReview = addDays(today, interval);
+  data[id] = item;
+  store.set("reviewData", data);
+
+  const reviewedToday = store.get("reviewedToday", {});
+  reviewedToday[today] = (reviewedToday[today] || 0) + 1;
+  store.set("reviewedToday", reviewedToday);
+  renderReview();
+}
+
+function reviewItemsForFilter() {
+  const data = Object.values(getReviewData());
+  const today = localDateKey();
+  if (reviewFilter === "due") return data.filter(x => !x.nextReview || x.nextReview <= today);
+  if (reviewFilter === "future") return data.filter(x => x.nextReview > today);
+  return data;
+}
+
+function renderReview() {
+  const all = Object.values(getReviewData());
+  const today = localDateKey();
+  const due = all.filter(x => !x.nextReview || x.nextReview <= today);
+  const future = all.filter(x => x.nextReview > today);
+  const mastered = all.filter(x => (x.level || 0) >= 4);
+  const reviewedToday = store.get("reviewedToday", {})[today] || 0;
+
+  $("dueReviewCount").textContent = due.length;
+  $("futureReviewCount").textContent = future.length;
+  $("masteredReviewCount").textContent = mastered.length;
+  $("reviewedTodayCount").textContent = reviewedToday;
+
+  const rows = reviewItemsForFilter();
+  $("reviewList").innerHTML = rows.length ? rows.map(item => `
+    <div class="item">
+      <span class="tag">${item.type}</span>
+      <b>${item.title}</b>
+      <p class="muted">${item.subtitle || ""}</p>
+      <div class="reviewDate">Next review: ${item.nextReview || "now"} · Reviews: ${item.reviews || 0}</div>
+      <div class="reviewActions">
+        <button class="btn soft reviewListen" data-text="${encodeURIComponent(item.speech)}">▶ Listen</button>
+        <button class="btn danger reviewGrade" data-id="${item.id}" data-grade="again">Again</button>
+        <button class="btn plain reviewGrade" data-id="${item.id}" data-grade="good">Good</button>
+        <button class="btn primary reviewGrade" data-id="${item.id}" data-grade="easy">Easy</button>
+      </div>
+    </div>
+  `).join("") : '<div class="item"><b>No items in this view.</b><p class="muted">Complete Daily Plan items to build your review queue.</p></div>';
+
+  document.querySelectorAll(".reviewListen").forEach(button => {
+    button.addEventListener("click", () => speak(decodeURIComponent(button.dataset.text)));
+  });
+  document.querySelectorAll(".reviewGrade").forEach(button => {
+    button.addEventListener("click", () => gradeReview(button.dataset.id, button.dataset.grade));
+  });
+  $("reviewStatus").textContent = `${rows.length} items shown.`;
+}
+
+/* ---------- Daily plan ---------- */
+function makePlanItem(type, title, subtitle, speech, sourceId) {
+  return {
+    id: sourceId || `${type}-${btoa(unescape(encodeURIComponent(title))).replace(/[^a-z0-9]/gi, "").slice(0, 18)}`,
+    type, title, subtitle, speech
+  };
+}
+
+function buildDailyPlanV19() {
   const target = appSettings.dailySentenceTarget;
-  const allDaily = DATA.topics.flatMap(t => t.sentences.map(s => ({
-    type: "Speaking",
-    title: s.text,
-    subtitle: `${t.name} · ${s.focus}`,
-    speech: s.text
-  })));
-  const daily = allDaily.slice(0, target);
+  const todayTopic = topic.name;
 
-  const chunkItems = topic.sentences.flatMap(s => s.chunks).slice(0, 6).map(text => ({
-    type: "Chunk",
-    title: text,
-    subtitle: topic.name,
-    speech: text
-  }));
+  const speakingPool = DATA.topics.flatMap((t, ti) =>
+    t.sentences.map((s, si) => makePlanItem(
+      "Speaking",
+      s.text,
+      `${t.name} · ${s.focus}`,
+      s.text,
+      `sentence-${ti}-${si}`
+    ))
+  );
 
-  const phrasalItems = topic.phrasals.slice(0, 5).map(x => ({
-    type: "Phrasal Verb",
-    title: x[0],
-    subtitle: `${x[1]} · ${x[2]}`,
-    speech: `${x[0]}. ${x[2]}`
-  }));
+  const dayOffset = Math.floor(new Date().getTime() / 86400000) % Math.max(1, speakingPool.length);
+  const daily = [];
+  for (let i = 0; i < target; i++) {
+    daily.push(speakingPool[(dayOffset + i) % speakingPool.length]);
+  }
+
+  const chunkItems = topic.sentences.flatMap((s, si) =>
+    s.chunks.map((text, ci) => makePlanItem(
+      "Chunk",
+      text,
+      todayTopic,
+      text,
+      `chunk-${topicIndex}-${si}-${ci}`
+    ))
+  ).slice(0, 6);
+
+  const phrasalItems = topic.phrasals.slice(0, 5).map((x, i) => makePlanItem(
+    "Phrasal Verb",
+    x[0],
+    `${x[1]} · ${x[2]}`,
+    `${x[0]}. ${x[2]}`,
+    `phrasal-${topicIndex}-${i}`
+  ));
 
   const soundCount = Math.max(2, Math.round(target * appSettings.soundRatio));
-  const soundItems = DATA.sound.slice(0, soundCount).map(x => ({
-    type: "Sound English",
-    title: x[0],
-    subtitle: `${x[3]} · ${x[1]}`,
-    speech: `${x[0]}. ${x[2]}`
-  }));
+  const soundItems = DATA.sound.slice(0, soundCount).map((x, i) => makePlanItem(
+    "Sound English",
+    x[0],
+    `${x[3]} · ${x[1]}`,
+    `${x[0]}. ${x[2]}`,
+    `sound-${i}`
+  ));
 
   return [...daily, ...chunkItems, ...phrasalItems, ...soundItems];
 }
 
-function renderDailyPlanV18() {
-  const items = buildDailyPlanV18();
-  const counts = items.reduce((acc, item) => {
+function getTodayPlan() {
+  const saved = store.get("dailyPlan", null);
+  const today = localDateKey();
+  if (saved && saved.date === today && Array.isArray(saved.items)) return saved;
+  const plan = { date: today, items: buildDailyPlanV19(), completed: [] };
+  store.set("dailyPlan", plan);
+  return plan;
+}
+
+function renderDailyPlanV19(forceRegenerate = false) {
+  let plan;
+  if (forceRegenerate) {
+    plan = { date: localDateKey(), items: buildDailyPlanV19(), completed: [] };
+    store.set("dailyPlan", plan);
+  } else {
+    plan = getTodayPlan();
+  }
+
+  const counts = plan.items.reduce((acc, item) => {
     acc[item.type] = (acc[item.type] || 0) + 1;
     return acc;
   }, {});
@@ -341,25 +562,96 @@ function renderDailyPlanV18() {
     `<div class="card"><div class="score">${count}</div><p class="muted">${type}</p></div>`
   ).join("");
 
-  $("dailyPlanItems").innerHTML = items.map((item, i) =>
-    `<div class="item"><span class="tag">${item.type}</span><b>${i + 1}. ${item.title}</b><p class="muted">${item.subtitle}</p><button class="btn soft planSpeak" data-text="${encodeURIComponent(item.speech)}">▶ Listen</button></div>`
-  ).join("");
+  const completedSet = new Set(plan.completed || []);
+  $("dailyPlanItems").innerHTML = plan.items.map((item, i) => {
+    const done = completedSet.has(item.id);
+    return `
+      <div class="item planItem ${done ? "completed" : ""}">
+        <input class="planCheck" type="checkbox" data-plan-id="${item.id}" ${done ? "checked" : ""} aria-label="Complete item">
+        <span class="tag">${item.type}</span>
+        <b>${i + 1}. ${item.title}</b>
+        <p class="muted">${item.subtitle}</p>
+        <button class="btn soft planSpeak" data-text="${encodeURIComponent(item.speech)}">▶ Listen</button>
+      </div>`;
+  }).join("");
 
   document.querySelectorAll(".planSpeak").forEach(button => {
     button.addEventListener("click", () => speak(decodeURIComponent(button.dataset.text)));
   });
 
-  store.set("dailyPlan", { date: new Date().toISOString().slice(0, 10), items });
-  $("dailyPlanStatus").textContent = `${items.length} activities prepared.`;
+  document.querySelectorAll(".planCheck").forEach(box => {
+    box.addEventListener("change", () => {
+      const current = getTodayPlan();
+      const completed = new Set(current.completed || []);
+      const item = current.items.find(x => x.id === box.dataset.planId);
+      if (box.checked) {
+        completed.add(box.dataset.planId);
+        if (item) scheduleReview(item);
+      } else {
+        completed.delete(box.dataset.planId);
+      }
+      current.completed = [...completed];
+      store.set("dailyPlan", current);
+      renderDailyPlanV19(false);
+    });
+  });
+
+  const completedCount = (plan.completed || []).length;
+  $("dailyPlanStatus").textContent = `${completedCount} of ${plan.items.length} activities completed.`;
+  renderTimerStatus();
 }
 
+function completeRemainingPlanItems() {
+  const plan = getTodayPlan();
+  const completed = new Set(plan.completed || []);
+  plan.items.forEach(item => {
+    if (!completed.has(item.id)) {
+      completed.add(item.id);
+      scheduleReview(item);
+    }
+  });
+  plan.completed = [...completed];
+  store.set("dailyPlan", plan);
+  store.set("lastCompletedPlan", new Date().toISOString());
+  renderDailyPlanV19(false);
+  $("dailyPlanStatus").textContent = `All ${plan.items.length} activities completed and scheduled for review.`;
+}
+
+/* ---------- Study statistics ---------- */
+function renderStudyStats() {
+  studyTimerTick();
+  const log = getStudyLog();
+  const today = localDateKey();
+  const todaySeconds = log[today] || 0;
+  let weekSeconds = 0;
+  for (let i = 0; i < 7; i++) {
+    weekSeconds += log[addDays(today, -i)] || 0;
+  }
+  const totalSeconds = Object.values(log).reduce((sum, n) => sum + Number(n || 0), 0);
+  const activeDays = Object.values(log).filter(n => n >= 60).length;
+
+  $("todayStudyMinutes").textContent = Math.floor(todaySeconds / 60);
+  $("weekStudyMinutes").textContent = Math.floor(weekSeconds / 60);
+  $("totalStudyMinutes").textContent = Math.floor(totalSeconds / 60);
+  $("studyDays").textContent = activeDays;
+
+  const recent = Object.entries(log).sort((a, b) => b[0].localeCompare(a[0])).slice(0, 14);
+  $("studyHistoryList").innerHTML = recent.length ? recent.map(([date, seconds]) => `
+    <div class="item"><b>${date}</b><p class="muted">${Math.floor(seconds / 60)} min ${Math.floor(seconds % 60)} sec</p></div>
+  `).join("") : '<div class="item"><p class="muted">Study time will appear after you use the app.</p></div>';
+  renderTimerStatus();
+}
+
+/* ---------- Event bindings ---------- */
 $("saveSettings").addEventListener("click", saveSettingsFromUI);
 $("testVoice").addEventListener("click", () => speak("WaveSpeak is ready for today's practice."));
-$("regenerateDailyPlan").addEventListener("click", renderDailyPlanV18);
-$("completeDailyPlan").addEventListener("click", () => {
-  store.set("lastCompletedPlan", new Date().toISOString());
-  $("dailyPlanStatus").textContent = "Today's plan completed.";
+$("regenerateDailyPlan").addEventListener("click", () => {
+  renderDailyPlanV19(true);
+  $("dailyPlanStatus").textContent = "A new plan has been generated.";
 });
+$("completeDailyPlan").addEventListener("click", completeRemainingPlanItems);
+$("pauseStudyTimer").addEventListener("click", pauseStudyTimer);
+$("resumeStudyTimer").addEventListener("click", resumeStudyTimer);
 
 document.querySelectorAll('input[name="voiceEngine"]').forEach(radio => {
   radio.addEventListener("change", () => {
@@ -370,9 +662,21 @@ document.querySelectorAll('input[name="voiceEngine"]').forEach(radio => {
   });
 });
 
+document.querySelectorAll("[data-review-filter]").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll("[data-review-filter]").forEach(x => x.classList.remove("active"));
+    button.classList.add("active");
+    reviewFilter = button.dataset.reviewFilter;
+    renderReview();
+  });
+});
+
 syncSettingsUI();
 updateEngineAvailability();
-renderDailyPlanV18();
+renderDailyPlanV19(false);
+startStudyTimer();
+renderReview();
+renderStudyStats();
 
 renderDict();renderStudio();renderSpeaking();renderLibrary();renderProgress();
-if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).finally(()=>window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js?v=18")))}
+if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).finally(()=>window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js?v=19")))}
