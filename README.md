@@ -1,19 +1,17 @@
-# WaveSpeak BUNDLED AUDIO v11
+# WaveSpeak SIMPLE TTS v13
 
-Core Listen no longer uses Safari speech synthesis.
+This version starts from the function-complete v10 package.
 
-Bundled audio is included for:
-- Speaking sentences
-- Phrase-by-phrase chunks
-- Daily Chunks
-- Phrasal Verbs
-- Dictation
-- Studio Mode
-- Resource Library static items
-- Creative Sound Vocabulary examples
+Playback changes:
+- Removes the voice dropdown
+- Removes cached/stored voice objects
+- Removes uploaded TTS audio
+- Calls `speechSynthesis.getVoices()` fresh every time Listen is clicked
+- Prefers a normal en-US voice such as Samantha
+- Falls back to any available English voice or the browser default
+- Phrase-by-Phrase also requests a fresh voice for every phrase
 
-Bundled audio files: 358
+All existing learning content and features remain unchanged.
 
-Important:
-Upload `audio-map.json` and the complete `audio/tts` folder, as well as every other project file.
-Confirm deployment by checking for `BUNDLED AUDIO v11`.
+Upload every file and the complete `audio` folder.
+Confirm deployment by checking for `SIMPLE TTS v13`.
