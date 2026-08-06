@@ -6,14 +6,14 @@
 <meta name="theme-color" content="#18131f">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="WaveSpeak">
-<link rel="manifest" href="/manifest.json?v=19">
-<link rel="icon" href="/icon.svg?v=19">
-<link rel="apple-touch-icon" href="/icon-192.png?v=19">
-<title>WaveSpeak v19</title>
-<link rel="stylesheet" href="/src/styles/app.css?v=19">
+<link rel="manifest" href="/manifest.json?v=21">
+<link rel="icon" href="/icon.svg?v=21">
+<link rel="apple-touch-icon" href="/icon-192.png?v=21">
+<title>WaveSpeak v21</title>
+<link rel="stylesheet" href="/src/styles/app.css?v=21">
 </head>
 <body><div class="app">
-<div class="top"><div class="brand">WaveSpeak</div><div class="version">STUDY & REVIEW v19</div></div>
+<div class="top"><div class="brand">WaveSpeak</div><div class="version">ROTATING LABS v21</div></div>
 <div id="compatBanner" class="compatBanner" role="status" aria-live="polite">
   <b id="compatTitle"></b>
   <span id="compatText"></span>
@@ -46,7 +46,7 @@
 <div class="mode" data-open="review"><div>↻</div><b>Review</b><span>Spaced review for completed sentences, chunks, phrases, and sound terms</span></div>
 <div class="mode" data-open="creativeLab"><div>🌌</div><b>Creative Sound Lab</b><span>Atmosphere, timbre, space, movement, dramaturgy, and professional description</span></div>
 </div>
-<div class="notice">STUDY & REVIEW v19 保留旧功能并加入新功能。看到这个标签就说明加载的是合并版。</div>
+<div class="notice">ROTATING LABS v21 保留旧功能并加入新功能。看到这个标签就说明加载的是合并版。</div>
 </section>
 
 <section id="speaking" class="screen"><button class="back" data-home>← Home</button><div class="card">
@@ -98,7 +98,7 @@
 </div><p class="muted" id="vStatus">Waveform shows timing and pauses; spectrum shows frequency energy.</p></div></section>
 
 <section id="listening" class="screen"><button class="back" data-home>← Home</button><div class="card">
-<h2>Listening & Dictation</h2><p class="muted" id="dictHint"></p>
+<h2>Listening & Dictation</h2><p class="muted">The starting exercise and order rotate automatically every local day.</p><p class="muted" id="dictHint"></p>
 <div class="controls"><button class="btn primary" data-rate=".92">▶ Natural</button><button class="btn plain" data-rate=".72">▶ Slow</button><button class="btn plain" data-rate="1.08">▶ Challenge</button></div>
 <textarea id="dictInput" placeholder="Type what you hear..."></textarea>
 <div class="controls"><button class="btn soft" id="dictCheck">Check</button><button class="btn plain" id="dictNext">Next →</button></div><p id="dictResult" class="muted"></p></div></section>
@@ -118,7 +118,7 @@
 <section id="creativeLab" class="screen"><button class="back" data-home>← Home</button>
 <div class="card">
 <span class="topic">CREATIVE SOUND VOCABULARY</span>
-<h2>Sound Description Lab</h2>
+<h2>Sound Description Lab</h2><p class="muted">Daily sets rotate from an expanded sound library, so the same exercises do not always appear first.</p>
 <p class="muted">Build the language to describe atmosphere, timbre, space, movement, density, and dramaturgical function.</p>
 <div class="labNav">
 <button class="labTab active" data-lab="labVocabulary">Vocabulary</button>
@@ -217,7 +217,7 @@
 <section id="dailyPlan" class="screen"><button class="back" data-home>← Home</button>
 <div class="card">
 <span class="topic">TODAY'S TRAINING</span>
-<h2 id="planTitle">Daily Plan</h2>
+<h2 id="planTitle">Daily Plan</h2><p class="muted">Current local date: <b id="currentPlanDate"></b></p>
 <p class="muted">Complete items individually. Finished material is added to spaced review.</p>
 <div id="dailyPlanSummary" class="grid" style="grid-template-columns:repeat(4,1fr);margin:14px 0"></div>
 <div class="notice" id="activeStudyNotice">Study timer starts automatically while you use WaveSpeak.</div>
@@ -302,7 +302,7 @@
 <button class="btn plain" id="pauseStudyTimer" type="button">Pause Timer</button>
 <button class="btn soft" id="resumeStudyTimer" type="button">Resume Timer</button>
 </div>
-<p class="muted" id="timerStatus"></p>
+<p class="muted" id="timerStatus"></p><p class="muted" id="dayRolloverStatus"></p>
 </div>
 </section>
 
@@ -342,5 +342,5 @@
 <button data-open="library"><b>▤</b>Library</button><button data-open="contentEngine"><b>🗂</b>Engine</button><button data-open="settings"><b>⚙</b>Settings</button><button data-open="review"><b>↻</b>Review</button><button data-open="creativeLab"><b>🌌</b>Lab</button>
 </div>
 
-<script type="module" src="/src/app.js?v=19"></script>
+<script type="module" src="/src/app.js?v=21"></script>
 </body></html>

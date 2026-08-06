@@ -1,9 +1,9 @@
 {
   "name": "wavespeak",
-  "version": "19.0.0",
+  "version": "21.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "node --check src/app.js && node --check src/core/audio.js && node --check src/core/router.js && node --check src/core/storage.js && node --check src/core/browser.js && node --check api/tts.js"
+    "check": "node --check src/app.js && node --check src/core/audio.js && node --check src/core/router.js && node --check src/core/storage.js && node --check src/core/browser.js && node --check api/tts.js && node --check src/core/day-boundary.js"
   }
 }

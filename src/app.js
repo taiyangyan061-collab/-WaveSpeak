@@ -3,15 +3,16 @@ import { createVoiceService } from "./core/audio.js";
 import { createRouter } from "./core/router.js";
 import { mountBrowserCompatibility } from "./core/browser.js";
 import { createJSONStore } from "./core/storage.js";
+import { createDayBoundaryService } from "./core/day-boundary.js";
 
-const response = await fetch("/src/data/seed-content.json?v=19", { cache: "no-store" });
+const response = await fetch("/src/data/seed-content.json?v=21", { cache: "no-store" });
 if (!response.ok) throw new Error("WaveSpeak content failed to load.");
 const DATA = await response.json();
 
 
-const $=id=>document.getElementById(id);id=>document.getElementById(id);
+const $=id=>document.getElementById(id);
 
-const store = createJSONStore("ws19_");
+const store = createJSONStore("ws21_");
 const defaultSettings = {
   voiceEngine: "browser",
   aiVoice: "marin",
@@ -35,12 +36,12 @@ mountBrowserCompatibility({
   title: $("compatTitle"),
   text: $("compatText"),
   dismiss: $("dismissCompat"),
-  storageKey: "ws19_hide_compat"
+  storageKey: "ws21_hide_compat"
 });
 
 const topicIndex=(new Date().getDay()+6)%7, topic=DATA.topics[topicIndex];
-let current=+(localStorage.ws17_current||0),dictIndex=0,studioIndex=0;
-let completed=JSON.parse(localStorage.ws17_completed||"[]"),favorites=JSON.parse(localStorage.ws17_favorites||"[]");
+let current=+(localStorage.ws21_current||0),dictIndex=0,studioIndex=0;
+let completed=JSON.parse(localStorage.ws21_completed||"[]"),favorites=JSON.parse(localStorage.ws21_favorites||"[]");
 let voices=[],recorder,parts=[],mineUrl=null,modelPlayer=null,currentModelBuffer=null;
 
 const router = createRouter({
@@ -48,9 +49,9 @@ const router = createRouter({
     if (id === "library") renderLibrary();
     if (id === "progress") renderProgress();
     if (id === "settings") { syncSettingsUI(); updateEngineAvailability(); }
-    if (id === "dailyPlan") renderDailyPlanV19(false);
-    if (id === "studyStats") renderStudyStats();
-    if (id === "review") renderReview();
+    if (id === "dailyPlan") { ensureCurrentDay("navigate-daily-plan"); renderDailyPlanV19(false); }
+    if (id === "studyStats") { ensureCurrentDay("navigate-study-stats"); renderStudyStats(); }
+    if (id === "review") { ensureCurrentDay("navigate-review"); renderReview(); }
   }
 });
 router.mount();
@@ -60,7 +61,7 @@ $("todayTheme").textContent=topic.name;
 function allSentences(){return DATA.topics.flatMap((t,ti)=>t.sentences.map((s,si)=>({...s,topic:t.name,ti,si})))}
 function currentSentence(){return topic.sentences[current%topic.sentences.length]}
 function globalIndex(){let n=0;for(let i=0;i<topicIndex;i++)n+=DATA.topics[i].sentences.length;return n+(current%topic.sentences.length)}
-function save(){localStorage.ws17_current=current;localStorage.ws17_completed=JSON.stringify(completed);localStorage.ws17_favorites=JSON.stringify(favorites)}
+function save(){localStorage.ws21_current=current;localStorage.ws21_completed=JSON.stringify(completed);localStorage.ws21_favorites=JSON.stringify(favorites)}
 function renderHome(){ $("doneCount").textContent=completed.length;$("homeProgress").style.width=Math.min(100,completed.length/8*100)+"%"}
 function renderSpeaking(){const s=currentSentence();$("sTopic").textContent=topic.name;$("sFocus").textContent=s.focus;$("sCounter").textContent=`${current%topic.sentences.length+1} of ${topic.sentences.length}`;$("sSentence").textContent=s.text;$("sChunks").innerHTML=s.chunks.map(x=>`<span class="chunk">${x}</span>`).join("");$("favBtn").textContent=favorites.includes(s.text)?"★":"☆";$("vTopic").textContent=topic.name;$("vSentence").textContent=s.text;loadModel();renderHome()}
 $("listenBtn").addEventListener("click",()=>speak(currentSentence().text,+$("speed").value));
@@ -81,14 +82,43 @@ function drawEmpty(canvas,label){const c=canvas.getContext("2d");c.fillStyle="#0
 function drawWave(buffer,canvas){const d=buffer.getChannelData(0),c=canvas.getContext("2d"),w=canvas.width,h=canvas.height;c.fillStyle="#0b0910";c.fillRect(0,0,w,h);c.strokeStyle="#a78bfa";c.lineWidth=2;c.beginPath();for(let x=0;x<w;x++){const start=Math.floor(x*d.length/w),end=Math.floor((x+1)*d.length/w);let min=1,max=-1;for(let i=start;i<end;i++){if(d[i]<min)min=d[i];if(d[i]>max)max=d[i]}c.moveTo(x,(1+min)*h/2);c.lineTo(x,(1+max)*h/2)}c.stroke()}
 function dft(samples){const N=samples.length,out=new Float32Array(N/2);for(let k=0;k<N/2;k++){let re=0,im=0;for(let n=0;n<N;n++){const a=2*Math.PI*k*n/N;re+=samples[n]*Math.cos(a);im-=samples[n]*Math.sin(a)}out[k]=Math.hypot(re,im)}return out}
 function drawSpec(buffer,canvas){const data=buffer.getChannelData(0),N=512,step=Math.max(1,Math.floor(data.length/N)),sample=new Float32Array(N);for(let i=0;i<N;i++)sample[i]=data[Math.min(data.length-1,i*step)]*(.5-.5*Math.cos(2*Math.PI*i/(N-1)));const spec=dft(sample),max=Math.max(...spec,1e-6),c=canvas.getContext("2d"),w=canvas.width,h=canvas.height;c.fillStyle="#0b0910";c.fillRect(0,0,w,h);c.strokeStyle="#a78bfa";c.lineWidth=3;c.beginPath();for(let x=0;x<w;x++){const j=Math.floor(x/w*(spec.length-1)),db=20*Math.log10(spec[j]/max+1e-8),y=h-Math.max(0,Math.min(1,(db+70)/70))*h;x===0?c.moveTo(x,y):c.lineTo(x,y)}c.stroke()}
-async function loadModel(){const url=`/audio/model_${String(globalIndex()).padStart(2,"0")}.wav?v=19`;modelPlayer=new Audio(url);try{const arr=await fetch(url,{cache:"no-store"}).then(r=>r.arrayBuffer()),ctx=new AudioContext(),buf=await ctx.decodeAudioData(arr);currentModelBuffer=buf;drawWave(buf,$("modelWave"));drawSpec(buf,$("modelSpec"));await ctx.close()}catch{drawEmpty($("modelWave"),"Model unavailable");drawEmpty($("modelSpec"),"Model unavailable")}drawEmpty($("myWave"),"Record your voice");drawEmpty($("mySpec"),"Record your voice")}
+async function loadModel(){const url=`/audio/model_${String(globalIndex()).padStart(2,"0")}.wav?v=21`;modelPlayer=new Audio(url);try{const arr=await fetch(url,{cache:"no-store"}).then(r=>r.arrayBuffer()),ctx=new AudioContext(),buf=await ctx.decodeAudioData(arr);currentModelBuffer=buf;drawWave(buf,$("modelWave"));drawSpec(buf,$("modelSpec"));await ctx.close()}catch{drawEmpty($("modelWave"),"Model unavailable");drawEmpty($("modelSpec"),"Model unavailable")}drawEmpty($("myWave"),"Record your voice");drawEmpty($("mySpec"),"Record your voice")}
 $("modelPlay").addEventListener("click",()=>{if(modelPlayer){modelPlayer.currentTime=0;modelPlayer.play()}});
 
-document.querySelectorAll("[data-rate]").forEach(b=>b.addEventListener("click",()=>speak(DATA.dictations[dictIndex][0],+b.dataset.rate)));
+
+/* ---------- Daily rotating Listening & Sound Labs ---------- */
+function stableDayNumber(date = new Date()) {
+  return Math.floor(new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime() / 86400000);
+}
+function seededOrder(length, salt = 0) {
+  const order = Array.from({length}, (_, i) => i);
+  let seed = (stableDayNumber() * 1103515245 + salt * 12345) >>> 0;
+  for (let i = order.length - 1; i > 0; i--) {
+    seed = (1664525 * seed + 1013904223) >>> 0;
+    const j = seed % (i + 1);
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return order;
+}
+let dictationOrder = seededOrder(DATA.dictations.length, 11);
+let soundLabOrder = seededOrder(CREATIVE.listening.length, 29);
+let comparisonOrder = seededOrder(CREATIVE.comparisons.length, 47);
+function resetRotatingLabsForToday() {
+  dictationOrder = seededOrder(DATA.dictations.length, 11);
+  soundLabOrder = seededOrder(CREATIVE.listening.length, 29);
+  comparisonOrder = seededOrder(CREATIVE.comparisons.length, 47);
+  dictIndex = 0; listenIndex = 0; compareIndex = 0; currentLabSound = 0;
+  renderDict(); renderListeningExercise(); renderComparison(); renderSpeakPrompt();
+}
+function currentDictation(){ return DATA.dictations[dictationOrder[dictIndex % dictationOrder.length]]; }
+function currentSoundExercise(){ return CREATIVE.listening[soundLabOrder[listenIndex % soundLabOrder.length]]; }
+function currentComparison(){ return CREATIVE.comparisons[comparisonOrder[compareIndex % comparisonOrder.length]]; }
+
+document.querySelectorAll("[data-rate]").forEach(b=>b.addEventListener("click",()=>speak(currentDictation()[0],+b.dataset.rate)));
 function norm(s){return s.toLowerCase().replace(/[^\w\s']/g,"").replace(/\s+/g," ").trim()}
-function renderDict(){ $("dictHint").textContent=DATA.dictations[dictIndex][1];$("dictInput").value="";$("dictResult").textContent=""}
-$("dictCheck").addEventListener("click",()=>{$("dictResult").innerHTML=norm($("dictInput").value)===norm(DATA.dictations[dictIndex][0])?"<b style='color:var(--good)'>Correct!</b>":"Answer: <b>"+DATA.dictations[dictIndex][0]+"</b>"});
-$("dictNext").addEventListener("click",()=>{dictIndex=(dictIndex+1)%DATA.dictations.length;renderDict()});
+function renderDict(){ $("dictHint").textContent=currentDictation()[1];$("dictInput").value="";$("dictResult").textContent=""}
+$("dictCheck").addEventListener("click",()=>{$("dictResult").innerHTML=norm($("dictInput").value)===norm(currentDictation()[0])?"<b style='color:var(--good)'>Correct!</b>":"Answer: <b>"+currentDictation()[0]+"</b>"});
+$("dictNext").addEventListener("click",()=>{dictIndex=(dictIndex+1)%dictationOrder.length;renderDict()});
 
 $("chunkList").innerHTML=topic.sentences.flatMap(s=>s.chunks).map(x=>`<div class="item"><b>${x}</b><p class="muted">Say it as one rhythm unit.</p><button class="btn soft speakText" data-text="${encodeURIComponent(x)}">▶ Listen</button></div>`).join("");
 $("phrasalList").innerHTML=topic.phrasals.map(x=>`<div class="item phraseGrid"><div class="phrase">${x[0]}</div><div><b>${x[1]}</b><p>${x[2]}</p><button class="btn soft speakText" data-text="${encodeURIComponent(x[0]+'. '+x[2])}">▶ Listen</button></div></div>`).join("");
@@ -103,7 +133,7 @@ $("studioPromptBtn").addEventListener("click",()=>speak(DATA.studio[studioIndex]
 $("studioResponseBtn").addEventListener("click",()=>speak(DATA.studio[studioIndex][2]));
 $("studioNext").addEventListener("click",()=>{studioIndex=(studioIndex+1)%DATA.studio.length;renderStudio()});
 
-function renderProgress(){let last=localStorage.ws17_date,today=new Date().toISOString().slice(0,10),st=+(localStorage.ws17_streak||1);if(last&&last!==today){let d=Math.round((new Date(today)-new Date(last))/86400000);st=d===1?st+1:1}localStorage.ws17_date=today;localStorage.ws17_streak=st;$("progressDone").textContent=completed.length;$("streak").textContent=st;$("favoriteCount").textContent=favorites.length;$("favoriteList").innerHTML=favorites.length?favorites.map(t=>`<div class="item"><b>${t}</b><button class="btn soft speakText" data-text="${encodeURIComponent(t)}">▶ Listen</button></div>`).join(""):'<div class="muted">No saved practice yet.</div>';bindSpeakButtons()}
+function renderProgress(){let last=localStorage.ws21_date,today=new Date().toISOString().slice(0,10),st=+(localStorage.ws21_streak||1);if(last&&last!==today){let d=Math.round((new Date(today)-new Date(last))/86400000);st=d===1?st+1:1}localStorage.ws21_date=today;localStorage.ws21_streak=st;$("progressDone").textContent=completed.length;$("streak").textContent=st;$("favoriteCount").textContent=favorites.length;$("favoriteList").innerHTML=favorites.length?favorites.map(t=>`<div class="item"><b>${t}</b><button class="btn soft speakText" data-text="${encodeURIComponent(t)}">▶ Listen</button></div>`).join(""):'<div class="muted">No saved practice yet.</div>';bindSpeakButtons()}
 $("resetBtn").addEventListener("click",()=>{if(confirm("Reset all local WaveSpeak progress?")){completed=[];favorites=[];current=0;save();renderSpeaking();renderProgress()}});
 
 let creativeCategory=Object.keys(CREATIVE.categories)[0],listenIndex=0,compareIndex=0,builderContext="Critique",labRecorder,labParts=[],labUrl=null,currentLabSound=0;
@@ -122,30 +152,60 @@ document.querySelectorAll(".labTab").forEach(b=>b.addEventListener("click",()=>{
 let labAudioCtx;
 function ensureLabCtx(){if(!labAudioCtx)labAudioCtx=new (window.AudioContext||window.webkitAudioContext)();if(labAudioCtx.state==="suspended")labAudioCtx.resume();return labAudioCtx}
 function createLabSound(type){
- const ctx=ensureLabCtx(),now=ctx.currentTime,duration=4,master=ctx.createGain();master.gain.setValueAtTime(.0001,now);master.gain.exponentialRampToValueAtTime(.25,now+.08);master.gain.exponentialRampToValueAtTime(.0001,now+duration);master.connect(ctx.destination);
- if(type==="eerie"){const o1=ctx.createOscillator(),o2=ctx.createOscillator(),lfo=ctx.createOscillator(),lg=ctx.createGain();o1.type="sine";o2.type="sine";o1.frequency.value=220;o2.frequency.value=331;lfo.frequency.value=.35;lg.gain.value=18;lfo.connect(lg);lg.connect(o2.frequency);o1.connect(master);o2.connect(master);o1.start();o2.start();lfo.start();o1.stop(now+duration);o2.stop(now+duration);lfo.stop(now+duration)}
- if(type==="muffled"){const osc=ctx.createOscillator(),filter=ctx.createBiquadFilter();osc.type="sawtooth";osc.frequency.value=95;filter.type="lowpass";filter.frequency.value=420;osc.connect(filter);filter.connect(master);osc.start();osc.stop(now+duration)}
- if(type==="cavernous"){for(let i=0;i<7;i++){const o=ctx.createOscillator(),g=ctx.createGain();o.type="sine";o.frequency.value=120+i*34;g.gain.setValueAtTime(.12/(i+1),now+i*.38);g.gain.exponentialRampToValueAtTime(.0001,now+duration);o.connect(g);g.connect(master);o.start(now+i*.38);o.stop(now+duration)}}
- if(type==="pulsating"){const o=ctx.createOscillator(),g=ctx.createGain(),lfo=ctx.createOscillator(),lg=ctx.createGain();o.type="sine";o.frequency.value=85;lfo.frequency.value=2.2;lg.gain.value=.45;lfo.connect(lg);lg.connect(g.gain);g.gain.value=.5;o.connect(g);g.connect(master);o.start();lfo.start();o.stop(now+duration);lfo.stop(now+duration)}
- if(type==="accumulate"){for(let i=0;i<9;i++){const o=ctx.createOscillator(),g=ctx.createGain();o.type=i%2?"triangle":"sine";o.frequency.value=120+i*47;g.gain.setValueAtTime(.0001,now);g.gain.exponentialRampToValueAtTime(.045,now+i*.35+.1);g.gain.exponentialRampToValueAtTime(.0001,now+duration);o.connect(g);g.connect(master);o.start();o.stop(now+duration)}}
+ const ctx=ensureLabCtx(),now=ctx.currentTime,duration=4.2,master=ctx.createGain();
+ master.gain.setValueAtTime(.0001,now);master.gain.exponentialRampToValueAtTime(.23,now+.08);master.gain.exponentialRampToValueAtTime(.0001,now+duration);master.connect(ctx.destination);
+ const osc=(freq,wave="sine",gain=.12,start=0,end=duration,dest=master)=>{const o=ctx.createOscillator(),g=ctx.createGain();o.type=wave;o.frequency.value=freq;g.gain.value=gain;o.connect(g);g.connect(dest);o.start(now+start);o.stop(now+end);return {o,g}};
+ const noise=(gain=.08,filterType="bandpass",freq=1200,q=.7)=>{const b=ctx.createBuffer(1,ctx.sampleRate*duration,ctx.sampleRate),d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const src=ctx.createBufferSource(),f=ctx.createBiquadFilter(),g=ctx.createGain();src.buffer=b;f.type=filterType;f.frequency.value=freq;f.Q.value=q;g.gain.value=gain;src.connect(f);f.connect(g);g.connect(master);src.start(now);src.stop(now+duration);return {src,f,g}};
+ if(type==="eerie"){osc(220,"sine",.08);const x=osc(331,"sine",.08);const l=ctx.createOscillator(),lg=ctx.createGain();l.frequency.value=.35;lg.gain.value=18;l.connect(lg);lg.connect(x.o.frequency);l.start(now);l.stop(now+duration)}
+ else if(type==="ominous"){const x=osc(52,"sawtooth",.12);x.o.frequency.exponentialRampToValueAtTime(78,now+duration);noise(.035,"lowpass",240)}
+ else if(type==="ethereal"){[440,660,990,1320].forEach((f,i)=>osc(f,"sine",.055/(i+1),i*.12,duration));}
+ else if(type==="oppressive"){osc(43,"sawtooth",.16);osc(57,"sine",.12);noise(.04,"lowpass",160)}
+ else if(type==="serene"){[220,277.18,329.63].forEach((f,i)=>osc(f,"sine",.065,i*.18,duration));}
+ else if(type==="grainy"){noise(.12,"bandpass",1800,1.2);for(let i=0;i<35;i++){const t=i*.11+Math.random()*.05;osc(400+Math.random()*1400,"square",.012,t,Math.min(duration,t+.025));}}
+ else if(type==="brittle"){for(let i=0;i<12;i++){const t=i*.32;osc(1800+i*70,"triangle",.045,t,t+.08);}}
+ else if(type==="glassy"){[700,1100,1700,2500].forEach((f,i)=>osc(f,"sine",.05/(i+1),i*.08,duration));}
+ else if(type==="metallic"){[180,287,463,719,1117].forEach((f,i)=>osc(f,"sine",.055/(i+1),0,duration));}
+ else if(type==="abrasive"){noise(.15,"highpass",1800,.4);osc(140,"sawtooth",.04)}
+ else if(type==="muffled"){const x=osc(95,"sawtooth",.15);const f=ctx.createBiquadFilter();f.type="lowpass";f.frequency.value=420;x.o.disconnect();x.o.connect(f);f.connect(x.g)}
+ else if(type==="warm"){osc(110,"sine",.1);osc(220,"triangle",.055);osc(330,"sine",.025)}
+ else if(type==="saturated"){const sh=ctx.createWaveShaper(),curve=new Float32Array(1024);for(let i=0;i<curve.length;i++){const x=i*2/(curve.length-1)-1;curve[i]=Math.tanh(4*x)}sh.curve=curve;sh.connect(master);osc(110,"sawtooth",.12,0,duration,sh)}
+ else if(type==="intimate"){osc(170,"sine",.06);noise(.025,"bandpass",900,1)}
+ else if(type==="distant"){const x=noise(.055,"lowpass",650,.5);x.g.gain.setValueAtTime(.025,now)}
+ else if(type==="enclosed"){osc(120,"square",.06);[.08,.16,.24].forEach(t=>osc(120,"square",.025,t,duration));}
+ else if(type==="cavernous"||type==="reverberant"){for(let i=0;i<9;i++){const t=i*(type==="cavernous"?.36:.22);osc(120+i*19,"sine",.07/(i+1),t,duration)}}
+ else if(type==="diffuse"){noise(.09,"bandpass",900,.25);noise(.06,"bandpass",2600,.3)}
+ else if(type==="localized"){const p=ctx.createStereoPanner();p.pan.setValueAtTime(-.9,now);p.pan.linearRampToValueAtTime(.7,now+duration);p.connect(master);osc(520,"sine",.08,0,duration,p)}
+ else if(type==="swell"){const x=osc(110,"sine",.001);x.g.gain.exponentialRampToValueAtTime(.18,now+duration*.75);x.g.gain.exponentialRampToValueAtTime(.001,now+duration)}
+ else if(type==="recede"){const x=osc(220,"triangle",.16);x.g.gain.exponentialRampToValueAtTime(.002,now+duration);x.o.frequency.exponentialRampToValueAtTime(100,now+duration)}
+ else if(type==="drift"){const x=osc(330,"sine",.08);x.o.frequency.setValueAtTime(330,now);x.o.frequency.linearRampToValueAtTime(420,now+2);x.o.frequency.linearRampToValueAtTime(280,now+duration)}
+ else if(type==="accumulate"){for(let i=0;i<10;i++)osc(120+i*47,i%2?"triangle":"sine",.03,i*.34,duration)}
+ else if(type==="scatter"){for(let i=0;i<22;i++){const t=Math.random()*3.8;osc(300+Math.random()*2200,"sine",.025,t,Math.min(duration,t+.06))}}
+ else if(type==="morph"){const x=osc(100,"sawtooth",.1);x.o.frequency.exponentialRampToValueAtTime(700,now+duration);}
+ else if(type==="collapse"){[90,140,210,330,520].forEach((f,i)=>{const x=osc(f,"sawtooth",.04);x.g.gain.setValueAtTime(.05,now);x.g.gain.exponentialRampToValueAtTime(.001,now+2.6+i*.08)})}
+ else if(type==="sparse"){[.2,1.5,3.4].forEach((t,i)=>osc(500+i*180,"sine",.08,t,t+.12))}
+ else if(type==="dense"){for(let i=0;i<18;i++)osc(70+i*37,i%3===0?"sawtooth":"sine",.018,0,duration)}
+ else if(type==="fragmented"){for(let i=0;i<14;i++){const t=i*.28+(i%3)*.04;osc(180+(i%5)*90,"square",.035,t,t+.09)}}
+ else if(type==="pulsating"){const o=osc(85,"sine",.1),l=ctx.createOscillator(),lg=ctx.createGain();l.frequency.value=2.2;lg.gain.value=.09;l.connect(lg);lg.connect(o.g.gain);l.start(now);l.stop(now+duration)}
 }
 function renderListeningExercise(){
- const ex=CREATIVE.listening[listenIndex];$("soundExerciseTitle").textContent=`Sound Example ${listenIndex+1} of ${CREATIVE.listening.length}`;$("soundChoices").innerHTML=ex.choices.map(c=>`<button class="choice" data-sound-choice="${c}"><b>${c}</b></button>`).join("");$("soundFeedback").textContent="";
+ const ex=currentSoundExercise();$("soundExerciseTitle").textContent=`Sound Example ${listenIndex+1} of ${CREATIVE.listening.length}`;$("soundChoices").innerHTML=ex.choices.map(c=>`<button class="choice" data-sound-choice="${c}"><b>${c}</b></button>`).join("");$("soundFeedback").textContent="";
  document.querySelectorAll("[data-sound-choice]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-sound-choice]").forEach(x=>x.disabled=true);if(b.dataset.soundChoice===ex.type){b.classList.add("correct");$("soundFeedback").innerHTML=`<b style="color:var(--good)">Correct.</b> ${ex.explain}`}else{b.classList.add("wrong");document.querySelector(`[data-sound-choice="${ex.type}"]`).classList.add("correct");$("soundFeedback").innerHTML=`The best word is <b>${ex.type}</b>. ${ex.explain}`}}))
 }
-$("playSoundExample").addEventListener("click",()=>createLabSound(CREATIVE.listening[listenIndex].type));
-$("replaySoundExample").addEventListener("click",()=>createLabSound(CREATIVE.listening[listenIndex].type));
-$("nextSoundExercise").addEventListener("click",()=>{listenIndex=(listenIndex+1)%CREATIVE.listening.length;renderListeningExercise()});
+$("playSoundExample").addEventListener("click",()=>createLabSound(currentSoundExercise().type));
+$("replaySoundExample").addEventListener("click",()=>createLabSound(currentSoundExercise().type));
+$("nextSoundExercise").addEventListener("click",()=>{listenIndex=(listenIndex+1)%soundLabOrder.length;renderListeningExercise()});
 
 function renderComparison(){
- const ex=CREATIVE.comparisons[compareIndex];$("comparisonTitle").textContent=ex.title;$("comparisonPrompt").textContent=ex.prompt;$("comparisonChoices").innerHTML=ex.options.map(x=>`<button class="choice" data-comparison="${x}"><b>${x}</b></button>`).join("");$("comparisonExplanation").textContent="Choose the stronger word for the context.";
+ const ex=currentComparison();$("comparisonTitle").textContent=ex.title;$("comparisonPrompt").textContent=ex.prompt;$("comparisonChoices").innerHTML=ex.options.map(x=>`<button class="choice" data-comparison="${x}"><b>${x}</b></button>`).join("");$("comparisonExplanation").textContent="Choose the stronger word for the context.";
  document.querySelectorAll("[data-comparison]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-comparison]").forEach(x=>x.disabled=true);if(b.dataset.comparison===ex.answer)b.classList.add("correct");else{b.classList.add("wrong");document.querySelector(`[data-comparison="${ex.answer}"]`).classList.add("correct")}$("comparisonExplanation").innerHTML=`<b>${ex.answer}</b>: ${ex.explain}`}))
 }
-$("nextComparison").addEventListener("click",()=>{compareIndex=(compareIndex+1)%CREATIVE.comparisons.length;renderComparison()});
+$("nextComparison").addEventListener("click",()=>{compareIndex=(compareIndex+1)%comparisonOrder.length;renderComparison()});
 
-const speakSoundTypes=["eerie","muffled","cavernous","pulsating","accumulate"];
+const speakSoundTypes=["eerie","ominous","ethereal","oppressive","serene","grainy","brittle","glassy","metallic","abrasive","muffled","warm","saturated","intimate","distant","enclosed","cavernous","diffuse","localized","reverberant","swell","recede","drift","accumulate","scatter","morph","collapse","sparse","dense","fragmented","pulsating"];
 $("speakSoundPlay").addEventListener("click",()=>createLabSound(speakSoundTypes[currentLabSound]));
-$("newSpeakPrompt").addEventListener("click",()=>{currentLabSound=(currentLabSound+1)%speakSoundTypes.length;$("speakPrompt").textContent=`Describe this ${currentLabSound+1} of ${speakSoundTypes.length} sound for 20–40 seconds. Discuss atmosphere, texture, space, movement, and narrative function.`;$("labTranscript").value="";$("descriptionFeedback").innerHTML='<p class="muted">Record or type your description, then request feedback.</p>'});
+function renderSpeakPrompt(){ const type=speakSoundTypes[seededOrder(speakSoundTypes.length,73)[currentLabSound%speakSoundTypes.length]]; $("speakPrompt").textContent=`Today’s prompt ${currentLabSound+1}: describe the ${type} sound for 20–40 seconds. Discuss atmosphere, texture, space, movement, and narrative function.`; }
+$("speakSoundPlay").onclick=()=>{const type=speakSoundTypes[seededOrder(speakSoundTypes.length,73)[currentLabSound%speakSoundTypes.length]];createLabSound(type)};
+$("newSpeakPrompt").addEventListener("click",()=>{currentLabSound=(currentLabSound+1)%speakSoundTypes.length;renderSpeakPrompt();$("labTranscript").value="";$("descriptionFeedback").innerHTML='<p class="muted">Record or type your description, then request feedback.</p>'});
 
 $("labRecordBtn").addEventListener("click",async()=>{if(labRecorder&&labRecorder.state==="recording"){labRecorder.stop();return}try{const stream=await navigator.mediaDevices.getUserMedia({audio:true});labParts=[];labRecorder=new MediaRecorder(stream);labRecorder.ondataavailable=e=>labParts.push(e.data);labRecorder.onstop=()=>{const blob=new Blob(labParts,{type:labRecorder.mimeType});if(labUrl)URL.revokeObjectURL(labUrl);labUrl=URL.createObjectURL(blob);$("labPlayRecording").disabled=false;$("labRecordBtn").textContent="● Record Description";stream.getTracks().forEach(t=>t.stop())};labRecorder.start();$("labRecordBtn").textContent="■ Stop Recording";
  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(SR){const sr=new SR();sr.lang="en-US";sr.continuous=true;sr.interimResults=true;sr.onresult=e=>{let text="";for(let i=0;i<e.results.length;i++)text+=e.results[i][0].transcript+" ";$("labTranscript").value=text.trim()};sr.start();labRecorder.addEventListener("stop",()=>{try{sr.stop()}catch{}},{once:true})}
@@ -179,13 +239,13 @@ function renderBuiltSentence(variation=false){let template=CREATIVE.contexts[bui
 ["builderAtmosphere","builderTimbre","builderSpace","builderMovement","builderDrama"].forEach(id=>$(id).addEventListener("change",()=>renderBuiltSentence()));
 $("speakBuiltSentence").addEventListener("click",()=>speak($("builderOutput").textContent));
 $("copyVariation").addEventListener("click",()=>renderBuiltSentence(true));
-renderCreativeCategories();renderCreativeVocabulary();renderListeningExercise();renderComparison();renderBuiltSentence();
+renderCreativeCategories();renderCreativeVocabulary();renderListeningExercise();renderComparison();renderBuiltSentence();renderSpeakPrompt();
 
 
 let CONTENT_CATALOG=null;
 async function loadContentCatalog(){
  try{
-  const response=await fetch("/content-catalog.json?v=19",{cache:"no-store"});
+  const response=await fetch("/content-catalog.json?v=21",{cache:"no-store"});
   if(!response.ok)throw new Error("catalog");
   CONTENT_CATALOG=await response.json();
   renderContentEngine();
@@ -194,9 +254,9 @@ async function loadContentCatalog(){
  }
 }
 function contentHistory(){
- try{return JSON.parse(localStorage.ws17_content_history||"{}")}catch{return {}}
+ try{return JSON.parse(localStorage.ws21_content_history||"{}")}catch{return {}}
 }
-function saveContentHistory(h){localStorage.ws17_content_history=JSON.stringify(h)}
+function saveContentHistory(h){localStorage.ws21_content_history=JSON.stringify(h)}
 function dateKey(d=new Date()){return d.toISOString().slice(0,10)}
 function dueItems(catalog,history){
  const today=dateKey();
@@ -221,14 +281,14 @@ function buildDailyPlan(){
  return [...due.map(x=>({...x,plan_type:"Review"})),...selected.map(x=>({...x,plan_type:"New"}))].slice(0,10);
 }
 function renderPlan(plan){
- localStorage.ws17_today_plan=JSON.stringify({date:dateKey(),ids:plan.map(x=>x.id)});
+ localStorage.ws21_today_plan=JSON.stringify({date:dateKey(),ids:plan.map(x=>x.id)});
  $("enginePlan").innerHTML=plan.length?plan.map((x,i)=>`<div class="item"><span class="tag">${x.plan_type}</span><b>${i+1}. ${x.text}</b><p class="muted">${x.topic} · ${x.level} · ${x.focus}</p><button class="btn soft engineSpeak" data-text="${encodeURIComponent(x.text)}">▶ Listen</button></div>`).join(""):'<div class="item">No items available.</div>';
  document.querySelectorAll(".engineSpeak").forEach(b=>b.addEventListener("click",()=>speak(decodeURIComponent(b.dataset.text))));
 }
 function completePlan(){
  if(!CONTENT_CATALOG)return;
  let plan;
- try{plan=JSON.parse(localStorage.ws17_today_plan||"{}")}catch{plan={}}
+ try{plan=JSON.parse(localStorage.ws21_today_plan||"{}")}catch{plan={}}
  if(!plan.ids||!plan.ids.length){renderPlan(buildDailyPlan());return}
  const history=contentHistory(),today=new Date();
  plan.ids.forEach(id=>{
@@ -546,6 +606,7 @@ function getTodayPlan() {
 }
 
 function renderDailyPlanV19(forceRegenerate = false) {
+  if ($("currentPlanDate")) $("currentPlanDate").textContent = localDateKey();
   let plan;
   if (forceRegenerate) {
     plan = { date: localDateKey(), items: buildDailyPlanV19(), completed: [] };
@@ -642,6 +703,69 @@ function renderStudyStats() {
   renderTimerStatus();
 }
 
+
+/* ---------- Day rollover ---------- */
+function finalizePreviousDay(previousDateKey) {
+  studyTimerTick();
+  const log = getStudyLog();
+  if (!(previousDateKey in log)) {
+    log[previousDateKey] = 0;
+    store.set("studyLog", log);
+  }
+}
+
+function resetForNewLocalDay({ previousDateKey, currentDateKey, reason }) {
+  finalizePreviousDay(previousDateKey);
+
+  const newPlan = {
+    date: currentDateKey,
+    items: buildDailyPlanV19(),
+    completed: []
+  };
+  store.set("dailyPlan", newPlan);
+
+  studyLastTick = Date.now();
+
+  renderDailyPlanV19(false);
+  resetRotatingLabsForToday();
+  renderReview();
+  renderStudyStats();
+  renderHome();
+
+  if ($("currentPlanDate")) $("currentPlanDate").textContent = currentDateKey;
+  if ($("dailyPlanStatus")) {
+    $("dailyPlanStatus").textContent =
+      `New day detected (${currentDateKey}). Today’s plan has been refreshed.`;
+  }
+  if ($("dayRolloverStatus")) {
+    $("dayRolloverStatus").textContent =
+      `Last day change: ${previousDateKey} → ${currentDateKey} (${reason}).`;
+  }
+}
+
+const dayBoundaryService = createDayBoundaryService({
+  getDateKey: localDateKey,
+  onDayChanged: resetForNewLocalDay,
+  checkIntervalMs: 30000
+});
+
+function ensureCurrentDay(reason = "manual") {
+  const changed = dayBoundaryService.check(reason);
+  if (!changed) {
+    const plan = store.get("dailyPlan", null);
+    const today = localDateKey();
+    if (!plan || plan.date !== today) {
+      resetForNewLocalDay({
+        previousDateKey: plan?.date || today,
+        currentDateKey: today,
+        reason
+      });
+      return true;
+    }
+  }
+  return changed;
+}
+
 /* ---------- Event bindings ---------- */
 $("saveSettings").addEventListener("click", saveSettingsFromUI);
 $("testVoice").addEventListener("click", () => speak("WaveSpeak is ready for today's practice."));
@@ -672,11 +796,14 @@ document.querySelectorAll("[data-review-filter]").forEach(button => {
 });
 
 syncSettingsUI();
+if ($("currentPlanDate")) $("currentPlanDate").textContent = localDateKey();
 updateEngineAvailability();
 renderDailyPlanV19(false);
 startStudyTimer();
+dayBoundaryService.start();
+ensureCurrentDay("startup");
 renderReview();
 renderStudyStats();
 
 renderDict();renderStudio();renderSpeaking();renderLibrary();renderProgress();
-if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).finally(()=>window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js?v=19")))}
+if("serviceWorker" in navigator){navigator.serviceWorker.getRegistrations().then(rs=>rs.forEach(r=>r.unregister())).finally(()=>window.addEventListener("load",()=>navigator.serviceWorker.register("/service-worker.js?v=21")))}

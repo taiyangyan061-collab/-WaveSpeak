@@ -1,19 +1,10 @@
-# WaveSpeak STUDY & REVIEW v19
+# WaveSpeak ROTATING LABS v21
 
-New:
-- Fixed Regenerate Plan
-- Fixed Complete Remaining Items
-- Individual completion checkboxes
-- Completed content automatically enters spaced review
-- Review intervals: 1, 3, 7, 14, 30, and 60 days
-- Review grades: Again, Good, Easy
-- Active study-time tracking
-- Today, seven-day, total, and active-day statistics
-- Pause and resume timer
-- Study Time screen
-- Review screen
-
-All v18 modules remain.
-
-Upload the complete project.
-Confirm deployment by checking for `STUDY & REVIEW v19`.
+- Listening Dictation expanded from 8 to 40 exercises.
+- Sound Listening Lab expanded from 5 to 31 synthesized sound examples.
+- Word comparisons expanded from 5 to 15.
+- Spoken sound-description prompts expanded to 31 sound types.
+- Exercise order changes deterministically every local day.
+- Day rollover automatically resets the daily lab order.
+- Next buttons move through today's shuffled set rather than always starting from item one.
+- All v20 study time, review, voice, and daily-plan features remain.
